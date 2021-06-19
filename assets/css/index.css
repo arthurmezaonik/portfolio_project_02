@@ -9,7 +9,6 @@ main{
     max-height: 500px;
     height: 50vw;
     position: relative;
-    margin: 15px 0;
 }
 
 #hero-img{
@@ -77,5 +76,28 @@ main{
     margin: 0.5rem 0;
     line-height: 150%;
     width: 90%;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.75), rgba(255, 0, 0, 0));
+}
+
+/* rules video */
+.rules-video{
+    max-width: 100%;
+}
+
+.rules-video h3{
+    text-align: left;
+    margin-top: 0;
+}
+
+iframe{
+    width: 90%;
+    height: 50vw;
+    margin: 0 5%;
+    max-height: 496px;
 }
 
