@@ -22,25 +22,36 @@
         </div>
         <!-- Navigation bar -->
         <nav id ="menu-bar">
-            <ul id="menu">
-                <li>
-                    <a href="index.html"><h2 class="active">Home</h2></a>
-                </li>
-                <li>
-                    <a href="game.html"><h2>Game</h2></a>
-                </li>
-                <li>
-                    <a href="login.html"><h2>Log In</h2></a>
-                </li>
-                <li>
-                    <a href="signup.html"><h2>Sign Up</h2></a>
-                </li>
-            </ul>
+            <div id="menuToggle">
+                <!-- hidden checkbox is used as click reciever, so you can use the :checked selector on it. -->
+                <input type="checkbox" name="toggle" id="toggle">
+                <label for="toggle">
+                    <span>menu</span>
+                    <!--divs to be styled as a hamburger button-->
+                    <span class="hamburger_button"></span>
+                    <span class="hamburger_button"></span>
+                    <span class="hamburger_button"></span>
+                </label>
+                <!--the menu that will slide in from the left-->
+                <ul id="menu">
+                    <li>
+                        <a href="signup.html">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Log In</a>
+                    </li>
+                    <li>
+                        <a href="game.html">Game</a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="active">Home</a>
+                    </li>                    
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <main>
-
+    <main class="max-width start-position">
         <!--Basic rules-->
         <section>
             <h2 class = "title">Basic Rules</h2>
