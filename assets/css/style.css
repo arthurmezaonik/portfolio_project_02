@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Recursive&display=swap');
+
+/* SMARTPHONE (from 320px to 599px wide)*/
+body{
+    font-family: 'Recursive', sans-serif;
+    background-color: #464646;
+    color: #fff;
+}
+
+h1, h2{
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* header */
+
+#logo{
+    width: 50%;
+    display: flex;
+    margin-top: 15px;
+}
+
+#logo-text{
+    font-size: 2.5rem;
+    text-transform: lowercase;
+    float: left;
+    margin: 40px 0 40px 25px;
+}
+
+#logo-img{
+    width: 15%;
+    display: inline-block;
+    margin: 15px;
+}
+
+.logo-red{
+    color:red;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header{
+    height: 150px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 10;
+    border-bottom: 1px solid #f00;
+    display: flex;
+    align-items: center;
+}
+
+#menu-bar{
+    margin:30px 5px 25px 5px;
+    padding: 15px 15px;
+    width: 50%;
+}
+
+#menu{
+    display: flex;
+    font-size: 120%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#menu li{
+    margin-right: 35px;
+}
+
+#menu li:last-of-type{
+    margin-right: 0;
+}
+
+
+.active{
+    border-bottom: 1px solid red;
+}
+
+.active:hover{
+    border-bottom: 1px solid #fff;
+    color: red;
+}
