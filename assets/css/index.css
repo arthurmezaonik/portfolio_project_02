@@ -69,6 +69,7 @@ main{
 .subtitle ~ li{
     list-style: square inside;
     line-height: 150%;
+
 }
 
 .info{
@@ -99,5 +100,10 @@ iframe{
     height: 50vw;
     margin: 0 5%;
     max-height: 496px;
+}
+
+/* Start Game Button */
+.btn--start{
+    margin: 25px 0 10px 0;
 }
 
