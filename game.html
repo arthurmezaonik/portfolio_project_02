@@ -9,6 +9,7 @@
     <title>Blackjack - Game</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/game.css">
 </head>
 <body>
 
@@ -34,12 +35,6 @@
                 </label>
                 <!--the menu that will slide in from the left-->
                 <ul id="menu">
-                    <li>
-                        <a href="signup.html">Sign Up</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Log In</a>
-                    </li>
                     <li>
                         <a href="game.html"  class="active">Game</a>
                     </li>
@@ -74,8 +69,14 @@
                 </div>                
             </div>
 
+            <hr>
+
             <!-- Center messages -->
-            <div class="messages">Message</div>
+            <div class="message-container">
+                <h2 class="message">Message</h2>
+            </div>
+
+            <hr>
 
             <!-- Player side -->
             <div class="player">
@@ -96,8 +97,8 @@
 
             <!-- Score area -->
             <div class="score-area">
-                <p class="scores"><span id='win'>0</span> Wins</p>
-                <p class="scores"><span id='lose'>0</span> Loses</p>
+                <p class="scores"><span id='win'>0</span> Wins /</p>
+                <p class="scores"><span id='lose'>0</span> Loses /</p>
                 <p class="scores"><span id='tie'>0</span> Ties</p>
             </div>
         </div>

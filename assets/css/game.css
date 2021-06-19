@@ -1,0 +1,101 @@
+.game-table{
+    width: 100%;
+    background-color:#005B00;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius:4px;
+    margin-bottom: 20px;
+}
+
+.subtitle{
+    font-size: 1.2rem;
+    line-height: 150%;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.card{
+    width: 80px;
+    height: 120px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+.card h3{
+    margin-top: 50px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.75), rgba(255, 0, 0, 0));
+}
+
+/* Dealer side */
+.dealer{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.dealer h2{
+    margin: 20px 0 10px 0;
+}
+
+.dealer-cards{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+    height: 120px;
+}
+
+/* Messages */
+.message-container{
+    text-align: center;
+    height: 100px;
+}
+
+.message{
+    padding-top: 45px;
+    box-sizing: border-box;
+}
+
+/* Player side */
+.player{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.player h2{
+    margin: 20px 0 10px 0;
+}
+
+.player-cards{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+    height: 120px;
+}
+
+.player-choices{
+    margin: 15px 0;
+}
+
+.hit--btn{
+    width: 120px;
+}
+
+.stand--btn{
+    width: 120px;
+}
+
+/* Score area */
+.score-area{
+    margin: 10px 0 10px 2px;
+}
+.scores{
+    display: inline-block;
+}
