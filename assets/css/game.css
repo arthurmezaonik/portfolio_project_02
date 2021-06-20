@@ -74,17 +74,6 @@ hr {
     height: 120px;
 }
 
-/* Messages */
-.message-container{
-    text-align: center;
-    height: 100px;
-}
-
-.message{
-    padding-top: 45px;
-    box-sizing: border-box;
-}
-
 /* Player side */
 .player{
     display: flex;
@@ -113,6 +102,36 @@ hr {
 
 .stand--btn{
     width: 120px;
+}
+
+/* Messages */
+.message-container{
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    background-color: rgba(0, 0, 0, .7);
+    border: 1px solid rgba(255, 0, 0, 0.75);
+    border-radius: 5px;
+    z-index: 5;
+    max-width: 1440px;
+}
+
+.message-text{
+    padding:10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Messages button */
+.yes--btn{
+    width: 95px;
+}
+
+.no--btn{
+    width: 95px;
 }
 
 /* Score area */
