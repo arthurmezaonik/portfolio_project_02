@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Recursive&display=swap');
 
-/* SMARTPHONE (from 320px to 599px wide)*/
+/* SMARTPHONE (from 320px to 576px wide)*/
 body{
     font-family: 'Recursive', sans-serif;
     background-color: #464646;
@@ -24,7 +24,24 @@ h1, h2{
     margin-top: 170px;
 }
 
-/* header */
+/* Header */
+header a{
+    text-decoration: none;
+}
+
+header{
+    height: 150px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 10;
+    border-bottom: 1px solid #f00;
+}
+
+/* Logo */
 #logo{
     width: 100%;
     text-align: center;
@@ -50,22 +67,7 @@ h1, h2{
     color: #ff0000;
 }
 
-header a{
-    text-decoration: none;
-}
-
-header{
-    height: 150px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    background-color: #000;
-    z-index: 10;
-    border-bottom: 1px solid #f00;
-}
-
+/* Navigation bar */
 #menuToggle {
     display: block;
     position: relative;
@@ -168,6 +170,7 @@ header{
 
 #menu li {
     font-size: 100%;
+    text-transform: uppercase;
 }
   
 /* Slide the menu in from left when the input is checked */
@@ -236,4 +239,12 @@ footer{
 .social-networks a:hover i {
     transform: rotate(-10deg) scale(1.5);
     color: #f00;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Navigation bar */
+    #menu li{
+        font-size:120%;
+    }
 }
