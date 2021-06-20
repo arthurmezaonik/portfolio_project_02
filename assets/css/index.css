@@ -88,6 +88,8 @@ hr {
 /* rules video */
 .rules-video{
     max-width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 0, 0, .7);
 }
 
 .rules-video h3{
@@ -104,6 +106,6 @@ iframe{
 
 /* Start Game Button */
 .btn--start{
-    margin: 25px 0 10px 0;
+    margin: 25px 0;
 }
 

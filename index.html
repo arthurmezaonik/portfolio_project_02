@@ -14,36 +14,38 @@
 
 <body>
     <header>
-        <!-- Logo -->
-        <div id="logo">
-            <a href="index.html">
-                <h1 id="logo-text"><span class="logo-red">black</span>jack</h1>
-                <img id="logo-img" src="assets/images/logo.png" alt="Deck cards image">
-            </a>
-        </div>
-        <!-- Navigation bar -->
-        <nav id ="menu-bar">
-            <div id="menuToggle">
-                <!-- hidden checkbox is used as click reciever, so you can use the :checked selector on it. -->
-                <input type="checkbox" name="toggle" id="toggle">
-                <label for="toggle">
-                    <span>menu</span>
-                    <!--divs to be styled as a hamburger button-->
-                    <span class="hamburger_button"></span>
-                    <span class="hamburger_button"></span>
-                    <span class="hamburger_button"></span>
-                </label>
-                <!--the menu that will slide in from the left-->
-                <ul id="menu">
-                    <li>
-                        <a href="game.html">Game</a>
-                    </li>
-                    <li>
-                        <a href="index.html" class="active">Home</a>
-                    </li>                    
-                </ul>
+        <div class = "max-width">
+            <!-- Logo -->
+            <div id="logo">
+                <a href="index.html">
+                    <h1 id="logo-text"><span class="logo-red">black</span>jack</h1>
+                    <img id="logo-img" src="assets/images/logo.png" alt="Deck cards image">
+                </a>
             </div>
-        </nav>
+            <!-- Navigation bar -->
+            <nav id ="menu-bar">
+                <div id="menuToggle">
+                    <!-- hidden checkbox is used as click reciever, so you can use the :checked selector on it. -->
+                    <input type="checkbox" name="toggle" id="toggle">
+                    <label for="toggle">
+                        <span>menu</span>
+                        <!--divs to be styled as a hamburger button-->
+                        <span class="hamburger_button"></span>
+                        <span class="hamburger_button"></span>
+                        <span class="hamburger_button"></span>
+                    </label>
+                    <!--the menu that will slide in from the left-->
+                    <ul id="menu">
+                        <li>
+                            <a href="game.html">Game</a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="active">Home</a>
+                        </li>                    
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main class="max-width start-position">

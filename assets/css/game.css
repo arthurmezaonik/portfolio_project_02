@@ -13,18 +13,39 @@
     margin: 5px 0;
 }
 
+/* Card */
 .card{
     width: 80px;
     height: 120px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     text-align: center;
     background-color: white;
     color: black;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.card h3{
-    margin-top: 50px;
+.card .number{
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.card .top{
+    top:5px;
+    left: 5px;
+}
+
+.card .bottom{
+    bottom:5px;
+    right: 5px;
+}
+
+.card .suit{
+    font-size: 2rem;
 }
 
 hr {
@@ -46,7 +67,7 @@ hr {
 
 .dealer-cards{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 20px 0;
     height: 120px;
 }
@@ -75,7 +96,7 @@ hr {
 
 .player-cards{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 20px 0;
     height: 120px;
 }
