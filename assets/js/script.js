@@ -1,6 +1,5 @@
-const suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
 const ranks = ["Ace",'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'J', 'Q', 'K'];
-const suitIcons =[
+const suits =[
     {
         suit: 'Hearts',
         icon: `<i class="fas fa-heart"></i>`,
@@ -19,6 +18,7 @@ const suitIcons =[
         color: 'black',
     }
 ];
+let deck = [];
 
 function runGame(){
 
@@ -28,20 +28,24 @@ function runGame(){
  * From the global arrays, create a shuffled deck with 52 cards * 
  */
 function createDeck(){
-    let deck = [];
-
     for (let x = 0; x < suits.length; x++){
         for (let i = 0; i < ranks.length; i++){
             let card = {
                 ranks: ranks[i],
-                suit: suits[x]
+                suit: suits[x].suit
             }
             deck.push(card);
         }
     }
-
-    deck = deck.sort(() => Math.random() - 0.5)
     return(deck);
+}
+
+/**
+ * Shuffle the deck array
+ */
+function shuffleDeck(){
+    deck = deck.sort(() => Math.random() - 0.5)
+    return(deck);  
 }
 
 function firstCards() {
