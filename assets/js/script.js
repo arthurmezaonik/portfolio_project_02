@@ -1,20 +1,20 @@
-const ranks = ["Ace",'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'J', 'Q', 'K'];
+const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const suits =[
     {
         suit: 'Hearts',
-        icon: `<i class="fas fa-heart"></i>`,
+        icon: '♥️',
         color: 'red',
     },{
         suit: 'Diamonds',
-        icon: `<i class="fas fa-diamond"></i>`,
+        icon: '♦️',
         color: 'red',
     },{
         suit: 'Spades',
-        icon:`<i class="fas fa-spade"></i>`,
+        icon:'♠️',
         color: 'black',
     },{
         suit: 'Clubs',
-        icon: `<i class="fas fa-club"></i>`,
+        icon: '♣️',
         color: 'black',
     }
 ];
@@ -32,7 +32,7 @@ function createDeck(){
         for (let i = 0; i < ranks.length; i++){
             let card = {
                 ranks: ranks[i],
-                suit: suits[x].suit
+                suit: suits[x]
             }
             deck.push(card);
         }
@@ -48,8 +48,75 @@ function shuffleDeck(){
     return(deck);  
 }
 
-function firstCards() {
+/**
+ * Print the deck on the screen
+ */
+function printDeck(){
+    let deckContainer = document.getElementById('deck');
+    for (let i = 0; i < deck.length; i++){
+        let cardEl = `
+            <div class="card">
+                <span class="number top">
+                    ${deck[i].ranks}
+                </span>
+                <p class="suit">
+                    ${deck[i].suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${deck[i].ranks}
+                </span>
+            </div>
+        `;
+        deckContainer.innerHTML += cardEl;
+    }
+}
 
+/**
+ * Take two cards from the bottom of the deck, 
+ * and give it (print) for the player
+ */
+function playerFirstCards() {
+    let playerCards = document.getElementById('player-cards');
+    for (let i = 0; i <= 1 ; i++){
+        let card = deck.pop()
+        playerCards.innerHTML += `
+            <div class="card">
+                <span class="number top">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
+    }
+}
+
+/**
+ * Take two cards from the bottom of the deck, 
+ * and give it (print) for the dealer
+ */
+function dealerFirstCards(){
+    let dealerCards = document.getElementById('dealer-cards');
+    for (let i = 0; i <= 1 ; i++){
+        let card = deck.pop()
+        dealerCards.innerHTML += `
+            <div class="card">
+                <span class="number top">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
+    }
 }
 
 function checkBusted() {
