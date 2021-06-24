@@ -100,7 +100,7 @@ function playerFirstCards() {
         if(card.suit.color === 'red'){
             playerCards.innerHTML += `
                 <div class="card red">
-                    <span class="number top">
+                    <span class="number top player">
                         ${card.ranks}
                     </span>
                     <p class="suit">
@@ -114,7 +114,7 @@ function playerFirstCards() {
         } else{
             playerCards.innerHTML += `
                 <div class="card">
-                    <span class="number top">
+                    <span class="number top player">
                         ${card.ranks}
                     </span>
                     <p class="suit">
@@ -182,7 +182,22 @@ function stand(){
 }
 
 function countPoints(){
-
+    let cardValue = document.getElementsByClassName('player');
+    let points = 0;
+    for (let card = 0; card <= cardValue.length; card++){
+        if (cardValue[card].innerText === "J" || cardValue[card].innerText ==="Q" || cardValue[card].innerText === "K"){
+            points += 10
+        }else if (cardValue[card].innerText === 'A'){
+            if (points + 10 > 21){
+                points +=1
+            } else {
+                points += 10
+            }
+        }else {
+            points += parseInt(cardValue[card].innerText)
+        }
+    }
+    return points
 }
 
 function comparePoints(){
