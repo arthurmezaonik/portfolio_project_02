@@ -54,20 +54,38 @@ function shuffleDeck(){
 function printDeck(){
     let deckContainer = document.getElementById('deck');
     for (let i = 0; i < deck.length; i++){
-        let cardEl = `
-            <div class="card">
-                <span class="number top">
-                    ${deck[i].ranks}
-                </span>
-                <p class="suit">
-                    ${deck[i].suit.icon}
-                </p>
-                <span class="number bottom">
-                    ${deck[i].ranks}
-                </span>
-            </div>
-        `;
-        deckContainer.innerHTML += cardEl;
+        if(deck[i].suit.color === 'red'){
+            let cardEl = `
+                <div class="card red">
+                    <span class="number top">
+                        ${deck[i].ranks}
+                    </span>
+                    <p class="suit">
+                        ${deck[i].suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${deck[i].ranks}
+                    </span>
+                </div>
+            `;
+            deckContainer.innerHTML += cardEl;
+        } else{
+            let cardEl = `
+                <div class="card">
+                    <span class="number top">
+                        ${deck[i].ranks}
+                    </span>
+                    <p class="suit">
+                        ${deck[i].suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${deck[i].ranks}
+                    </span>
+                </div>
+            `;
+            deckContainer.innerHTML += cardEl;
+        }
+        
     }
 }
 
@@ -79,19 +97,35 @@ function playerFirstCards() {
     let playerCards = document.getElementById('player-cards');
     for (let i = 0; i <= 1 ; i++){
         let card = deck.pop()
-        playerCards.innerHTML += `
-            <div class="card">
-                <span class="number top">
-                    ${card.ranks}
-                </span>
-                <p class="suit">
-                    ${card.suit.icon}
-                </p>
-                <span class="number bottom">
-                    ${card.ranks}
-                </span>
-            </div>
-        `;
+        if(card.suit.color === 'red'){
+            playerCards.innerHTML += `
+                <div class="card red">
+                    <span class="number top">
+                        ${card.ranks}
+                    </span>
+                    <p class="suit">
+                        ${card.suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${card.ranks}
+                    </span>
+                </div>
+            `;
+        } else{
+            playerCards.innerHTML += `
+                <div class="card">
+                    <span class="number top">
+                        ${card.ranks}
+                    </span>
+                    <p class="suit">
+                        ${card.suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${card.ranks}
+                    </span>
+                </div>
+            `;
+        }
     }
 }
 
@@ -103,19 +137,35 @@ function dealerFirstCards(){
     let dealerCards = document.getElementById('dealer-cards');
     for (let i = 0; i <= 1 ; i++){
         let card = deck.pop()
-        dealerCards.innerHTML += `
-            <div class="card">
-                <span class="number top">
-                    ${card.ranks}
-                </span>
-                <p class="suit">
-                    ${card.suit.icon}
-                </p>
-                <span class="number bottom">
-                    ${card.ranks}
-                </span>
-            </div>
-        `;
+        if(card.suit.color === 'red'){
+            dealerCards.innerHTML += `
+                <div class="card red">
+                    <span class="number top">
+                        ${card.ranks}
+                    </span>
+                    <p class="suit">
+                        ${card.suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${card.ranks}
+                    </span>
+                </div>
+            `;
+        } else{
+            dealerCards.innerHTML += `
+                <div class="card">
+                    <span class="number top">
+                        ${card.ranks}
+                    </span>
+                    <p class="suit">
+                        ${card.suit.icon}
+                    </p>
+                    <span class="number bottom">
+                        ${card.ranks}
+                    </span>
+                </div>
+            `;
+        }
     }
 }
 
