@@ -90,82 +90,94 @@ function printDeck(){
 }
 
 /**
- * Take two cards from the bottom of the deck, 
- * and give it (print) for the player
+ * Separete one card to be given to the player
  */
-function playerFirstCards() {
+function playerCard(){
     let playerCards = document.getElementById('player-cards');
-    for (let i = 0; i <= 1 ; i++){
-        let card = deck.pop()
-        if(card.suit.color === 'red'){
-            playerCards.innerHTML += `
-                <div class="card red">
-                    <span class="number top player">
-                        ${card.ranks}
-                    </span>
-                    <p class="suit">
-                        ${card.suit.icon}
-                    </p>
-                    <span class="number bottom">
-                        ${card.ranks}
-                    </span>
-                </div>
-            `;
-        } else{
-            playerCards.innerHTML += `
-                <div class="card">
-                    <span class="number top player">
-                        ${card.ranks}
-                    </span>
-                    <p class="suit">
-                        ${card.suit.icon}
-                    </p>
-                    <span class="number bottom">
-                        ${card.ranks}
-                    </span>
-                </div>
-            `;
-        }
+    let card = deck.pop()
+    if(card.suit.color === 'red'){
+        playerCards.innerHTML += `
+            <div class="card red">
+                <span class="number top player">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
+    } else{
+        playerCards.innerHTML += `
+            <div class="card">
+                <span class="number top player">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
     }
 }
 
 /**
- * Take two cards from the bottom of the deck, 
- * and give it (print) for the dealer
+ * Separete one card to be given to the dealer
+ */
+function dealerCard(){
+    let dealerCards = document.getElementById('dealer-cards');
+    let card = deck.pop()
+    if(card.suit.color === 'red'){
+        dealerCards.innerHTML += `
+            <div class="card red">
+                <span class="number top">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
+    } else{
+        dealerCards.innerHTML += `
+            <div class="card">
+                <span class="number top">
+                    ${card.ranks}
+                </span>
+                <p class="suit">
+                    ${card.suit.icon}
+                </p>
+                <span class="number bottom">
+                    ${card.ranks}
+                </span>
+            </div>
+        `;
+    }
+}
+
+/**
+ * Give (print) two cards to the player
+ */
+function playerFirstCards() {
+    for (let i = 0; i <= 1 ; i++){
+        playerCard()
+    }
+}
+
+/**
+ * Give it (print) two cards to the dealer
  */
 function dealerFirstCards(){
-    let dealerCards = document.getElementById('dealer-cards');
     for (let i = 0; i <= 1 ; i++){
-        let card = deck.pop()
-        if(card.suit.color === 'red'){
-            dealerCards.innerHTML += `
-                <div class="card red">
-                    <span class="number top">
-                        ${card.ranks}
-                    </span>
-                    <p class="suit">
-                        ${card.suit.icon}
-                    </p>
-                    <span class="number bottom">
-                        ${card.ranks}
-                    </span>
-                </div>
-            `;
-        } else{
-            dealerCards.innerHTML += `
-                <div class="card">
-                    <span class="number top">
-                        ${card.ranks}
-                    </span>
-                    <p class="suit">
-                        ${card.suit.icon}
-                    </p>
-                    <span class="number bottom">
-                        ${card.ranks}
-                    </span>
-                </div>
-            `;
-        }
+        dealerCard()
     }
 }
 
@@ -173,11 +185,26 @@ function checkBusted() {
 
 }
 
-function hit(){
+/**
+ * Give action to the player choices.
+ * Hit, give one more card to player.
+ * Stand, start dealer time.
+ */
+function choices(){
+    let buttons = document.getElementsByTagName('button');
 
+    for(let button of buttons){
+        button.addEventListener('click', function(){
+            if(this.getAttribute('data-type') === 'hit'){
+                playerCard()
+            }else if(this.getAttribute('data-type') === 'stand'){
+                dealerTime()
+            }
+        })
+    }
 }
 
-function stand(){
+function dealerTime(){
 
 }
 
