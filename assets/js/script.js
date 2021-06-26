@@ -20,8 +20,42 @@ const suits =[
 ];
 let deck = [];
 
-function runGame(){
+// Wait for the DOM to finish loading before running the game
+//Get the button elements and add event listeners to them
+document.addEventListener('DOMContentLoaded', function(){
+    let buttons = document.getElementsByTagName('button');
 
+    for(let button of buttons){
+        button.addEventListener('click', function(){
+            if(this.getAttribute('data-type') === 'yes'){
+                let messageContainer=document.getElementsByClassName('message-container')[0];
+                messageContainer.style.display = 'none'
+                runGame()
+
+            }else if(this.getAttribute('data-type') === 'no'){
+                let message=document.getElementById('message-text');
+                message.innerText = 'Thanks For Playing With Us!';
+                for(let i of buttons){
+                    i.style.display='none'
+                }
+
+            }else if(this.getAttribute('data-type') === 'hit'){
+                playerCard()
+
+            }else if(this.getAttribute('data-type') === 'stand'){
+                dealerTime()
+            }
+        })
+    }
+})
+
+
+
+function runGame(){
+    createDeck()
+    shuffleDeck()
+    playerFirstCards()
+    dealerFirstCards()
 }
 
 /**
@@ -98,7 +132,7 @@ function playerCard(){
     if(card.suit.color === 'red'){
         playerCards.innerHTML += `
             <div class="card red">
-                <span class="number top player">
+                <span class="number top card--value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -112,7 +146,7 @@ function playerCard(){
     } else{
         playerCards.innerHTML += `
             <div class="card">
-                <span class="number top player">
+                <span class="number top card--value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -185,46 +219,36 @@ function checkBusted() {
 
 }
 
-/**
- * Give action to the player choices.
- * Hit, give one more card to player.
- * Stand, start dealer time.
- */
-function choices(){
-    let buttons = document.getElementsByTagName('button');
-
-    for(let button of buttons){
-        button.addEventListener('click', function(){
-            if(this.getAttribute('data-type') === 'hit'){
-                playerCard()
-            }else if(this.getAttribute('data-type') === 'stand'){
-                dealerTime()
-            }
-        })
-    }
-}
-
 function dealerTime(){
-
+    let dealerPoint = parseInt(document.getElementById('dealer-hand-points').innerText);
+    while(dealerPoint < 17){
+        dealerCard()
+        countPoints()
+    }
 }
 
 function countPoints(){
-    let cardValue = document.getElementsByClassName('player');
+    let cardValue = document.getElementsByClassName('card--value');
     let points = 0;
-    for (let card = 0; card <= cardValue.length; card++){
-        if (cardValue[card].innerText === "J" || cardValue[card].innerText ==="Q" || cardValue[card].innerText === "K"){
+
+    for(let i = 0; i< cardValue.length; i++){
+        card=cardValue[i].innerText;
+        if(card === "K" || card === "Q" || card === "J"){
             points += 10
-        }else if (cardValue[card].innerText === 'A'){
-            if (points + 10 > 21){
-                points +=1
-            } else {
-                points += 10
+        } else if(card === "A"){
+            if( points + 10 > 21){
+                points += 1;
+            }else{
+                points += 10;
             }
-        }else {
-            points += parseInt(cardValue[card].innerText)
-        }
+            
+        }        
     }
+    
     return points
+
+    
+
 }
 
 function comparePoints(){
