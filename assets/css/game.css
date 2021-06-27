@@ -110,7 +110,6 @@ hr {
 /* Messages */
 .message-container{
     text-align: center;
-    height: 100px;
     width: 100%;
     position: fixed;
     top: 50%;

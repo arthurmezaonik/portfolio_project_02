@@ -336,8 +336,25 @@ function displayPoints(){
     pointContainer[1].innerText = playerCountPoints()
 }
 
+/**
+ * Compare the player and dealer points and return a winner.
+ */
 function comparePoints(){
+    let points = document.getElementsByClassName("hand-points");
 
+    let dpoint = points[0].innerText;
+    let ppoint = points[1].innerText;
+
+    let winner = ""
+
+    if(ppoint > dpoint){
+        winner = "player"
+    } else if(dpoint > ppoint){
+        winner = "dealer"
+    } else{
+        winner = "tie"
+    }
+    return winner
 }
 
 function keepPlaying() {
