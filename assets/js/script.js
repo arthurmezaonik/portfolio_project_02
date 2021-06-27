@@ -132,7 +132,7 @@ function playerCard(){
     if(card.suit.color === 'red'){
         playerCards.innerHTML += `
             <div class="card red">
-                <span class="number top card--value">
+                <span class="number top p_card_value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -146,7 +146,7 @@ function playerCard(){
     } else{
         playerCards.innerHTML += `
             <div class="card">
-                <span class="number top card--value">
+                <span class="number top p_card_value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -169,7 +169,7 @@ function dealerCard(){
     if(card.suit.color === 'red'){
         dealerCards.innerHTML += `
             <div class="card red">
-                <span class="number top">
+                <span class="number top d_card_value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -183,7 +183,7 @@ function dealerCard(){
     } else{
         dealerCards.innerHTML += `
             <div class="card">
-                <span class="number top">
+                <span class="number top d_card_value">
                     ${card.ranks}
                 </span>
                 <p class="suit">
@@ -223,32 +223,68 @@ function dealerTime(){
     let dealerPoint = parseInt(document.getElementById('dealer-hand-points').innerText);
     while(dealerPoint < 17){
         dealerCard()
-        countPoints()
+        dealerCountPoints()
     }
 }
 
-function countPoints(){
-    let cardValue = document.getElementsByClassName('card--value');
+/**
+ * Count de cards based on its values and return the sum.
+ * Player. 
+ */
+function playerCountPoints(){
+    let cards = document.getElementsByClassName('p_card_value');
     let points = 0;
 
-    for(let i = 0; i< cardValue.length; i++){
-        card=cardValue[i].innerText;
+    for(let i = 0; i< cards.length; i++){
+        card=cards[i].innerText;
         if(card === "K" || card === "Q" || card === "J"){
             points += 10
         } else if(card === "A"){
             if( points + 10 > 21){
                 points += 1;
             }else{
-                points += 10;
+                points += 11;
             }
             
+        } else{
+            cardValue = parseInt(card);
+            points += cardValue;
         }        
     }
     
     return points
+}
 
+/**
+ * Count de cards based on its values and return the sum.
+ * Dealer. 
+ */
+ function dealerCountPoints(){
+    let cards = document.getElementsByClassName('d_card_value');
+    let points = 0;
+
+    for(let i = 0; i< cards.length; i++){
+        card=cards[i].innerText;
+        if(card === "K" || card === "Q" || card === "J"){
+            points += 10
+        } else if(card === "A"){
+            if( points + 10 > 21){
+                points += 1;
+            }else{
+                points += 11;
+            }
+            
+        } else{
+            cardValue = parseInt(card);
+            points += cardValue;
+        }        
+    }
     
+    return points
+}
 
+function displayPoints(){
+    
 }
 
 function comparePoints(){
