@@ -56,6 +56,7 @@ function runGame(){
     shuffleDeck()
     playerFirstCards()
     dealerFirstCards()
+    displayPoints()
 }
 
 /**
@@ -219,13 +220,20 @@ function checkBusted() {
 
 }
 
-/*function dealerTime(){
-    let dealerPoint = parseInt(document.getElementById('dealer-hand-points').innerText);
+/**
+ * Give one more card to the dealer,
+ * until it reache 17 points or more.
+ */
+function dealerTime(){
+    let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
+    console.log(dealerPoint);
     while(dealerPoint < 17){
         dealerCard()
-        dealerCountPoints()
+        displayPoints()
+        dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
     }
-}*/
+   
+} 
 
 /**
  * Count de cards based on its values and return the sum.
@@ -283,6 +291,9 @@ function playerCountPoints(){
     return points
 }
 
+/**
+ * Display hand points.
+ */
 function displayPoints(){
     let pointContainer = document.getElementsByClassName('hand-points');
     pointContainer[0].innerText = dealerCountPoints()
