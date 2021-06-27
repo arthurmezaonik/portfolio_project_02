@@ -219,13 +219,13 @@ function checkBusted() {
 
 }
 
-function dealerTime(){
+/*function dealerTime(){
     let dealerPoint = parseInt(document.getElementById('dealer-hand-points').innerText);
     while(dealerPoint < 17){
         dealerCard()
         dealerCountPoints()
     }
-}
+}*/
 
 /**
  * Count de cards based on its values and return the sum.
@@ -284,7 +284,9 @@ function playerCountPoints(){
 }
 
 function displayPoints(){
-    
+    let pointContainer = document.getElementsByClassName('hand-points');
+    pointContainer[0].innerText = dealerCountPoints()
+    pointContainer[1].innerText = playerCountPoints()
 }
 
 function comparePoints(){
