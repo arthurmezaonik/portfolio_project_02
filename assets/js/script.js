@@ -216,8 +216,44 @@ function dealerFirstCards(){
     }
 }
 
-function checkBusted() {
+/**
+ * Check if the player is busted.
+ */
+function checkPlayerBusted() {
+    let pbusted = false;
+    let points = parseInt(document.getElementsByClassName('hand-points')[1].innerText);
+    if (points > 21){
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        let message=document.getElementById('message-text');
+        message.innerHTML = `
+            <p>YOU ARE BUSTED! More luck next time.</p>
+            <p>Do you want to keep playing?</p>        
+        `
+        pbusted = true;
+        messageContainer.style.display = 'block';
+    }
 
+    return pbusted
+}
+
+/**
+ * Check if the dealer is busted.
+ */
+ function checkDealerBusted() {
+    let dbusted = false;
+    let points = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
+    if (points > 21){
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        let message=document.getElementById('message-text');
+        message.innerHTML = `
+            <p>CONGRATILATIONS! You beat us.</p>
+            <p>Do you want to keep playing?</p>        
+        `
+        dbusted = true;
+        messageContainer.style.display = 'block';
+    }
+
+    return dbusted
 }
 
 /**
