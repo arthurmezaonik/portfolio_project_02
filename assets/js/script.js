@@ -38,12 +38,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 for(let i of buttons){
                     i.style.display='none'
                 }
-
-            }else if(this.getAttribute('data-type') === 'hit'){
-                playerCard()
-
-            }else if(this.getAttribute('data-type') === 'stand'){
-                dealerTime()
             }
         })
     }
@@ -52,11 +46,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 function runGame(){
+    let dbusted = false;
+    let pbusted = false;
+
     createDeck()
     shuffleDeck()
     playerFirstCards()
     dealerFirstCards()
     displayPoints()
+    choices()
+    console.log(comparePoints())
 }
 
 /**
@@ -220,7 +219,6 @@ function dealerFirstCards(){
  * Check if the player is busted.
  */
 function checkPlayerBusted() {
-    let pbusted = false;
     let points = parseInt(document.getElementsByClassName('hand-points')[1].innerText);
     if (points > 21){
         let messageContainer = document.getElementsByClassName("message-container")[0];
@@ -229,18 +227,17 @@ function checkPlayerBusted() {
             <p>YOU ARE BUSTED! More luck next time.</p>
             <p>Do you want to keep playing?</p>        
         `
-        pbusted = true;
+        
         messageContainer.style.display = 'block';
     }
 
-    return pbusted
+    return pbusted = true;
 }
 
 /**
  * Check if the dealer is busted.
  */
  function checkDealerBusted() {
-    let dbusted = false;
     let points = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
     if (points > 21){
         let messageContainer = document.getElementsByClassName("message-container")[0];
@@ -249,11 +246,10 @@ function checkPlayerBusted() {
             <p>CONGRATILATIONS! You beat us.</p>
             <p>Do you want to keep playing?</p>        
         `
-        dbusted = true;
         messageContainer.style.display = 'block';
     }
 
-    return dbusted
+    return dbusted = true;
 }
 
 /**
@@ -262,7 +258,7 @@ function checkPlayerBusted() {
  */
 function dealerTime(){
     let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
-    console.log(dealerPoint);
+
     while(dealerPoint < 17){
         dealerCard()
         displayPoints()
@@ -355,6 +351,22 @@ function comparePoints(){
         winner = "tie"
     }
     return winner
+}
+
+function choices(){
+    let buttons = document.getElementsByTagName('button');
+
+    for(let button of buttons){
+        button.addEventListener('click', function(){
+            if(this.getAttribute('data-type') === 'hit'){
+                playerCard();
+                displayPoints();
+            }else if(this.getAttribute('data-type') === 'stand'){
+                displayPoints();
+                dealerTime();
+            }
+        })
+    } 
 }
 
 function keepPlaying() {
