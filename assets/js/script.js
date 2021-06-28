@@ -46,14 +46,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 function runGame(){
-    let dbusted = false;
-    let pbusted = false;
 
-    createDeck()
-    shuffleDeck()
-    playerFirstCards()
-    dealerFirstCards()
-    displayPoints()
+    //Create and shuffle the deck
+    createDeck();
+    shuffleDeck();
+
+    //Give the first cards to dealer and player
+    playerFirstCards();
+    dealerFirstCards();
+    displayPoints();
+    checkPlayerBusted()
+
+
     choices()
     console.log(comparePoints())
 }
@@ -231,7 +235,7 @@ function checkPlayerBusted() {
         messageContainer.style.display = 'block';
     }
 
-    return pbusted = true;
+    return ptime = false;
 }
 
 /**
@@ -249,7 +253,7 @@ function checkPlayerBusted() {
         messageContainer.style.display = 'block';
     }
 
-    return dbusted = true;
+    return dtime = false;
 }
 
 /**
@@ -263,6 +267,7 @@ function dealerTime(){
         dealerCard()
         displayPoints()
         dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
+        checkDealerBusted();
     }
    
 } 
@@ -361,12 +366,14 @@ function choices(){
             if(this.getAttribute('data-type') === 'hit'){
                 playerCard();
                 displayPoints();
+                checkPlayerBusted();
             }else if(this.getAttribute('data-type') === 'stand'){
                 displayPoints();
                 dealerTime();
+                ptime = false; 
             }
         })
-    } 
+    }    
 }
 
 function keepPlaying() {
