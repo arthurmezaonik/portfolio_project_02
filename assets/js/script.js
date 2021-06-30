@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function(){
             if(this.getAttribute('data-type') === 'yes'){
                 let messageContainer=document.getElementsByClassName('message-container')[0];
                 messageContainer.style.display = 'none'
+                
+                //clear deck
+                deck = [];
+
+                clearHands()
+
                 runGame()
 
             }else if(this.getAttribute('data-type') === 'no'){
@@ -38,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 for(let i of buttons){
                     i.style.display='none'
                 }
+            } else if(this.getAttribute('data-type') === 'hit'){
+                hit();
+            }else if(this.getAttribute('data-type') === 'stand'){
+                stand();
             }
         })
     }
@@ -58,8 +68,6 @@ function runGame(){
     checkPlayerBusted()
 
 
-    choices()
-    console.log(comparePoints())
 }
 
 /**
@@ -230,12 +238,11 @@ function checkPlayerBusted() {
         message.innerHTML = `
             <p>YOU ARE BUSTED! More luck next time.</p>
             <p>Do you want to keep playing?</p>        
-        `
-        
+        `;        
         messageContainer.style.display = 'block';
-    }
 
-    return ptime = false;
+        console.log(comparePoints())
+    }
 }
 
 /**
@@ -269,6 +276,8 @@ function dealerTime(){
         dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
         checkDealerBusted();
     }
+
+    console.log(comparePoints())
    
 } 
 
@@ -348,9 +357,9 @@ function comparePoints(){
 
     let winner = ""
 
-    if(ppoint > dpoint){
+    if(ppoint > dpoint && ppoint <= 21 || dpoint > 21){
         winner = "player"
-    } else if(dpoint > ppoint){
+    } else if(dpoint > ppoint && dpoint <= 21 || ppoint > 21){
         winner = "dealer"
     } else{
         winner = "tie"
@@ -363,23 +372,37 @@ function choices(){
 
     for(let button of buttons){
         button.addEventListener('click', function(){
-            if(this.getAttribute('data-type') === 'hit'){
-                playerCard();
-                displayPoints();
-                checkPlayerBusted();
-            }else if(this.getAttribute('data-type') === 'stand'){
-                displayPoints();
-                dealerTime();
-                ptime = false; 
-            }
+            
         })
     }    
 }
 
-function keepPlaying() {
+/**
+ * Clears player and dealer hand and point"
+ */
+function clearHands(){
+    let dealer = document.getElementById('dealer-cards');
+    dealer.innerHTML = ""
 
+    let dpoints = document.getElementsByClassName('hand-points')[0]
+    dpoints.innerText = '0'
+
+    let player = document.getElementById('player-cards');
+    player.innerHTML = ""
+
+    let ppoints = document.getElementsByClassName('hand-points')[1]
+    ppoints.innerText = '0'
+
+    
 }
 
-function clearHands(){
+function hit(){
+    playerCard();
+    displayPoints();
+    checkPlayerBusted();
+}
 
+function stand(){
+    displayPoints();
+    dealerTime();
 }
