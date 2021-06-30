@@ -240,8 +240,13 @@ function checkPlayerBusted() {
             <p>Do you want to keep playing?</p>        
         `;        
         messageContainer.style.display = 'block';
+        
+        let scoreContainer = document.getElementById('lose');
+        let score = parseInt(scoreContainer.innerText);
+        score += 1
 
-        console.log(comparePoints())
+        scoreContainer.innerText = score;
+
     }
 }
 
@@ -254,13 +259,13 @@ function checkPlayerBusted() {
         let messageContainer = document.getElementsByClassName("message-container")[0];
         let message=document.getElementById('message-text');
         message.innerHTML = `
-            <p>CONGRATILATIONS! You beat us.</p>
+            <p>CONGRATULATIONS! You beat us.</p>
             <p>Do you want to keep playing?</p>        
-        `
+        `;
         messageContainer.style.display = 'block';
+
     }
 
-    return dtime = false;
 }
 
 /**
@@ -358,11 +363,53 @@ function comparePoints(){
     let winner = ""
 
     if(ppoint > dpoint && ppoint <= 21 || dpoint > 21){
-        winner = "player"
+
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        let message=document.getElementById('message-text');
+        message.innerHTML = `
+            <p>CONGRATULATIONS! You beat us.</p>
+            <p>Do you want to keep playing?</p>        
+        `;
+        messageContainer.style.display = 'block';
+
+        let scoreContainer = document.getElementById('win');
+        let score = parseInt(scoreContainer.innerText);
+        score += 1
+
+        scoreContainer.innerText = score;
+        
     } else if(dpoint > ppoint && dpoint <= 21 || ppoint > 21){
-        winner = "dealer"
+
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        let message=document.getElementById('message-text');
+        message.innerHTML = `
+            <p>YOU LOSE! More luck next time.</p>
+            <p>Do you want to keep playing?</p>        
+        `;        
+        messageContainer.style.display = 'block';
+
+        let scoreContainer = document.getElementById('lose');
+        let score = parseInt(scoreContainer.innerText);
+        score += 1
+
+        scoreContainer.innerText = score;
+
     } else{
-        winner = "tie"
+
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        let message=document.getElementById('message-text');
+        message.innerHTML = `
+            <p>We have a TIE!</p>
+            <p>Do you want to keep playing?</p>        
+        `;        
+        messageContainer.style.display = 'block';
+
+        let scoreContainer = document.getElementById('tie');
+        let score = parseInt(scoreContainer.innerText);
+        score += 1
+
+        scoreContainer.innerText = score;
+
     }
     return winner
 }
