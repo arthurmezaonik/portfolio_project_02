@@ -59,14 +59,19 @@ function runGame(){
 
     //Create and shuffle the deck
     createDeck();
-    shuffleDeck();
+    printDeck();
 
-    //Give the first cards to dealer and player
-    playerFirstCards();
-    dealerFirstCards();
-    displayPoints();
-    checkPlayerBusted()
+    shuffleDeck()
+    setTimeout(function(){
+        printDeck()
 
+        setTimeout(function(){
+            playerFirstCards();
+            dealerFirstCards();
+            displayPoints();
+            checkPlayerBusted()
+        }, 1200);
+    }, 2500);
 
 }
 
@@ -99,10 +104,12 @@ function shuffleDeck(){
  */
 function printDeck(){
     let deckContainer = document.getElementById('deck');
+    deckContainer.innerHTML = ` `
+
     for (let i = 0; i < deck.length; i++){
         if(deck[i].suit.color === 'red'){
             let cardEl = `
-                <div class="card red">
+                <div class="card red deck-card">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -117,7 +124,7 @@ function printDeck(){
             deckContainer.innerHTML += cardEl;
         } else{
             let cardEl = `
-                <div class="card">
+                <div class="card deck-card">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -131,6 +138,28 @@ function printDeck(){
             `;
             deckContainer.innerHTML += cardEl;
         }
+
+        setTimeout(function(){
+            let cards = document.getElementsByClassName('deck-card');
+
+            for(card = 0; card < cards.length; card++){
+                cards[card].style.position = 'absolute';
+                cards[card].style.top = 75 + 'px';
+                cards[card].style.left = 75 + 'px';
+
+                setTimeout(function(){
+                    let deckContainer = document.getElementById('deck');
+                    
+                    deckContainer.innerHTML = `<div id = 'back' class = 'card'></div>`
+
+                    let card = document.getElementById('back');
+                    card.style.position = 'absolute';
+                    card.style.top = 75 + 'px';
+                    card.style.left = 75 + 'px';                    
+                }, 1)
+                               
+            }
+        }, 1000);     
         
     }
 }
