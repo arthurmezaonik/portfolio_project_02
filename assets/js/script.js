@@ -210,6 +210,27 @@ function dealerCard(){
 }
 
 /**
+ * Display a unknown card for the dealer
+ */
+function dealerFakeCard(){
+    let dealerCards = document.getElementById('dealer-cards');
+    dealerCards.innerHTML += `
+            <div class="fake-card">
+                <span class="number top">
+                    ?
+                </span>
+                <p class="suit">
+                    ?
+                </p>
+                <span class="number bottom">
+                    ?
+                </span>
+            </div>
+        `;
+
+}
+
+/**
  * Give (print) two cards to the player
  */
 function playerFirstCards() {
@@ -222,9 +243,8 @@ function playerFirstCards() {
  * Give it (print) two cards to the dealer
  */
 function dealerFirstCards(){
-    for (let i = 0; i <= 1 ; i++){
-        dealerCard()
-    }
+    dealerFakeCard();
+    dealerCard();
 }
 
 /**
@@ -274,6 +294,11 @@ function checkPlayerBusted() {
  */
 function dealerTime(){
     let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
+    let fakeCard = document.getElementsByClassName('fake-card')[0];
+
+    fakeCard.style.display = 'none'
+    dealerCard()
+    displayPoints()
 
     while(dealerPoint < 17){
         dealerCard()
@@ -414,16 +439,6 @@ function comparePoints(){
     return winner
 }
 
-function choices(){
-    let buttons = document.getElementsByTagName('button');
-
-    for(let button of buttons){
-        button.addEventListener('click', function(){
-            
-        })
-    }    
-}
-
 /**
  * Clears player and dealer hand and point"
  */
@@ -443,12 +458,18 @@ function clearHands(){
     
 }
 
+/**
+ * Give one more card to player and uptade the points
+ */
 function hit(){
     playerCard();
     displayPoints();
     checkPlayerBusted();
 }
 
+/**
+ * End player round and start dealer's
+ */
 function stand(){
     displayPoints();
     dealerTime();
