@@ -26,18 +26,20 @@
 
     <!-- Main content -->
     <main class="max-width start-position">
-
+        
+        <!-- First message -->
         <div class="first-message">
             <h2 class="subtitle">Do you want to try your luck with us?</h2>
-            <form action="post">
 
+            <!-- form to collect name and bet -->
+            <form action="https://formdump.codeinstitute.net/" method="post" target="_blank">
+                <!-- name -->
                 <label for="fname">What do you want to be called?</label>
                 <input type="text" id = fname placeholder="Luck Boy">
-
-
+                <!-- bet -->
                 <label for="chips">How many chips do you want?</label>
                 <input type="number" id="chips" min = "50" placeholder="Min bet is $50">
-              
+                <!-- start game button -->
                 <button data-type="start-game" class="btn start-btn">START GAME</button>
             </form>
         </div>
@@ -63,7 +65,23 @@
                 <h2 class="subtitle">Your Hand</h2>
                 <div class = "player-hand">
                     <div class="player-cards" id="player-cards">
-                        
+                        <div class="card">
+                            <span class="number top">A</span>
+                            <p class="suit"><i class="fas fa-heart"></i></p>
+                            <span class="number bottom">A</span>
+                        </div>
+
+                        <div class="card">
+                            <span class="number top">A</span>
+                            <p class="suit"><i class="fas fa-heart"></i></p>
+                            <span class="number bottom">A</span>
+                        </div>
+
+                        <div class="card">
+                            <span class="number top">A</span>
+                            <p class="suit"><i class="fas fa-heart"></i></p>
+                            <span class="number bottom">A</span>
+                        </div>
                     </div>
                     <p><span class = "hand-points">0</span> points</p>
                 </div>
