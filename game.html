@@ -13,45 +13,34 @@
 </head>
 <body>
 
+    <!-- New style -->
     <header>
-        <div class = "max-width">
-            <!-- Logo -->
+        <div>
             <div id="logo">
                 <a href="index.html">
                     <h1 id="logo-text"><span class="logo-red">black</span>jack</h1>
                     <img id="logo-img" src="assets/images/logo.png" alt="Deck cards image">
                 </a>
             </div>
-            <!-- Navigation bar -->
-            <nav id ="menu-bar">
-                <div id="menuToggle">
-                    <!-- hidden checkbox is used as click reciever, so you can use the :checked selector on it. -->
-                    <input type="checkbox" name="toggle" id="toggle">
-                    <label for="toggle">
-                        <span>menu</span>
-                        <!--divs to be styled as a hamburger button-->
-                        <span class="hamburger_button"></span>
-                        <span class="hamburger_button"></span>
-                        <span class="hamburger_button"></span>
-                    </label>
-                    <!--the menu that will slide in from the left-->
-                    <ul id="menu">
-                        <li>
-                            <a href="game.html" class="active">Game</a>
-                        </li>
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>                    
-                    </ul>
-                </div>
-            </nav>
+            <div class="form">
+                <form action="post">
+                    <label for="username">Username</label>
+                    <input type="text" id="username">
+                    <label for="password">Password</label>
+                    <input type="password" id = 'password'>
+                </form>
+            </div>
         </div>
     </header>
+
+
+    <!-- Old Style -->
+    
 
     <main class="max-width start-position">
         <!--Game table-->
         <div class="game-table">
-                                
+
             <!-- Dealer side -->
             <div class="dealer">
                 <h2 class="subtitle">Dealer's Hand</h2>
@@ -108,28 +97,41 @@
                 <button data-type="no" class="btn no--btn">No</button>
             </div>
         </div>
+
+        <div class="icons-container">
+            <div class="settings">
+                <p><i class="fas fa-cog"></i></p>
+                <div class="inside-settings">
+                    <!-- music -->
+                    <p><i class="fas fa-music"></i></p>
+                    <!-- music off -->
+                    <p>music-slash</p>
+                    <!-- sounds -->
+                    <p><i class="fas fa-volume-up"></i></p>
+                    <!-- sounds off-->
+                    <p><i class="fas fa-volume-mute"></i></p>
+                    <!-- deck -->
+                    <p>deck</p>
+                    <!-- background -->
+                    <p><i class="far fa-image"></i></p>
+                </div>
+            </div>
+            <div class="question">
+                <p><i class="fas fa-question"></i></p>
+            </div>
+            <div class="restart">
+                <p><i class="fas fa-undo"></i></p>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <ul class="social-networks">
-            <li>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Facebook page (open in a new tab)"><i class="fab fa-facebook-square"></i></a>
-            </li>
-            <li>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Twitter page (open in a new tab)"><i class="fab fa-twitter-square"></i></a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Instagram page (open in a new tab)"><i class="fab fa-instagram-square"></i></a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener"
-                    aria-label="Visit our Youtube page (open in a new tab)"><i class="fab fa-youtube-square"></i></a>
-            </li>
-        </ul>
+        <p>Developed by Arthur Martins</p>
+
+        <a href="#">
+            <i class="fab fa-github"></i>
+        </a>
     </footer>
 
     <!-- Font awesome script -->
