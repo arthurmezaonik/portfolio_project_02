@@ -5,6 +5,7 @@ main{
     height: 100%;
     text-align: center;
 }
+
 .game-table{
     width: 70%;
     background-color:#005B00;
@@ -21,6 +22,54 @@ main{
     margin: 5px 0;
 }
 
+/*First Message*/
+.first-message{
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 40%;
+    background-color: rgba(0, 0, 0, .7);
+    border: 1px solid rgba(255, 0, 0, 0.75);
+    border-radius: 5px;
+    z-index: 5;
+    max-width: 1440px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 150%;
+}
+
+label{
+    margin: 10px 0 5px 0;
+}
+
+input[type = text]{
+    max-width: 70%;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 120%;
+    text-align: center;
+}
+
+input[type = number]{
+    max-width: 70%;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 120%;
+    text-align: center;
+}
+
+.start-btn{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 203px;
+}
 /* Card */
 #deck{
     position: absolute;
@@ -149,6 +198,7 @@ hr {
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
+    display: none;
 }
 
 .message-text{
