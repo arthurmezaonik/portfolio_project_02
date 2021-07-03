@@ -153,6 +153,8 @@ hr {
     display: flex;
     text-align: center;
     flex-direction: column;
+    min-height: 368px;
+    justify-content: space-evenly;
 }
 
 .dealer h2{
@@ -171,6 +173,8 @@ hr {
     display: flex;
     text-align: center;
     flex-direction: column;
+    min-height: 368px;
+    justify-content: space-around;
 }
 
 .player h2{
@@ -208,6 +212,7 @@ hr {
     z-index: 5;
     max-width: 1440px;
     display: none;
+
 }
 
 .message-text{
@@ -232,4 +237,16 @@ hr {
 }
 .scores{
     display: inline-block;
+}
+
+.icons-container{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+
+.inside-settings{
+    display: none;;
 }
