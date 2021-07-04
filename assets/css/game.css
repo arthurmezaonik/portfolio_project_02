@@ -260,6 +260,7 @@ hr {
     border: 2px solid black;
     box-sizing: border-box;
     margin-left: -110px;
+    display: none;
 }
 
 .inside-settings > .circle-btn:first-of-type{
