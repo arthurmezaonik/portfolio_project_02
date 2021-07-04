@@ -44,10 +44,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 runGame();
 
             }else if(this.getAttribute('data-type') === 'no'){
-                let message=document.getElementById('message-text');
+                let message = document.getElementById('message-text');
+                let buttons = document.getElementsByClassName('btn');
+
                 message.innerText = 'Thanks For Playing With Us!';
-                for(let i of buttons){
-                    i.style.display='none'
+                
+                for(let button of buttons){
+                    if(this.getAttribute('data-type') === 'yes' || this.getAttribute('data-type') === 'no'){
+                        button.style.display='none'
+                    }                    
                 };
             };
         });
@@ -431,25 +436,36 @@ function dealerTime(){
 function playerCountPoints(){
     let cards = document.getElementsByClassName('p_card_value');
     let points = 0;
+    let aceCard = 0;
 
     for(let i = 0; i< cards.length; i++){
         card=cards[i].innerText;
         if(card === "K" || card === "Q" || card === "J"){
             points += 10
         } else if(card === "A"){
-            if( points + 10 > 21){
-                points += 1;
-            }else{
-                points += 11;
-            }
-            
+            aceCard += 1         
         } else{
             cardValue = parseInt(card);
             points += cardValue;
         }        
     }
     
+    if (aceCard > 0){
+        let minCalc = points + (aceCard * 1);
+        let maxCalc = points + (aceCard * 11);
+
+        if(maxCalc > 21){
+            points = minCalc;
+        } else if (maxCalc <= 21){
+            points = maxCalc;
+        };
+    }
+
     return points
+}
+
+function calculateAces(){
+    
 }
 
 /**
