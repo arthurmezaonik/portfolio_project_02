@@ -43,23 +43,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 runGame();
 
-
             }else if(this.getAttribute('data-type') === 'no'){
                 let message=document.getElementById('message-text');
                 message.innerText = 'Thanks For Playing With Us!';
                 for(let i of buttons){
                     i.style.display='none'
-                }
-
-            } else if(this.getAttribute('data-type') === 'hit'){
-                hit();
-
-            }else if(this.getAttribute('data-type') === 'stand'){
-                stand();
-            }
-        })
-    }
-})
+                };
+            };
+        });
+    };
+});
 
 
 
@@ -80,6 +73,7 @@ function runGame(){
             dealerFirstCards();
             displayPoints();
             checkPlayerBusted()
+            choices()
         }, 1200);
     }, 2500);
 
@@ -349,6 +343,24 @@ function dealerFirstCards(){
 }
 
 /**
+ * Give action for the player buttons
+ */
+function choices(){
+    let buttons = document.getElementsByTagName('button');
+
+    for(let button of buttons){
+        button.addEventListener('click', function(){
+            if(this.getAttribute('data-type') === 'hit'){
+                hit();
+
+            }else if(this.getAttribute('data-type') === 'stand'){
+                stand();
+            }
+        })
+    }
+}
+
+/**
  * Check if the player is busted.
  */
 function checkPlayerBusted() {
@@ -554,9 +566,7 @@ function clearHands(){
     player.innerHTML = ""
 
     let ppoints = document.getElementsByClassName('hand-points')[1]
-    ppoints.innerText = '0'
-
-    
+    ppoints.innerText = '0'  
 }
 
 /**
@@ -574,4 +584,4 @@ function hit(){
 function stand(){
     displayPoints();
     dealerTime();
-}
+};
