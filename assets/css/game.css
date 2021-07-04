@@ -248,5 +248,20 @@ hr {
 }
 
 .inside-settings{
-    display: none;;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 360px;
+    align-items: center;
+    top: -300px;
+    left: 50%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-left: -110px;
+}
+
+.inside-settings > .circle-btn:first-of-type{
+    margin-top: 10px;
 }
