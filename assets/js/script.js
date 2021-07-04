@@ -77,8 +77,9 @@ function runGame(){
             playerFirstCards();
             dealerFirstCards();
             displayPoints();
-            checkPlayerBusted()
-            choices()
+            choices();
+            checkPlayerBusted();
+            
         }, 1200);
     }, 2500);
 
@@ -88,7 +89,7 @@ function runGame(){
  * Display the first table content
  */
 function displayTableContent(){
-    let table = document.getElementsByClassName('game-table')[0];
+    let table = document.getElementsByClassName('player-dealer')[0];
     let name = document.getElementById('fname').value;
 
     table.innerHTML = `
@@ -130,13 +131,6 @@ function displayTableContent(){
 
         <div id="deck">
             
-        </div>
-
-        <!-- Score area -->
-        <div class="score-area">
-            <p class="scores"><span id='win'>0</span> Wins /</p>
-            <p class="scores"><span id='lose'>0</span> Loses /</p>
-            <p class="scores"><span id='tie'>0</span> Ties</p>
         </div>
         `
 }
@@ -366,6 +360,23 @@ function choices(){
 }
 
 /**
+ * Give one more card to player and uptade the points
+ */
+ function hit(){
+    playerCard();
+    displayPoints();
+    checkPlayerBusted();
+}
+
+/**
+ * End player round and start dealer's
+ */
+function stand(){
+    displayPoints();
+    dealerTime();
+};
+
+/**
  * Check if the player is busted.
  */
 function checkPlayerBusted() {
@@ -407,8 +418,8 @@ function checkPlayerBusted() {
 }
 
 /**
- * Give one more card to the dealer,
- * until it reache 17 points or more.
+ * Give one more card to the dealer, until it reaches 17 points or more.
+ * After that, compare the points to check the winner.
  */
 function dealerTime(){
     let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
@@ -425,8 +436,7 @@ function dealerTime(){
         checkDealerBusted();
     }
 
-    console.log(comparePoints())
-   
+    comparePoints()   
 } 
 
 /**
@@ -464,10 +474,6 @@ function playerCountPoints(){
     return points
 }
 
-function calculateAces(){
-    
-}
-
 /**
  * Count de cards based on its values and return the sum.
  * Dealer. 
@@ -475,22 +481,29 @@ function calculateAces(){
  function dealerCountPoints(){
     let cards = document.getElementsByClassName('d_card_value');
     let points = 0;
+    let aceCard = 0;
 
     for(let i = 0; i< cards.length; i++){
         card=cards[i].innerText;
         if(card === "K" || card === "Q" || card === "J"){
             points += 10
         } else if(card === "A"){
-            if( points + 10 > 21){
-                points += 1;
-            }else{
-                points += 11;
-            }
-            
+            aceCard += 1;            
         } else{
             cardValue = parseInt(card);
             points += cardValue;
         }        
+    }
+
+    if (aceCard > 0){
+        let minCalc = points + (aceCard * 1);
+        let maxCalc = points + (aceCard * 11);
+
+        if(maxCalc > 21){
+            points = minCalc;
+        } else if (maxCalc <= 21){
+            points = maxCalc;
+        };
     }
     
     return points
@@ -514,17 +527,9 @@ function comparePoints(){
     let dpoint = points[0].innerText;
     let ppoint = points[1].innerText;
 
-    let winner = ""
-
     if(ppoint > dpoint && ppoint <= 21 || dpoint > 21){
 
-        let messageContainer = document.getElementsByClassName("message-container")[0];
-        let message=document.getElementById('message-text');
-        message.innerHTML = `
-            <p>CONGRATULATIONS! You beat us.</p>
-            <p>Do you want to keep playing?</p>        
-        `;
-        messageContainer.style.display = 'block';
+        winMessage()
 
         let scoreContainer = document.getElementById('win');
         let score = parseInt(scoreContainer.innerText);
@@ -534,13 +539,7 @@ function comparePoints(){
         
     } else if(dpoint > ppoint && dpoint <= 21 || ppoint > 21){
 
-        let messageContainer = document.getElementsByClassName("message-container")[0];
-        let message=document.getElementById('message-text');
-        message.innerHTML = `
-            <p>YOU LOSE! More luck next time.</p>
-            <p>Do you want to keep playing?</p>        
-        `;        
-        messageContainer.style.display = 'block';
+        loseMessage()
 
         let scoreContainer = document.getElementById('lose');
         let score = parseInt(scoreContainer.innerText);
@@ -550,14 +549,8 @@ function comparePoints(){
 
     } else{
 
-        let messageContainer = document.getElementsByClassName("message-container")[0];
-        let message=document.getElementById('message-text');
-        message.innerHTML = `
-            <p>We have a TIE!</p>
-            <p>Do you want to keep playing?</p>        
-        `;        
-        messageContainer.style.display = 'block';
-
+        tieMessage()
+        
         let scoreContainer = document.getElementById('tie');
         let score = parseInt(scoreContainer.innerText);
         score += 1
@@ -565,7 +558,45 @@ function comparePoints(){
         scoreContainer.innerText = score;
 
     }
-    return winner
+}
+
+/**
+ * Display a message if the player win
+ */
+function winMessage(){
+    let messageContainer = document.getElementsByClassName("message-container")[0];
+    let message=document.getElementById('message-text');
+    message.innerHTML = `
+        <p>CONGRATULATIONS! You beat us.</p>
+        <p>Do you want to keep playing?</p>        
+    `;
+    messageContainer.style.display = 'block';
+}
+
+/**
+ * Display a message if the player lose
+ */
+function loseMessage(){
+    let messageContainer = document.getElementsByClassName("message-container")[0];
+    let message=document.getElementById('message-text');
+    message.innerHTML = `
+        <p>YOU LOSE! More luck next time.</p>
+        <p>Do you want to keep playing?</p>        
+    `;        
+    messageContainer.style.display = 'block';
+}
+
+/**
+ * Display a message if there is a tie.
+ */
+function tieMessage(){
+    let messageContainer = document.getElementsByClassName("message-container")[0];
+    let message=document.getElementById('message-text');
+    message.innerHTML = `
+        <p>We have a TIE!</p>
+        <p>Do you want to keep playing?</p>        
+    `;        
+    messageContainer.style.display = 'block';
 }
 
 /**
@@ -584,20 +615,3 @@ function clearHands(){
     let ppoints = document.getElementsByClassName('hand-points')[1]
     ppoints.innerText = '0'  
 }
-
-/**
- * Give one more card to player and uptade the points
- */
-function hit(){
-    playerCard();
-    displayPoints();
-    checkPlayerBusted();
-}
-
-/**
- * End player round and start dealer's
- */
-function stand(){
-    displayPoints();
-    dealerTime();
-};
