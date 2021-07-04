@@ -85,9 +85,13 @@ function runGame(){
 
 }
 
+/**
+ * Display the first table content
+ */
 function displayTableContent(){
     let table = document.getElementsByClassName('game-table')[0];
     let name = document.getElementById('fname').value;
+
     table.innerHTML = `
         <!-- Dealer side -->
         <div class="dealer">
@@ -200,30 +204,35 @@ function printDeck(){
                 </div>
             `;
             deckContainer.innerHTML += cardEl;
-        }
+        } 
+    }
+
+    setTimeout(function(){
+        moveCards();
+    },1000);
+}
+
+/**
+ * Move the all the cards for the same place
+ */
+function moveCards(){
+    let cards = document.getElementsByClassName('deck-card');
+
+    for(card = 0; card < cards.length; card++){
+        cards[card].style.position = 'absolute';
+        cards[card].style.top = 75 + 'px';
+        cards[card].style.left = 75 + 'px';
 
         setTimeout(function(){
-            let cards = document.getElementsByClassName('deck-card');
+            let deckContainer = document.getElementById('deck');
+            deckContainer.innerHTML = `<div id = 'back' class = 'card'></div>`
 
-            for(card = 0; card < cards.length; card++){
-                cards[card].style.position = 'absolute';
-                cards[card].style.top = 75 + 'px';
-                cards[card].style.left = 75 + 'px';
-
-                setTimeout(function(){
-                    let deckContainer = document.getElementById('deck');
-                    
-                    deckContainer.innerHTML = `<div id = 'back' class = 'card'></div>`
-
-                    let card = document.getElementById('back');
-                    card.style.position = 'absolute';
-                    card.style.top = 75 + 'px';
-                    card.style.left = 75 + 'px';                    
-                }, 1)
+            let card = document.getElementById('back');            
+            card.style.position = 'absolute';
+            card.style.top = 75 + 'px';
+            card.style.left = 75 + 'px';                    
+        }, 1001)
                                
-            }
-        }, 1000);     
-        
     }
 }
 
