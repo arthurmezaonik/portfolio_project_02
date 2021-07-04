@@ -27,16 +27,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
     for(let button of buttons){
         button.addEventListener('click', function(){
-            if(this.getAttribute('data-type') === 'yes'){
-                let messageContainer=document.getElementsByClassName('message-container')[0];
-                messageContainer.style.display = 'none'
-                
-                //clear deck
-                deck = [];
-
-                clearHands()
+            if(this.getAttribute('data-type') === 'start-game'){
+                let messageContainer=document.getElementsByClassName('first-message')[0];
+                messageContainer.style.display = 'none'               
 
                 runGame()
+
+            }else if(this.getAttribute('data-type') === 'yes'){
+                let messageContainer=document.getElementsByClassName('message-container')[0];
+                messageContainer.style.display = 'none'               
+                
+                //clear deck and hands
+                deck = [];
+                clearHands();
+
+                runGame();
+
 
             }else if(this.getAttribute('data-type') === 'no'){
                 let message=document.getElementById('message-text');
@@ -44,8 +50,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 for(let i of buttons){
                     i.style.display='none'
                 }
+
             } else if(this.getAttribute('data-type') === 'hit'){
                 hit();
+
             }else if(this.getAttribute('data-type') === 'stand'){
                 stand();
             }
@@ -56,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 function runGame(){
+
+    displayTableContent()
 
     //Create and shuffle the deck
     createDeck();
@@ -73,6 +83,59 @@ function runGame(){
         }, 1200);
     }, 2500);
 
+}
+
+function displayTableContent(){
+    let table = document.getElementsByClassName('game-table')[0];
+    let name = document.getElementById('fname').value;
+    table.innerHTML = `
+        <!-- Dealer side -->
+        <div class="dealer">
+            <h2 class="subtitle">Dealer's Hand</h2>
+            <div class = "dealer-hand">
+                <div class="dealer-cards" id='dealer-cards'>
+                
+                </div>
+                <p><span class = "hand-points">0</span> points</p>
+            </div>                
+        </div>
+
+        <hr>
+
+        <!-- Player side -->
+        <div class="player">
+            <h2 class="subtitle">${name} Hand</h2>
+            <div class = "player-hand">
+                <div class="player-cards" id="player-cards">
+                
+                </div>
+                <p><span class = "hand-points">0</span> points</p>
+            </div>
+            <div class="player-choices">
+                <button data-type='hit' class="btn hit--btn">Hit</button>
+                <button data-type='stand' class="btn stand--btn">Stand</button>
+            </div>                
+        </div>
+
+        <!-- How to add a card:
+            <div class="card">
+                <span class="number top">A</span>
+                <p class="suit"><i class="fas fa-heart"></i></p>
+                <span class="number bottom">A</span>
+            </div>
+        -->
+
+        <div id="deck">
+            
+        </div>
+
+        <!-- Score area -->
+        <div class="score-area">
+            <p class="scores"><span id='win'>0</span> Wins /</p>
+            <p class="scores"><span id='lose'>0</span> Loses /</p>
+            <p class="scores"><span id='tie'>0</span> Ties</p>
+        </div>
+        `
 }
 
 /**

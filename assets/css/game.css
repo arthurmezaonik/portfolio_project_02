@@ -1,6 +1,5 @@
 /* SMARTPHONE (from 320px to 576px wide)*/
 main{
-
     /* background color in case that the image doesn't load */
     background-color:#533e2d ;
     background: url(../images/background3.jpg) center center / cover repeat fixed;;
@@ -39,8 +38,6 @@ main{
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
-    /* just to style the rest of the page */
-    display: none;
 }
 
 form{
