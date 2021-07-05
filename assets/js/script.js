@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
             } else if (this.getAttribute('data-type') === 'instruction'){
                 instructions();
+            } else if (this.getAttribute('data-type') === 'reload'){
+                location.reload();
             };
         });
     };
