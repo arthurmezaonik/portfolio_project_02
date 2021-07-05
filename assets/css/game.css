@@ -263,3 +263,83 @@ hr {
 .inside-settings > .circle-btn:first-of-type{
     margin-top: 10px;
 }
+
+/* Instructions */
+.instruction-container{
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 40%;
+    background-color: rgba(0, 0, 0, .7);
+    border: 1px solid rgba(255, 0, 0, 0.75);
+    border-radius: 5px;
+    z-index: 5;
+    max-width: 1440px;
+    display: none;
+
+}
+
+.wrapper{
+    margin: 5px 0 10px 0;
+    width: 100%;
+}
+  
+#up-list ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+#up-list label{
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #f00;
+    border-bottom: none;
+}
+  
+#up-list label:hover{
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid #fff;
+    
+}
+  
+#up-list label.last{
+    border-bottom: 1px solid #f00;
+}
+
+#up-list label.last:hover{
+    border-bottom: 1px solid #fff;
+}
+  
+#up-list ul ul li{
+    padding: 10px;
+    background: black;
+}
+  
+  
+#up-list input[type="checkbox"]{
+    position: absolute;
+    left: -9999px;
+}
+  
+#up-list input[type="checkbox"] ~ ul{
+    height: 0;
+    transform: scaleY(0);
+}
+  
+#up-list input[type="checkbox"]:checked ~ ul{
+    height: 100%;
+    transform-origin: top;
+    transition: transform .2s ease-out;
+    transform: scaleY(1); 
+}
+  
+#up-list input[type="checkbox"]:checked + label{
+    background:rgba(255, 0, 0, 0.3);
+    border: 1px solid #fff;
+}
+
+#up-list p{
+    margin-bottom: 25px;
+}
