@@ -24,83 +24,86 @@
         </div>
     </header>
 
-    <!-- Main content -->
-    <main class="max-width start-position">
-        
-        <!-- First message -->
-        <div class="first-message">
-            <h2 class="subtitle">Do you want to try your luck with us?</h2>
-
-            <!-- form to collect name and bet -->
-            <form action="https://formdump.codeinstitute.net/" method="post" target="_blank">
-                <!-- name -->
-                <label for="fname">What do you want to be called?</label>
-                <input type="text" id = fname placeholder="Luck Boy" required>
-                <!-- bet -->
-                <label for="chips">How many chips do you want?</label>
-                <input type="number" id="chips" min = "50" placeholder="Min bet is $50" required>
-                <!-- start game button -->
-                <button data-type="start-game" class="btn start-btn">START GAME</button>
-            </form>
-        </div>
-
-        <!--Game table-->
-        <div class="game-table">
-
-            <div class="player-dealer"></div>
+    <div class="height-wrapper">
+        <!-- Main content -->
+        <main class="max-width start-position">
             
-            <!-- Score area -->
-            <div class="score-area">
-                <p class="scores"><span id='win'>0</span> Wins /</p>
-                <p class="scores"><span id='lose'>0</span> Loses /</p>
-                <p class="scores"><span id='tie'>0</span> Ties</p>
-            </div>
-        </div>
+            <!-- First message -->
+            <div class="first-message">
+                <h2 class="subtitle">Do you want to try your luck with us?</h2>
 
-        <!-- Center messages -->
-        <div class="message-container">
-            <div class="message-text" id="message-text">Do you want to keep playing?</div>
-            <div class= "btn-container">                
-                <button data-type="yes" class="btn yes--btn">Yes</button>
-                <button data-type="no" class="btn no--btn">No</button>
+                <!-- form to collect name and bet -->
+                <form action="https://formdump.codeinstitute.net/" method="post" target="_blank">
+                    <!-- name -->
+                    <label for="fname">What do you want to be called?</label>
+                    <input type="text" id = fname placeholder="Luck Boy" required>
+                    <!-- bet -->
+                    <label for="chips">How many chips do you want?</label>
+                    <input type="number" id="chips" min = "50" placeholder="Min bet is $50" required>
+                    <!-- start game button -->
+                    <button data-type="start-game" class="btn start-btn">START GAME</button>
+                </form>
             </div>
-        </div>
 
-        <div class="icons-container">
-            <div class="settings">
-                <button class = "circle-btn"><i class="fas fa-cog"></i></button>
-                <div class="inside-settings">
-                    <!-- music -->
-                    <button class = "circle-btn"><i class="fas fa-music"></i></button>
-                    <!-- music off 
-                    <button class = "circle-btn">music-slash</p>
-                    -->
-                    <!-- sounds -->
-                    <button class = "circle-btn"><i class="fas fa-volume-up"></i></button>
-                    <!-- sounds off
-                    <button class = "circle-btn"><i class="fas fa-volume-mute"></i></button>
-                    -->
-                    <!-- deck -->
-                    <button class = "circle-btn">deck</button>
-                    <!-- background -->
-                    <button class = "circle-btn"><i class="far fa-image"></i></button>
+            <!--Game table-->
+            <div class="game-table">
+
+                <div class="player-dealer"></div>
+                
+                <!-- Score area -->
+                <div class="score-area">
+                    <p class="scores"><span id='win'>0</span> Wins /</p>
+                    <p class="scores"><span id='lose'>0</span> Loses /</p>
+                    <p class="scores"><span id='tie'>0</span> Ties</p>
                 </div>
             </div>
 
-            <div class="instruction">
-                <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
+            <!-- Center messages -->
+            <div class="message-container">
+                <div class="message-text" id="message-text">Do you want to keep playing?</div>
+                <div class= "btn-container">                
+                    <button data-type="yes" class="btn yes--btn">Yes</button>
+                    <button data-type="no" class="btn no--btn">No</button>
+                </div>
             </div>
 
-            <div class="restart">
-                <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
+            <div class="icons-container">
+                <div class="settings">
+                    <button class = "circle-btn"><i class="fas fa-cog"></i></button>
+                    <div class="inside-settings">
+                        <!-- music -->
+                        <button class = "circle-btn"><i class="fas fa-music"></i></button>
+                        <!-- music off 
+                        <button class = "circle-btn">music-slash</p>
+                        -->
+                        <!-- sounds -->
+                        <button class = "circle-btn"><i class="fas fa-volume-up"></i></button>
+                        <!-- sounds off
+                        <button class = "circle-btn"><i class="fas fa-volume-mute"></i></button>
+                        -->
+                        <!-- deck -->
+                        <button class = "circle-btn">deck</button>
+                        <!-- background -->
+                        <button class = "circle-btn"><i class="far fa-image"></i></button>
+                    </div>
+                </div>
+
+                <div class="instruction">
+                    <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
+                </div>
+
+                <div class="restart">
+                    <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
+                </div>
+
             </div>
+        </main>
+
+        <div id="instructions" class = "instruction-container">
 
         </div>
-    </main>
-
-    <div id="instructions" class = "instruction-container">
-
     </div>
+    
 
     <!-- Footer -->
     <footer>
