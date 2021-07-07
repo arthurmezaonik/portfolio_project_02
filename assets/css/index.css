@@ -12,7 +12,7 @@ main{
     min-height: 657px;
     margin: 0 auto;
     background-color:#005B00;
-    border: 1px solid rgba(255, 0, 0, 0.3);
+    border: 20px inset rgb(19 33 21 / 60%);
     border-radius:10px;
     margin-bottom: 20px;
     position:relative;
@@ -25,6 +25,11 @@ main{
     margin: 5px 0;
 }
 
+.red-bold{
+    color: red;
+    font-weight: bold;
+}
+
 /*First Message*/
 .first-message{
     text-align: center;
@@ -32,7 +37,7 @@ main{
     position: fixed;
     top: 40%;
     background-color: rgba(0, 0, 0, .7);
-    border: 1px solid rgba(255, 0, 0, 0.75);
+    border: 2px solid white;
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
@@ -202,7 +207,7 @@ hr {
     position: fixed;
     top: 40%;
     background-color: rgba(0, 0, 0, .7);
-    border: 1px solid rgba(255, 0, 0, 0.75);
+    border: 2px solid white;
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
@@ -269,12 +274,11 @@ hr {
     position: fixed;
     top: 40%;
     background-color: rgba(0, 0, 0, .7);
-    border: 1px solid rgba(255, 0, 0, 0.75);
+    border: 2px solid white;
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
     display: none;
-
 }
 
 .wrapper{

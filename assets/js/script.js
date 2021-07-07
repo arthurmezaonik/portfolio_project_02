@@ -390,7 +390,7 @@ function checkPlayerBusted() {
         let messageContainer = document.getElementsByClassName("message-container")[0];
         let message=document.getElementById('message-text');
         message.innerHTML = `
-            <p>YOU ARE BUSTED! More luck next time.</p>
+            <p><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</p>
             <p>Do you want to keep playing?</p>        
         `;        
         messageContainer.style.display = 'block';
@@ -413,7 +413,7 @@ function checkPlayerBusted() {
         let messageContainer = document.getElementsByClassName("message-container")[0];
         let message=document.getElementById('message-text');
         message.innerHTML = `
-            <p>CONGRATULATIONS! You beat us.</p>
+            <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
             <p>Do you want to keep playing?</p>        
         `;
         messageContainer.style.display = 'block';
@@ -572,7 +572,7 @@ function winMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
     let message=document.getElementById('message-text');
     message.innerHTML = `
-        <p>CONGRATULATIONS! You beat us.</p>
+        <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
         <p>Do you want to keep playing?</p>        
     `;
     messageContainer.style.display = 'block';
@@ -585,7 +585,7 @@ function loseMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
     let message=document.getElementById('message-text');
     message.innerHTML = `
-        <p>YOU LOSE! More luck next time.</p>
+        <p><span class ="red-bold">YOU LOSE!</span> More luck next time.</p>
         <p>Do you want to keep playing?</p>        
     `;        
     messageContainer.style.display = 'block';
@@ -598,7 +598,7 @@ function tieMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
     let message=document.getElementById('message-text');
     message.innerHTML = `
-        <p>We have a TIE!</p>
+        <p>We have a <span class ="red-bold">TIE!</span></p>
         <p>Do you want to keep playing?</p>        
     `;        
     messageContainer.style.display = 'block';

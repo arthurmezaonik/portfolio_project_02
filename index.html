@@ -24,14 +24,15 @@
         </div>
     </header>
 
-    <div class="height-wrapper">
-        <!-- Main content -->
-        <main class="max-width start-position">
-            
+    
+    <!-- Main content -->
+    <main class="max-width start-position">
+        <!--Height wrapper-->
+        <div class="height-wrapper">
+
             <!-- First message -->
             <div class="first-message">
                 <h2 class="subtitle">Do you want to try your luck with us?</h2>
-
                 <!-- form to collect name and bet -->
                 <form action="https://formdump.codeinstitute.net/" method="post" target="_blank">
                     <!-- name -->
@@ -47,9 +48,8 @@
 
             <!--Game table-->
             <div class="game-table">
-
+                <!--player and dealer wrapper-->
                 <div class="player-dealer"></div>
-                
                 <!-- Score area -->
                 <div class="score-area">
                     <p class="scores"><span id='win'>0</span> Wins /</p>
@@ -67,6 +67,7 @@
                 </div>
             </div>
 
+            <!--Icons wrapper-->
             <div class="icons-container">
                 <div class="settings">
                     <button class = "circle-btn"><i class="fas fa-cog"></i></button>
@@ -87,23 +88,21 @@
                         <button class = "circle-btn"><i class="far fa-image"></i></button>
                     </div>
                 </div>
-
+                <!--instruction button-->                
                 <div class="instruction">
                     <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
                 </div>
-
+                <!--restart button--> 
                 <div class="restart">
                     <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
                 </div>
 
             </div>
-        </main>
 
-        <div id="instructions" class = "instruction-container">
-
+            <!-- Instruction wrapper -->
+            <div id="instructions" class = "instruction-container"></div>
         </div>
-    </div>
-    
+    </main>   
 
     <!-- Footer -->
     <footer>
