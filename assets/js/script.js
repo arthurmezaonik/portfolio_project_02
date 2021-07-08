@@ -75,8 +75,6 @@ function runGame(){
     printDeck();
 
     shuffleDeck()
-    setTimeout(function(){
-        printDeck()
 
         setTimeout(function(){
             playerFirstCards();
@@ -85,9 +83,7 @@ function runGame(){
             choices();
             checkPlayerBusted();
             
-        }, 1200);
-    }, 2500);
-
+        }, 2200);
 }
 
 /**
@@ -121,8 +117,11 @@ function displayTableContent(){
                 <p><span class = "hand-points">0</span> points</p>
             </div>
             <div class="player-choices">
-                <button data-type='hit' class="btn hit--btn">Hit</button>
-                <button data-type='stand' class="btn stand--btn">Stand</button>
+                <button data-type='hit' class="circle-btn hit--btn">
+                    <i class="fas fa-hand-point-up"></i>
+                    <p>Hit</p>
+                </button>
+                <button data-type='stand' class="circle-btn stand--btn"><i class="fas fa-hand-paper"></i></button>
             </div>                
         </div>
 
@@ -174,7 +173,7 @@ function printDeck(){
     for (let i = 0; i < deck.length; i++){
         if(deck[i].suit.color === 'red'){
             let cardEl = `
-                <div class="card red deck-card">
+                <div class="card red">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -189,7 +188,7 @@ function printDeck(){
             deckContainer.innerHTML += cardEl;
         } else{
             let cardEl = `
-                <div class="card deck-card">
+                <div class="card">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -202,35 +201,32 @@ function printDeck(){
                 </div>
             `;
             deckContainer.innerHTML += cardEl;
-        } 
+        }
+        setTimeout(function(){
+            moveCards()
+        },2000) 
     }
-
-    setTimeout(function(){
-        moveCards();
-    },1000);
 }
 
 /**
  * Move the all the cards for the same place
  */
 function moveCards(){
-    let cards = document.getElementsByClassName('deck-card');
+    let cards = document.getElementsByClassName('card');
+    for (let i=0; i < cards.length; i++){
+        let cardRank = cards[i].children[0].innerText;
+        let cardSuit = cards[i].children[1].innerText;
+        
 
-    for(card = 0; card < cards.length; card++){
-        cards[card].style.position = 'absolute';
-        cards[card].style.top = 75 + 'px';
-        cards[card].style.left = 75 + 'px';
-
-        setTimeout(function(){
-            let deckContainer = document.getElementById('deck');
-            deckContainer.innerHTML = `<div id = 'back' class = 'card'></div>`
-
-            let card = document.getElementById('back');            
-            card.style.position = 'absolute';
-            card.style.top = 75 + 'px';
-            card.style.left = 75 + 'px';                    
-        }, 1001)
-                               
+        let deck = shuffleDeck();
+        for (let x=0; x < deck.length ;x++){
+            if (deck[x].ranks == cardRank && deck[x].suit.icon == cardSuit){
+                cards[i].style.position = 'absolute'
+                cards[i].classList.toggle('move-card')
+            } else {
+                continue
+            }
+        }
     }
 }
 

@@ -345,3 +345,9 @@ hr {
 #up-list p{
     margin-bottom: 25px;
 }
+
+.move-card{
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
