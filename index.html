@@ -24,13 +24,12 @@
         </div>
     </header>
 
-    
-    <!-- Main content -->
-    <main class="max-width start-position">
+    <!--Main content-->
+    <main class="max-width">
         <!--Height wrapper-->
         <div class="height-wrapper">
 
-            <!-- First message -->
+            <!--Welcome message-->
             <div class="first-message">
                 <h2 class="subtitle">Do you want to try your luck with us?</h2>
                 <!-- form to collect name and bet -->
@@ -42,34 +41,29 @@
                     <label for="chips">How many chips do you want?</label>
                     <input type="number" id="chips" min = "50" placeholder="Min bet is $50" required>
                     <!-- start game button -->
-                    <button data-type="start-game" class="circle-btn start-btn"><i class="fas fa-play"></i></button>
+                    <button data-type="start-game" class="circle-btn"><i class="fas fa-play"></i></button>
                 </form>
             </div>
 
             <!--Game table-->
             <div class="game-table">
-                <!--player and dealer wrapper-->
+                <!-- Player and Dealer wrapper-->
                 <div class="player-dealer"></div>
-                <!-- Score area -->
+                <!--Score Area-->
                 <div class="score-area">
                     <p class="scores"><span id='win'>0</span> Wins /</p>
                     <p class="scores"><span id='lose'>0</span> Loses /</p>
                     <p class="scores"><span id='tie'>0</span> Ties</p>
                 </div>
+
+                <!--Message container-->
+                <div class="message-container"></div>
             </div>
 
-            <!-- Center messages -->
-            <div class="message-container">
-                <div class="message-text" id="message-text">Do you want to keep playing?</div>
-                <div class= "btn-container">                
-                    <button data-type="yes" class="btn yes--btn">Yes</button>
-                    <button data-type="no" class="btn no--btn">No</button>
-                </div>
-            </div>
-
-            <!--Icons wrapper-->
+            <!--Icons container-->
             <div class="icons-container">
-                <div class="settings">
+                <!-- Settings button-->
+                <div id="settings">
                     <button class = "circle-btn"><i class="fas fa-cog"></i></button>
                     <div class="inside-settings">
                         <!-- music -->
@@ -88,21 +82,19 @@
                         <button class = "circle-btn"><i class="far fa-image"></i></button>
                     </div>
                 </div>
-                <!--instruction button-->                
+                <!--Instructions button-->
                 <div class="instruction">
                     <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
                 </div>
-                <!--restart button--> 
+                <!--Restart button--> 
                 <div class="restart">
                     <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
                 </div>
-
             </div>
 
-            <!-- Instruction wrapper -->
-            <div id="instructions" class = "instruction-container"></div>
         </div>
-    </main>   
+
+    </main>
 
     <!-- Footer -->
     <footer>

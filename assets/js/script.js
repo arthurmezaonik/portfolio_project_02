@@ -27,45 +27,46 @@ document.addEventListener('DOMContentLoaded', function(){
 
     for(let button of buttons){
         button.addEventListener('click', function(){
+
+            // Start game button
             if(this.getAttribute('data-type') === 'start-game'){
-                let messageContainer=document.getElementsByClassName('first-message')[0];
-                messageContainer.style.display = 'none'               
 
-                runGame()
+                // Check if the form is not empty
+                let playerName = document.getElementById('fname').value;
+                let playrChips = document.getElementById('chips').value;
+                if(playerName === "" || playrChips === ""){
+                    this.disabled = true;
+                    alert("Missing required information")
+                    this.disabled = false;
 
-            }else if(this.getAttribute('data-type') === 'yes'){
-                let messageContainer=document.getElementsByClassName('message-container')[0];
-                messageContainer.style.display = 'none'               
-                
-                //clear deck and hands
-                deck = [];
-                clearHands();
+                } else if(playerName !== "" && playrChips !== ""){
+                    this.disabled = false;
 
-                runGame();
+                    // Turn off the message                    
+                    let messageContainer=document.getElementsByClassName('first-message')[0];
+                    messageContainer.style.display = 'none';
+                    
+                    //Run the game
+                    runGame();
+                }
 
-            }else if(this.getAttribute('data-type') === 'no'){
-                let message = document.getElementById('message-text');
-                let buttons = document.getElementsByClassName('btn');
-
-                message.innerText = 'Thanks For Playing With Us!';
-                
-                for(let button of buttons){
-                    if(this.getAttribute('data-type') === 'yes' || this.getAttribute('data-type') === 'no'){
-                        button.style.display='none'
-                    }                    
-                };
-
-            } else if (this.getAttribute('data-type') === 'instruction'){
+            // Instruction button
+            }else if (this.getAttribute('data-type') === 'instruction'){
                 instructions();
+            
+            // Reload button
             } else if (this.getAttribute('data-type') === 'reload'){
                 location.reload();
+
+            // Settings button
             };
         });
     };
 });
 
-
-
+/**
+ * Run the game.
+ */
 function runGame(){
 
     displayTableContent()
@@ -109,7 +110,7 @@ function displayTableContent(){
 
         <!-- Player side -->
         <div class="player">
-            <h2 class="subtitle">${name} Hand</h2>
+            <h2 class="subtitle">${name}'s Hand</h2>
             <div class = "player-hand">
                 <div class="player-cards" id="player-cards">
                 
@@ -121,7 +122,10 @@ function displayTableContent(){
                     <i class="fas fa-hand-point-up"></i>
                     <p>Hit</p>
                 </button>
-                <button data-type='stand' class="circle-btn stand--btn"><i class="fas fa-hand-paper"></i></button>
+                <button data-type='stand' class="circle-btn stand--btn">
+                    <i class="fas fa-hand-paper"></i>
+                    <p>Stand</p>
+                </button>
             </div>                
         </div>
 
@@ -139,6 +143,9 @@ function displayTableContent(){
         `
 }
 
+
+
+// DECK FUNCTIONS
 /**
  * From the global arrays, create a shuffled deck with 52 cards * 
  */
@@ -202,9 +209,7 @@ function printDeck(){
             `;
             deckContainer.innerHTML += cardEl;
         }
-        setTimeout(function(){
-            moveCards()
-        },2000) 
+        moveCards()
     }
 }
 
@@ -230,6 +235,9 @@ function moveCards(){
     }
 }
 
+
+
+//PLAYER FUNCTIONS
 /**
  * Separete one card to be given to the player
  */
@@ -267,6 +275,152 @@ function playerCard(){
     }
 }
 
+/**
+ * Give (print) two cards to the player
+ */
+ function playerFirstCards() {
+    for (let i = 0; i <= 1 ; i++){
+        playerCard();
+    }
+}
+
+/**
+ * Give action for the player buttons
+ */
+ function choices(){
+    let buttons = document.getElementsByTagName('button');
+
+    for(let button of buttons){
+        button.addEventListener('click', function(){            
+            //Hit button
+            if(this.getAttribute('data-type') === 'hit'){
+                hit();
+            //Stand button
+            }else if(this.getAttribute('data-type') === 'stand'){
+                stand();
+            }
+        })
+    }
+}
+
+/**
+ * Give one more card to player and uptade the points
+ */
+ function hit(){
+    playerCard();
+    displayPoints();
+    checkPlayerBusted();
+}
+
+/**
+ * End player round and start dealer's
+ */
+function stand(){
+    displayPoints();
+    dealerTime();
+};
+
+/**
+ * Check if the player is busted.
+ */
+ function checkPlayerBusted() {
+    let points = parseInt(document.getElementsByClassName('hand-points')[1].innerText);
+    // If points grater than 21
+    if (points > 21){
+        let messageContainer = document.getElementsByClassName("message-container")[0];
+        
+        //Show message
+        messageContainer.style.display = 'block';
+        messageContainer.innerHTML = `
+            <p><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</p>
+            <p>Do you want to keep playing?</p>
+            <div class= "btn-container">                
+                <button data-type="yes" class="btn yes--btn">Yes</button>
+                <button data-type="no" class="btn no--btn">No</button>
+            </div>        
+        `;
+        yesOrNo();
+        
+        // Updating points
+        let loseContainer = document.getElementById('lose');
+        let score = parseInt(loseContainer.innerText);
+        score += 1;
+        loseContainer.innerText = score;
+    }
+}
+
+function yesOrNo(){
+    let buttons = document.getElementsByTagName('button');
+    for(let button of buttons){
+        button.addEventListener('click', function(){
+
+            // Yes button
+            if(this.getAttribute('data-type') === 'yes'){
+                let messageContainer=document.getElementsByClassName('message-container')[0];
+                messageContainer.style.display = 'none'               
+        
+                // Clear deck and hands
+                deck = [];
+                clearHands();
+                
+                // Run the game
+                runGame();
+            
+            // No button
+            }else if(this.getAttribute('data-type') === 'no'){
+                let messageContainer = document.getElementsByClassName('message-container')[0];
+                let buttons = document.getElementsByClassName('btn');
+                
+                // Display a thank you message
+                messageContainer.innerHTML = `<p>Thanks For Playing With Us!</p>`;
+
+                for(let button of buttons){
+                    if(this.getAttribute('data-type') === 'yes' || this.getAttribute('data-type') === 'no'){
+                        button.style.display='none';
+                    }                    
+                }
+            }
+        })
+    }
+}
+
+/**
+ * Count de cards based on its values and return the sum.
+ * Player. 
+ */
+ function playerCountPoints(){
+    let cards = document.getElementsByClassName('p_card_value');
+    let points = 0;
+    let aceCard = 0;
+
+    for(let i = 0; i< cards.length; i++){
+        card=cards[i].innerText;
+        if(card === "K" || card === "Q" || card === "J"){
+            points += 10;
+        } else if(card === "A"){
+            aceCard += 1 ;        
+        } else{
+            cardValue = parseInt(card);
+            points += cardValue;
+        }        
+    }
+    
+    if (aceCard > 0){
+        let minCalc = points + (aceCard * 1);
+        let maxCalc = points + (aceCard * 11);
+
+        if(maxCalc > 21){
+            points = minCalc;
+        } else if (maxCalc <= 21){
+            points = maxCalc;
+        };
+    }
+    return points;
+}
+
+
+
+//DEALER FUNCTIONS
 /**
  * Separete one card to be given to the dealer
  */
@@ -310,94 +464,26 @@ function dealerCard(){
 function dealerFakeCard(){
     let dealerCards = document.getElementById('dealer-cards');
     dealerCards.innerHTML += `
-            <div class="fake-card">
-                <span class="number top">
-                    ?
-                </span>
-                <p class="suit">
-                    ?
-                </p>
-                <span class="number bottom">
-                    ?
-                </span>
-            </div>
-        `;
-
+        <div class="fake-card">
+            <span class="number top">
+                ?
+            </span>
+            <p class="suit">
+                ?
+            </p>
+            <span class="number bottom">
+                ?
+            </span>
+        </div>
+    `;
 }
 
 /**
- * Give (print) two cards to the player
- */
-function playerFirstCards() {
-    for (let i = 0; i <= 1 ; i++){
-        playerCard()
-    }
-}
-
-/**
- * Give it (print) two cards to the dealer
+ * Give it (print) the fake and one more card to the dealer
  */
 function dealerFirstCards(){
     dealerFakeCard();
     dealerCard();
-}
-
-/**
- * Give action for the player buttons
- */
-function choices(){
-    let buttons = document.getElementsByTagName('button');
-
-    for(let button of buttons){
-        button.addEventListener('click', function(){
-            if(this.getAttribute('data-type') === 'hit'){
-                hit();
-
-            }else if(this.getAttribute('data-type') === 'stand'){
-                stand();
-            }
-        })
-    }
-}
-
-/**
- * Give one more card to player and uptade the points
- */
- function hit(){
-    playerCard();
-    displayPoints();
-    checkPlayerBusted();
-}
-
-/**
- * End player round and start dealer's
- */
-function stand(){
-    displayPoints();
-    dealerTime();
-};
-
-/**
- * Check if the player is busted.
- */
-function checkPlayerBusted() {
-    let points = parseInt(document.getElementsByClassName('hand-points')[1].innerText);
-    if (points > 21){
-        let messageContainer = document.getElementsByClassName("message-container")[0];
-        let message=document.getElementById('message-text');
-        message.innerHTML = `
-            <p><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</p>
-            <p>Do you want to keep playing?</p>        
-        `;        
-        messageContainer.style.display = 'block';
-        
-        let scoreContainer = document.getElementById('lose');
-        let score = parseInt(scoreContainer.innerText);
-        score += 1
-
-        scoreContainer.innerText = score;
-
-    }
 }
 
 /**
@@ -407,13 +493,24 @@ function checkPlayerBusted() {
     let points = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
     if (points > 21){
         let messageContainer = document.getElementsByClassName("message-container")[0];
-        let message=document.getElementById('message-text');
-        message.innerHTML = `
-            <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
-            <p>Do you want to keep playing?</p>        
-        `;
+        
+        //Show message
         messageContainer.style.display = 'block';
+        messageContainer.innerHTML = `
+            <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
+            <p>Do you want to keep playing?</p>
+            <div class= "btn-container">                
+                <button data-type="yes" class="btn yes--btn">Yes</button>
+                <button data-type="no" class="btn no--btn">No</button>
+            </div>        
+        `;
+        yesOrNo();
 
+        // Updating points
+        let winContainer = document.getElementById('win');
+        let score = parseInt(winContainer.innerText);
+        score += 1;
+        winContainer.innerText = score;
     }
 
 }
@@ -438,41 +535,6 @@ function dealerTime(){
     }
 
     comparePoints()   
-} 
-
-/**
- * Count de cards based on its values and return the sum.
- * Player. 
- */
-function playerCountPoints(){
-    let cards = document.getElementsByClassName('p_card_value');
-    let points = 0;
-    let aceCard = 0;
-
-    for(let i = 0; i< cards.length; i++){
-        card=cards[i].innerText;
-        if(card === "K" || card === "Q" || card === "J"){
-            points += 10
-        } else if(card === "A"){
-            aceCard += 1         
-        } else{
-            cardValue = parseInt(card);
-            points += cardValue;
-        }        
-    }
-    
-    if (aceCard > 0){
-        let minCalc = points + (aceCard * 1);
-        let maxCalc = points + (aceCard * 11);
-
-        if(maxCalc > 21){
-            points = minCalc;
-        } else if (maxCalc <= 21){
-            points = maxCalc;
-        };
-    }
-
-    return points
 }
 
 /**
@@ -487,7 +549,7 @@ function playerCountPoints(){
     for(let i = 0; i< cards.length; i++){
         card=cards[i].innerText;
         if(card === "K" || card === "Q" || card === "J"){
-            points += 10
+            points += 10;
         } else if(card === "A"){
             aceCard += 1;            
         } else{
@@ -505,11 +567,13 @@ function playerCountPoints(){
         } else if (maxCalc <= 21){
             points = maxCalc;
         };
-    }
-    
-    return points
+    }    
+    return points;
 }
 
+
+
+//BOTH FUNCTIONS
 /**
  * Display hand points.
  */
@@ -529,35 +593,43 @@ function comparePoints(){
     let ppoint = points[1].innerText;
 
     if(ppoint > dpoint && ppoint <= 21 || dpoint > 21){
-
-        winMessage()
-
-        let scoreContainer = document.getElementById('win');
-        let score = parseInt(scoreContainer.innerText);
-        score += 1
-
-        scoreContainer.innerText = score;
+        //Just display the message.
+        //Points already updated on checkDealerBusted function
+        if(dpoint > 21){
+            //Display message
+            winMessage()
+        
+            //Display message and update points
+        } else{
+            //Display message
+            winMessage()
+        
+            // Updating points
+            let winContainer = document.getElementById('win');
+            let score = parseInt(winContainer.innerText);
+            score += 1;
+            winContainer.innerText = score;
+        }    
         
     } else if(dpoint > ppoint && dpoint <= 21 || ppoint > 21){
-
+        //Display message
         loseMessage()
 
-        let scoreContainer = document.getElementById('lose');
-        let score = parseInt(scoreContainer.innerText);
-        score += 1
-
-        scoreContainer.innerText = score;
+        // Updating points
+        let loseContainer = document.getElementById('lose');
+        let score = parseInt(loseContainer.innerText);
+        score += 1;
+        loseContainer.innerText = score;
 
     } else{
-
+        //Display message
         tieMessage()
         
-        let scoreContainer = document.getElementById('tie');
-        let score = parseInt(scoreContainer.innerText);
-        score += 1
-
-        scoreContainer.innerText = score;
-
+        //Updating points
+        let tieContainer = document.getElementById('tie');
+        let score = parseInt(tieContainer.innerText);
+        score += 1;
+        tieContainer.innerText = score;
     }
 }
 
@@ -566,12 +638,18 @@ function comparePoints(){
  */
 function winMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
-    let message=document.getElementById('message-text');
-    message.innerHTML = `
-        <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
-        <p>Do you want to keep playing?</p>        
-    `;
+    
+    //Show message
     messageContainer.style.display = 'block';
+    messageContainer.innerHTML = `
+        <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
+        <p>Do you want to keep playing?</p>
+        <div class= "btn-container">                
+            <button data-type="yes" class="btn yes--btn">Yes</button>
+            <button data-type="no" class="btn no--btn">No</button>
+        </div>        
+    `;
+    yesOrNo();
 }
 
 /**
@@ -579,12 +657,18 @@ function winMessage(){
  */
 function loseMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
-    let message=document.getElementById('message-text');
-    message.innerHTML = `
-        <p><span class ="red-bold">YOU LOSE!</span> More luck next time.</p>
-        <p>Do you want to keep playing?</p>        
-    `;        
+    
+    //Show message
     messageContainer.style.display = 'block';
+    messageContainer.innerHTML = `
+        <p><span class ="red-bold">YOU LOSE!</span> More luck next time.</p>
+        <p>Do you want to keep playing?</p>
+        <div class= "btn-container">                
+            <button data-type="yes" class="btn yes--btn">Yes</button>
+            <button data-type="no" class="btn no--btn">No</button>
+        </div>        
+    `;        
+    yesOrNo();
 }
 
 /**
@@ -592,12 +676,18 @@ function loseMessage(){
  */
 function tieMessage(){
     let messageContainer = document.getElementsByClassName("message-container")[0];
-    let message=document.getElementById('message-text');
-    message.innerHTML = `
-        <p>We have a <span class ="red-bold">TIE!</span></p>
-        <p>Do you want to keep playing?</p>        
-    `;        
+    
+    //Show message
     messageContainer.style.display = 'block';
+    messageContainer.innerHTML = `
+        <p>We have a <span class ="red-bold">TIE!</span></p>
+        <p>Do you want to keep playing?</p>
+        <div class= "btn-container">                
+            <button data-type="yes" class="btn yes--btn">Yes</button>
+            <button data-type="no" class="btn no--btn">No</button>
+        </div>        
+    `;        
+    yesOrNo();
 }
 
 /**
@@ -605,24 +695,29 @@ function tieMessage(){
  */
 function clearHands(){
     let dealer = document.getElementById('dealer-cards');
-    dealer.innerHTML = ""
+    dealer.innerHTML = "";
 
     let dpoints = document.getElementsByClassName('hand-points')[0]
-    dpoints.innerText = '0'
+    dpoints.innerText = '0';
 
     let player = document.getElementById('player-cards');
-    player.innerHTML = ""
+    player.innerHTML = "";
 
     let ppoints = document.getElementsByClassName('hand-points')[1]
-    ppoints.innerText = '0'  
+    ppoints.innerText = '0'; 
 }
 
+
+
+//PAGE FUNCTIONS
 /**
  * Display list with game instructions
  */
 function instructions(){
-    let instructionContainer = document.getElementsByClassName("instruction-container")[0];
-
+    let instructionContainer = document.getElementsByClassName("message-container")[0];
+    
+    //Display instructions
+    instructionContainer.style.display = "block";
     instructionContainer.innerHTML = `
         <div id="up-list" class = "wrapper">
             <ul>
@@ -672,14 +767,13 @@ function instructions(){
             <button data-type="close" class = "circle-btn"><i class="far fa-times-circle"></i></button>
         </div>
     `;
-
-    instructionContainer.style.display = "block";
-
+    
+    //Close button
     let buttons = document.getElementsByTagName('button');
     for(let button of buttons){
         button.addEventListener('click', function(){
             if(this.getAttribute('data-type') === 'close'){
-                instructionContainer.style.display = 'none'
+                instructionContainer.style.display = 'none';
             }
         })
     }
