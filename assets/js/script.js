@@ -335,8 +335,14 @@ function stand(){
             <p><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</p>
             <p>Do you want to keep playing?</p>
             <div class= "btn-container">                
-                <button data-type="yes" class="btn yes--btn">Yes</button>
-                <button data-type="no" class="btn no--btn">No</button>
+                <button data-type="yes" class="btn yes--btn">
+                    <i class="fas fa-thumbs-up"></i>    
+                    <p>Yes</p>
+                </button>
+                <button data-type="no" class="btn no--btn">
+                    <i class="fas fa-thumbs-down"></i>
+                    <p>No</p>
+                </button>
             </div>        
         `;
         yesOrNo();
@@ -500,9 +506,15 @@ function dealerFirstCards(){
             <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
             <p>Do you want to keep playing?</p>
             <div class= "btn-container">                
-                <button data-type="yes" class="btn yes--btn">Yes</button>
-                <button data-type="no" class="btn no--btn">No</button>
-            </div>        
+                <button data-type="yes" class="btn yes--btn">
+                    <i class="fas fa-thumbs-up"></i>    
+                    <p>Yes</p>
+                </button>
+                <button data-type="no" class="btn no--btn">
+                    <i class="fas fa-thumbs-down"></i>
+                    <p>No</p>
+                </button>
+            </div>       
         `;
         yesOrNo();
 
@@ -645,8 +657,14 @@ function winMessage(){
         <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
-            <button data-type="yes" class="btn yes--btn">Yes</button>
-            <button data-type="no" class="btn no--btn">No</button>
+            <button data-type="yes" class="btn yes--btn">
+                <i class="fas fa-thumbs-up"></i>    
+                <p>Yes</p>
+            </button>
+            <button data-type="no" class="btn no--btn">
+                <i class="fas fa-thumbs-down"></i>
+                <p>No</p>
+            </button>
         </div>        
     `;
     yesOrNo();
@@ -664,8 +682,14 @@ function loseMessage(){
         <p><span class ="red-bold">YOU LOSE!</span> More luck next time.</p>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
-            <button data-type="yes" class="btn yes--btn">Yes</button>
-            <button data-type="no" class="btn no--btn">No</button>
+            <button data-type="yes" class="btn yes--btn">
+                <i class="fas fa-thumbs-up"></i>    
+                <p>Yes</p>
+            </button>
+            <button data-type="no" class="btn no--btn">
+                <i class="fas fa-thumbs-down"></i>
+                <p>No</p>
+            </button>
         </div>        
     `;        
     yesOrNo();
@@ -683,8 +707,14 @@ function tieMessage(){
         <p>We have a <span class ="red-bold">TIE!</span></p>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
-            <button data-type="yes" class="btn yes--btn">Yes</button>
-            <button data-type="no" class="btn no--btn">No</button>
+            <button data-type="yes" class="btn yes--btn">
+                <i class="fas fa-thumbs-up"></i>    
+                <p>Yes</p>
+            </button>
+            <button data-type="no" class="btn no--btn">
+                <i class="fas fa-thumbs-down"></i>
+                <p>No</p>
+            </button>
         </div>        
     `;        
     yesOrNo();
