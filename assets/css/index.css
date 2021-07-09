@@ -83,6 +83,21 @@ input[type = number]{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.deck-card{
+    width: 80px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
 }
 
@@ -98,7 +113,7 @@ input[type = number]{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: relative;
 }
 
 .number{
@@ -174,11 +189,13 @@ hr {
 }
 
 .hit--btn{
-    width: 120px;
+    height: 70px;
+    width: 70px;
 }
 
 .stand--btn{
-    width: 120px;
+    height: 70px;
+    width: 70px;
 }
 
 /* Messages */
@@ -222,9 +239,9 @@ hr {
 
 .icons-container{
     display: flex;
-    position: absolute;
     flex-direction: row;
-    bottom: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 .inside-settings{

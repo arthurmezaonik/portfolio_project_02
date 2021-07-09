@@ -75,9 +75,9 @@ function runGame(){
 
     displayTableContent()
 
-    //Create and shuffle the deck
+   //Create and shuffle the deck
     createDeck();
-    printDeck();
+    //printDeck();
     shuffleDeck();
 
     setTimeout(function(){
@@ -187,7 +187,7 @@ function printDeck(){
     for (let i = 0; i < deck.length; i++){
         if(deck[i].suit.color === 'red'){
             let cardEl = `
-                <div class="card red">
+                <div class="deck-card red">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -202,7 +202,7 @@ function printDeck(){
             deckContainer.innerHTML += cardEl;
         } else{
             let cardEl = `
-                <div class="card">
+                <div class="deck-card">
                     <span class="number top">
                         ${deck[i].ranks}
                     </span>
@@ -221,7 +221,7 @@ function printDeck(){
 }
 
 function positionDeck(){
-    let cards = document.getElementsByClassName('card');
+    let cards = document.getElementsByClassName('deck-card');
     let container = document.getElementsByClassName('deck')[0];
     let containerWidth = container.clientWidth;
     let cardLeft = 0;
@@ -250,7 +250,7 @@ function positionDeck(){
  * Move the all the cards for the same place
  */
 function moveCards(){
-    let cards = document.getElementsByClassName('card');
+    let cards = document.getElementsByClassName('deck-card');
     for (let i=0; i < cards.length; i++){
         let cardRank = cards[i].children[0].innerText;
         let cardSuit = cards[i].children[1].innerText;
