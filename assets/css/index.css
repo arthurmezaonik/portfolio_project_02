@@ -69,6 +69,7 @@ input[type = number]{
     height: 100%;
     top: 0;
     padding: 5px;
+    z-index: -1;
 }
 
 .fake-card{
@@ -149,7 +150,6 @@ hr {
     display: flex;
     text-align: center;
     flex-direction: column;
-    min-height: 368px;
     justify-content: space-evenly;
 }
 
@@ -169,7 +169,6 @@ hr {
     display: flex;
     text-align: center;
     flex-direction: column;
-    min-height: 368px;
     justify-content: space-around;
 }
 
@@ -202,15 +201,14 @@ hr {
 .message-container{
     text-align: center;
     width: 100%;
-    position: fixed;
-    top: 40%;
-    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 1);
     border: 2px solid white;
     border-radius: 5px;
     z-index: 5;
     max-width: 1440px;
     display: none;
-
+    top: 37vh;
 }
 
 .message-text{
@@ -270,7 +268,7 @@ hr {
     text-align: center;
     width: 100%;
     position: absolute;
-    top: 25vh;
+    top: 30vh;
     background-color: rgba(0, 0, 0, 1);
     border: 2px solid white;
     border-radius: 5px;

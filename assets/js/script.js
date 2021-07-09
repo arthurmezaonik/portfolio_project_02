@@ -75,13 +75,13 @@ function runGame(){
 
     displayTableContent()
 
-   //Create and shuffle the deck
+   //Create and shuffle the deck 
     createDeck();
-    //printDeck();
+    //printDeck(); (not done yet)
     shuffleDeck();
 
-    setTimeout(function(){
-        moveCards()
+    //setTimeout(function(){
+        //moveCards() (not done yet)
 
         setTimeout(function(){
             playerFirstCards();
@@ -90,8 +90,8 @@ function runGame(){
             choices();
             checkPlayerBusted();
             
-        }, 9000);
-    },500)
+        }, 1000);
+    //},500)
 }
 
 /**
@@ -222,7 +222,7 @@ function printDeck(){
 
 function positionDeck(){
     let cards = document.getElementsByClassName('deck-card');
-    let container = document.getElementsByClassName('deck')[0];
+    let container = document.getElementById('deck');
     let containerWidth = container.clientWidth;
     let cardLeft = 0;
     let cardTop = 0;
@@ -329,10 +329,10 @@ function playerCard(){
     for(let button of buttons){
         button.addEventListener('click', function(){            
             //Hit button
-            if(this.getAttribute('data-type') === 'hit'){
+            if(button.getAttribute('data-type') === 'hit'){
                 hit();
             //Stand button
-            }else if(this.getAttribute('data-type') === 'stand'){
+            }else if(button.getAttribute('data-type') === 'stand'){
                 stand();
             }
         })
@@ -568,12 +568,13 @@ function dealerFirstCards(){
  * After that, compare the points to check the winner.
  */
 function dealerTime(){
-    let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
-    let fakeCard = document.getElementsByClassName('fake-card')[0];
 
-    fakeCard.style.display = 'none'
-    dealerCard()
-    displayPoints()
+    let fakeCard = document.getElementsByClassName('fake-card')[0];
+    
+    fakeCard.style.display = 'none';
+    dealerCard();
+    displayPoints();
+    let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
 
     while(dealerPoint < 17){
         dealerCard()
