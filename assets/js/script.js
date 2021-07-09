@@ -780,7 +780,7 @@ function clearHands(){
  * Display list with game instructions
  */
 function instructions(){
-    let instructionContainer = document.getElementsByClassName("message-container")[0];
+    let instructionContainer = document.getElementsByClassName("instruction-container")[0];
     
     //Display instructions
     instructionContainer.style.display = "block";
