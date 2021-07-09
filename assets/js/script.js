@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     // Turn off the message                    
                     let messageContainer=document.getElementsByClassName('first-message')[0];
                     messageContainer.style.display = 'none';
+
+                    //Display game table
+                    let gameTable = document.getElementsByClassName('game-table')[0];
+                    gameTable.style.display = 'block'
                     
                     //Run the game
                     runGame();
@@ -74,8 +78,10 @@ function runGame(){
     //Create and shuffle the deck
     createDeck();
     printDeck();
+    shuffleDeck();
 
-    shuffleDeck()
+    setTimeout(function(){
+        moveCards()
 
         setTimeout(function(){
             playerFirstCards();
@@ -84,7 +90,8 @@ function runGame(){
             choices();
             checkPlayerBusted();
             
-        }, 2200);
+        }, 9000);
+    },500)
 }
 
 /**
@@ -140,7 +147,7 @@ function displayTableContent(){
         <div id="deck">
             
         </div>
-        `
+    `;
 }
 
 
@@ -208,9 +215,35 @@ function printDeck(){
                 </div>
             `;
             deckContainer.innerHTML += cardEl;
-        }
-        moveCards()
+        }      
     }
+    positionDeck()
+}
+
+function positionDeck(){
+    let cards = document.getElementsByClassName('card');
+    let container = document.getElementsByClassName('deck')[0];
+    let containerWidth = container.clientWidth;
+    let cardLeft = 0;
+    let cardTop = 0;
+
+    for (let i = 0; i < cards.length; i++){
+      if(cardLeft < containerWidth){
+        cards[i].style.left = cardLeft + 'px';
+        cards[i].style.top = cardTop + 'px';
+        cards[i].style.transition = 'top 1s linear, left 1s linear';
+
+        cardLeft += 100;
+
+      } else if (cardLeft => containerWidth){
+        cardLeft = 0
+        cardTop += 125
+
+        cards[i].style.left = cardLeft + 'px';
+        cards[i].style.top = cardTop + 'px';
+        cards[i].style.transition = 'top 1s linear, left 1s linear';
+    }
+  }
 }
 
 /**
@@ -225,9 +258,12 @@ function moveCards(){
 
         let deck = shuffleDeck();
         for (let x=0; x < deck.length ;x++){
-            if (deck[x].ranks == cardRank && deck[x].suit.icon == cardSuit){
-                cards[i].style.position = 'absolute'
-                cards[i].classList.toggle('move-card')
+            if (deck[x].ranks === cardRank && deck[x].suit.icon === cardSuit){
+                setTimeout(function(){
+                    cards[x].style.left = 50 + 'px';
+                    cards[x].style.top = 50 + 'px';
+                    cards[x].style.transition = 'top 0.5s linear, left 0.5s linear';
+                }, i * 100)
             } else {
                 continue
             }
