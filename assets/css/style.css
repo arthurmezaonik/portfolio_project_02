@@ -7,7 +7,6 @@ body{
     color: #fff;    
     background-image: linear-gradient(rgba(2,0,36,.6) 0%, rgba(96,21,166,0.6) 50%, rgba(2,0,36,.6) 100%),
                       url(..//images/background-suits.jpg);
-                    
 }
 
 h1, h2{
@@ -94,12 +93,12 @@ main{
 
 /* Buttons */
 .btn {
-    background-color: white;
+    background-color: rgba(96,21,166,0.77);
     border-radius: 6px;
     border: 4px solid rgb(38, 142, 53);
     display: inline-block;
     cursor: pointer;
-    color: rgba(96,21,166,0.77);
+    color: white;
     font-size: 1.2rem;
     line-height: 150%;
     font-weight: bold;
@@ -109,9 +108,10 @@ main{
     font-weight: bold;
 }
 .btn:hover {
-	color: rgb(38, 142, 53);
-    background-color: rgb(206,173,236);
-    border: 4px solid rgb(152, 115, 187);
+	color: white;
+    background-color: rgb(152, 115, 187);
+    border: 4px solid rgba(96,21,166,0.77);
+    
 }
 .btn:active {
 	position:relative;
@@ -159,4 +159,29 @@ footer i{
 footer a:hover i{
     transform: rotate(10deg) scale(1.5);
     color: rgb(38, 142, 53);
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    /* Buttons */
+    .circle-btn{
+        font-size: 1.2rem;
+        border-radius: 50%;
+        color: rgba(96,21,166,0.77);
+        background-color: white;
+        height: 70px;
+        width: 70px;
+        margin: 0 15px 0px 15px;
+        cursor: pointer;
+        border: 4px solid rgb(38, 142, 53);
+    }
+
+    .circle-btn i{
+        font-size: 1.5rem;
+    }
+
+    /*Fotter */
+    footer p{
+        font-size: 1.2rem;
+    }
 }

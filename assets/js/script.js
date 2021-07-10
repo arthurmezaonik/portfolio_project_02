@@ -1,3 +1,4 @@
+//  VARIABLES
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const suits =[
     {
@@ -19,6 +20,7 @@ const suits =[
     }
 ];
 let deck = [];
+
 
 // Wait for the DOM to finish loading before running the game
 //Get the button elements and add event listeners to them
@@ -95,7 +97,7 @@ function runGame(){
 }
 
 /**
- * Display the first table content
+ * Display the table content
  */
 function displayTableContent(){
     let table = document.getElementsByClassName('player-dealer')[0];
@@ -220,6 +222,9 @@ function printDeck(){
     positionDeck()
 }
 
+/**
+ * Position the cards on the screen
+ */
 function positionDeck(){
     let cards = document.getElementsByClassName('deck-card');
     let container = document.getElementById('deck');
@@ -263,9 +268,9 @@ function moveCards(){
                     cards[x].style.left = 50 + 'px';
                     cards[x].style.top = 50 + 'px';
                     cards[x].style.transition = 'top 0.5s linear, left 0.5s linear';
-                }, i * 100)
+                }, i * 100);
             } else {
-                continue
+                continue;
             }
         }
     }
@@ -340,7 +345,8 @@ function playerCard(){
 }
 
 /**
- * Give one more card to player and uptade the points
+ * Give one more card to player, 
+ * uptade the points, and check if the player goes busted
  */
  function hit(){
     playerCard();
@@ -368,7 +374,7 @@ function stand(){
         //Show message
         messageContainer.style.display = 'block';
         messageContainer.innerHTML = `
-            <p><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</p>
+            <h2><span class ="red-bold">YOU ARE BUSTED!</span> More luck next time.</h2>
             <p>Do you want to keep playing?</p>
             <div class= "btn-container">                
                 <button data-type="yes" class="btn yes--btn">
@@ -391,6 +397,9 @@ function stand(){
     }
 }
 
+/**
+ * Give action to the Yes and No buttons to keep playing
+ */
 function yesOrNo(){
     let buttons = document.getElementsByTagName('button');
     for(let button of buttons){
@@ -428,7 +437,7 @@ function yesOrNo(){
 
 /**
  * Count de cards based on its values and return the sum.
- * Player. 
+ * fot the player. 
  */
  function playerCountPoints(){
     let cards = document.getElementsByClassName('p_card_value');
@@ -447,6 +456,7 @@ function yesOrNo(){
         }        
     }
     
+    // Check the value if A = 1 or A = 11. Choses the better option.
     if (aceCard > 0){
         let minCalc = points + (aceCard * 1);
         let maxCalc = points + (aceCard * 11);
@@ -539,7 +549,7 @@ function dealerFirstCards(){
         //Show message
         messageContainer.style.display = 'block';
         messageContainer.innerHTML = `
-            <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
+            <h2><span class ="red-bold">WELL DONE!</span> You beat us.</h2>
             <p>Do you want to keep playing?</p>
             <div class= "btn-container">                
                 <button data-type="yes" class="btn yes--btn">
@@ -568,10 +578,11 @@ function dealerFirstCards(){
  * After that, compare the points to check the winner.
  */
 function dealerTime(){
-
-    let fakeCard = document.getElementsByClassName('fake-card')[0];
-    
+    // Display the fake card as none
+    let fakeCard = document.getElementsByClassName('fake-card')[0];    
     fakeCard.style.display = 'none';
+    
+    // Give the second card to the dealer and uptdate the points
     dealerCard();
     displayPoints();
     let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
@@ -583,7 +594,7 @@ function dealerTime(){
         checkDealerBusted();
     }
 
-    comparePoints()   
+    comparePoints();  
 }
 
 /**
@@ -628,8 +639,8 @@ function dealerTime(){
  */
 function displayPoints(){
     let pointContainer = document.getElementsByClassName('hand-points');
-    pointContainer[0].innerText = dealerCountPoints()
-    pointContainer[1].innerText = playerCountPoints()
+    pointContainer[0].innerText = dealerCountPoints();
+    pointContainer[1].innerText = playerCountPoints();
 }
 
 /**
@@ -646,12 +657,12 @@ function comparePoints(){
         //Points already updated on checkDealerBusted function
         if(dpoint > 21){
             //Display message
-            winMessage()
+            winMessage();
         
             //Display message and update points
         } else{
             //Display message
-            winMessage()
+            winMessage();
         
             // Updating points
             let winContainer = document.getElementById('win');
@@ -662,7 +673,7 @@ function comparePoints(){
         
     } else if(dpoint > ppoint && dpoint <= 21 || ppoint > 21){
         //Display message
-        loseMessage()
+        loseMessage();
 
         // Updating points
         let loseContainer = document.getElementById('lose');
@@ -672,7 +683,7 @@ function comparePoints(){
 
     } else{
         //Display message
-        tieMessage()
+        tieMessage();
         
         //Updating points
         let tieContainer = document.getElementById('tie');
@@ -691,7 +702,7 @@ function winMessage(){
     //Show message
     messageContainer.style.display = 'block';
     messageContainer.innerHTML = `
-        <p><span class ="red-bold">CONGRATULATIONS!</span> You beat us.</p>
+        <h2><span class ="red-bold">WELL DONE!</span> You beat us.</h2>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
             <button data-type="yes" class="btn yes--btn">
@@ -716,7 +727,7 @@ function loseMessage(){
     //Show message
     messageContainer.style.display = 'block';
     messageContainer.innerHTML = `
-        <p><span class ="red-bold">YOU LOSE!</span> More luck next time.</p>
+        <h2><span class ="red-bold">YOU LOSE!</span> More luck next time.</h2>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
             <button data-type="yes" class="btn yes--btn">
@@ -741,7 +752,7 @@ function tieMessage(){
     //Show message
     messageContainer.style.display = 'block';
     messageContainer.innerHTML = `
-        <p>We have a <span class ="red-bold">TIE!</span></p>
+        <h2>We have a <span class ="red-bold">TIE!</span></h2>
         <p>Do you want to keep playing?</p>
         <div class= "btn-container">                
             <button data-type="yes" class="btn yes--btn">
@@ -758,7 +769,7 @@ function tieMessage(){
 }
 
 /**
- * Clears player and dealer hand and point"
+ * Clears player and dealer hand, and point"
  */
 function clearHands(){
     let dealer = document.getElementById('dealer-cards');
