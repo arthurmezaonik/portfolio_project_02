@@ -41,26 +41,28 @@ document.addEventListener('DOMContentLoaded', function(){
             // Start game button
             if(this.getAttribute('data-type') === 'start-game'){
 
-                // Start background music
-                bgAudio.play();
-                bgAudio.volume = .1;
-
                 // Check if the form is not empty
                 let playerName = document.getElementById('fname').value;
                 let playrChips = document.getElementById('chips').value;
                 if(playerName === "" || playrChips === ""){
                     this.disabled = true;
                     this.disabled = false;
-
+                
+                // Check if chips are equal or greater than 50
                 }else if (parseInt(playrChips) < 50) {
                     this.disabled = true;
                     this.disabled = false;
+
                 } else {
                     this.disabled = false;
 
                     // Turn off the message                    
                     let messageContainer=document.getElementsByClassName('first-message')[0];
                     messageContainer.style.display = 'none';
+
+                    // Start background music
+                    bgAudio.play();
+                    bgAudio.volume = .1;
 
                     //Display game table
                     let gameTable = document.getElementsByClassName('game-table')[0];
@@ -77,9 +79,12 @@ document.addEventListener('DOMContentLoaded', function(){
             // Reload button
             } else if (this.getAttribute('data-type') === 'reload'){
                 location.reload();
-
-            // Settings button
-            };
+            
+            // Close instruction button
+            } else if(this.getAttribute('data-type') === 'close'){
+                let instructionContainer = document.getElementsByClassName("instruction-container")[0];
+                instructionContainer.style.display = 'none';
+            }
         });
     };
 });
@@ -814,65 +819,6 @@ function instructions(){
     
     //Display instructions
     instructionContainer.style.display = "block";
-    instructionContainer.innerHTML = `
-        <div id="up-list" class = "wrapper">
-            <ul>
-                <li>
-                    <input type="checkbox" id="list-item-1">
-                    <label for="list-item-1" class="first subtitle">Objective</label>
-                    <ul>
-                        <li>The main goal is to get as close to 21 points as you can.</li>
-                        <li>Be careful, if you pass 21 points you will lose the game.</li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="list-item-2">
-                    <label for="list-item-2" class="subtitle">Card Points</label>
-                    <ul>
-                        <li>Cards from 2-10: the points corresponde the card value.</li>
-                        <li>The J, Q and K: 10 points.</li>
-                        <li>Aces: 1 point or 11 points.</li>
-                    </ul> 
-                </li>
-                <li>
-                    <input type="checkbox" id="list-item-3">
-                    <label for="list-item-3" class="subtitle">Player Options</label>
-                    <ul>
-                        <li>Hit: Get another card.</li>
-                        <li>Stand: The player doesn't want more cards.</li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="list-item-4">
-                    <label for="list-item-4" class="last subtitle">The Game</label>
-                    <ul>
-                        <li>The player and the dealer will receive two cards each.</li>
-                        <li>One of the dealer card will be hidden and all the other cards will face up. </li>
-                        <li>The player choses between Stand or Hit.</li>
-                        <li>If the player choses to stand, or goes busted, it'll start the dealer round. </li>
-                        <li>The dealer turns up the hidden card.
-                        <li>The dealer must "buy" cards until he has 17 points or more on his hand.</li>
-                        <li>If no one goe busted, the winner is who has more points on the hand.</li>
-                        <li>If both have the same points, or both got a blackjeck, it's a tie.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <p class="info">*Those are the rules for this game, you can find different ways to play in another websites or casinos, be aware of the rules from were you are playing.</p>
-
-            <button data-type="close" class = "circle-btn"><i class="far fa-times-circle"></i></button>
-        </div>
-    `;
-    
-    //Close button
-    let buttons = document.getElementsByTagName('button');
-    for(let button of buttons){
-        button.addEventListener('click', function(){
-            if(this.getAttribute('data-type') === 'close'){
-                instructionContainer.style.display = 'none';
-            }
-        })
-    }
 }
     
 function playWin(){
