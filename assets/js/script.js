@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 // Start background music
                 bgAudio.play();
-                bgAudio.volume = .5;
+                bgAudio.volume = .1;
 
                 // Check if the form is not empty
                 let playerName = document.getElementById('fname').value;
@@ -401,6 +401,7 @@ function stand(){
                 </button>
             </div>        
         `;
+        playLose();
         yesOrNo();
         
         // Updating points
@@ -576,6 +577,7 @@ function dealerFirstCards(){
                 </button>
             </div>       
         `;
+        playWin();
         yesOrNo();
 
         // Updating points
@@ -729,6 +731,7 @@ function winMessage(){
             </button>
         </div>        
     `;
+    playWin();
     yesOrNo();
 }
 
@@ -753,7 +756,8 @@ function loseMessage(){
                 <p>No</p>
             </button>
         </div>        
-    `;        
+    `;
+    playLose();        
     yesOrNo();
 }
 
@@ -870,4 +874,17 @@ function instructions(){
         })
     }
 }
+    
+function playWin(){
+    bgAudio.volume = .05;
+    winAudio.volume = 1;
+    winAudio.play();
+    bgAudio.volume = .1;
+}
 
+function playLose(){
+    bgAudio.volume = .05;
+    loseAudio.volume = 1;
+    loseAudio.play();
+    bgAudio.volume = .1;
+}
