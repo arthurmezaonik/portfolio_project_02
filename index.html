@@ -1,119 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Try your luck with a blackjack game">
-    <meta name="keywords" content="card, card games, blackjack, 21">
-    <title>Blackjack Game</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-</head>
-<body>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Try your luck with a blackjack game">
+        <meta name="keywords" content="card, card games, blackjack, 21">
+        <title>Blackjack Game</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/index.css">
+    </head>
+    <body>
 
-    <!--Header-->
-    <header>
-        <!-- logo -->
-        <div id="logo">
-            <a href="index.html">
-                <h1 id="logo-text"><span class = 'logo-red'>black</span>jack</h1>
-                <img id="logo-img" src="assets/images/logo.png" alt="Image of two cards">
-            </a>
-        </div>
-    </header>
+        <!--Audio files-->
+        <audio id = "bgaudio" src="assets/audio/background-audio.mp3" loop></audio>
+        <audio id = "winaudio" src="assets/audio/winner-audio.mp3"></audio>
+        <audio id = "loseaudio" src="assets/audio/lose-audio.mp3"></audio>
 
-    <!--Main content-->
-    <main class="max-width">
-        <!--Height wrapper-->
-        <div class="height-wrapper">
-
-            <!--Welcome message-->
-            <div class="first-message">
-                <h2 class="subtitle">Do you want to try your luck with us?</h2>
-                <!-- form to collect name and bet -->
-                <form action="https://formdump.codeinstitute.net/" method="post" target="_blank">
-                    <!-- name -->
-                    <label for="fname">What's your name?</label>
-                    <input type="text" id = fname placeholder="Luck Boy" required>
-                    <!-- bet -->
-                    <label for="chips">How many chips do you want?</label>
-                    <input type="number" id="chips" min = "50" placeholder="Min bet is $50" required>
-                    <!-- start game button -->
-                    <button data-type="start-game" class="btn start-btn">
-                        <p>Start Game</p>
-                        <i class="fas fa-play"></i>
-                    </button>
-                </form>
+        <!--Header-->
+        <header>
+            <!-- logo -->
+            <div id="logo">
+                <a href="index.html">
+                    <h1 id="logo-text"><span class = 'logo-red'>black</span>jack</h1>
+                    <img id="logo-img" src="assets/images/logo.png" alt="Image of two cards">
+                </a>
             </div>
+        </header>
 
-            <!--Game table-->
-            <div class="game-table">
-                <!-- Player and Dealer wrapper-->
-                <div class="player-dealer"></div>
-                <!--Score Area-->
-                <div class="score-area">
-                    <p class="scores"><span id='win'>0</span> Wins /</p>
-                    <p class="scores"><span id='lose'>0</span> Loses /</p>
-                    <p class="scores"><span id='tie'>0</span> Ties</p>
+        <!--Main content-->
+        <main class="max-width">
+            <!--Height wrapper-->
+            <div class="height-wrapper">
+
+                <!--Welcome message-->
+                <div class="first-message">
+                    <h2 class="subtitle">Do you want to try your luck with us?</h2>
+                    <!-- form to collect name and bet -->
+                    <form onsubmit="event.preventDefault();">
+                        <!-- name -->
+                        <label for="fname">What's your name?</label>
+                        <input type="text" id = "fname" name = "fname" placeholder="Luck Boy" required>
+                        <!-- bet -->
+                        <label for="chips">How many chips do you want?</label>
+                        <input type="number" id="chips" name="chips" min = "50" placeholder="Min bet is $50" required>
+                        <!-- start game button -->
+                        <button data-type="start-game" class="btn start-btn">
+                            <p>Start Game</p>
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </form>
                 </div>
 
-                <!--Message container-->
-                <div class="message-container"></div>
+                <!--Game table-->
+                <div class="game-table">
+                    <!-- Player and Dealer wrapper-->
+                    <div class="player-dealer"></div>
+                    <!--Score Area-->
+                    <div class="score-area">
+                        <p class="scores"><span id='win'>0</span> Wins /</p>
+                        <p class="scores"><span id='lose'>0</span> Loses /</p>
+                        <p class="scores"><span id='tie'>0</span> Ties</p>
+                    </div>
+
+                    <!--Message container-->
+                    <div class="message-container"></div>
+                </div>
+                
+                <!--Instruction container-->
+                <div class="instruction-container"></div>
+                
+            </div>     
+
+        </main>
+
+        <!--Icons container-->
+        <div class="icons-container">
+            <!-- Settings button-->
+            <div id="settings">
+                <button class = "circle-btn"><i class="fas fa-cog"></i></button>
+                <div class="inside-settings">
+                    <!-- music -->
+                    <button class = "circle-btn"><i class="fas fa-music"></i></button>
+                    <!-- music off 
+                    <button class = "circle-btn">music-slash</p>
+                    -->
+                    <!-- sounds -->
+                    <button class = "circle-btn"><i class="fas fa-volume-up"></i></button>
+                    <!-- sounds off
+                    <button class = "circle-btn"><i class="fas fa-volume-mute"></i></button>
+                    -->
+                    <!-- deck -->
+                    <button class = "circle-btn">deck</button>
+                    <!-- background -->
+                    <button class = "circle-btn"><i class="far fa-image"></i></button>
+                </div>
             </div>
-            
-            <!--Instruction container-->
-            <div class="instruction-container"></div>
-            
-        </div>     
-
-    </main>
-
-    <!--Icons container-->
-    <div class="icons-container">
-        <!-- Settings button-->
-        <div id="settings">
-            <button class = "circle-btn"><i class="fas fa-cog"></i></button>
-            <div class="inside-settings">
-                <!-- music -->
-                <button class = "circle-btn"><i class="fas fa-music"></i></button>
-                <!-- music off 
-                <button class = "circle-btn">music-slash</p>
-                -->
-                <!-- sounds -->
-                <button class = "circle-btn"><i class="fas fa-volume-up"></i></button>
-                <!-- sounds off
-                <button class = "circle-btn"><i class="fas fa-volume-mute"></i></button>
-                -->
-                <!-- deck -->
-                <button class = "circle-btn">deck</button>
-                <!-- background -->
-                <button class = "circle-btn"><i class="far fa-image"></i></button>
+            <!--Instructions button-->
+            <div class="instruction">
+                <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
+            </div>
+            <!--Restart button--> 
+            <div class="restart">
+                <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
             </div>
         </div>
-        <!--Instructions button-->
-        <div class="instruction">
-            <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
-        </div>
-        <!--Restart button--> 
-        <div class="restart">
-            <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Developed by Arthur Martins</p>
+        <!-- Footer -->
+        <footer>
+            <p>Developed by Arthur Martins</p>
 
-        <a href="https://github.com/arthurmezaonik" target="_blank" rel="noopener" aria-label="Go to developer's Github webpage (opens in a new page)">
-            <i class="fab fa-github"></i>
-        </a>
-    </footer>
+            <a href="https://github.com/arthurmezaonik" target="_blank" rel="noopener" aria-label="Go to developer's Github webpage (opens in a new page)">
+                <i class="fab fa-github"></i>
+            </a>
+        </footer>
 
-    <!-- Font awesome script -->
-    <script src="https://kit.fontawesome.com/8968e8b0bc.js" crossorigin="anonymous"></script>
-
-    <script src="assets/js/script.js"></script>
-</body>
+        <!-- Font awesome script -->
+        <script src="https://kit.fontawesome.com/8968e8b0bc.js" crossorigin="anonymous"></script>
+               
+        <script src="assets/js/script.js"></script>
+    </body>
 </html>

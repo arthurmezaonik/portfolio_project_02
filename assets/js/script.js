@@ -1,4 +1,11 @@
 //  VARIABLES
+
+//Audio
+let bgAudio = document.getElementById('bgaudio');
+let winAudio = document.getElementById('winaudio');
+let loseAudio = document.getElementById('loseaudio');
+
+//Deck
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const suits =[
     {
@@ -25,6 +32,7 @@ let deck = [];
 // Wait for the DOM to finish loading before running the game
 //Get the button elements and add event listeners to them
 document.addEventListener('DOMContentLoaded', function(){
+    // Add listeners to buttons
     let buttons = document.getElementsByTagName('button');
 
     for(let button of buttons){
@@ -33,15 +41,21 @@ document.addEventListener('DOMContentLoaded', function(){
             // Start game button
             if(this.getAttribute('data-type') === 'start-game'){
 
+                // Start background music
+                bgAudio.play();
+                bgAudio.volume = .5;
+
                 // Check if the form is not empty
                 let playerName = document.getElementById('fname').value;
                 let playrChips = document.getElementById('chips').value;
                 if(playerName === "" || playrChips === ""){
                     this.disabled = true;
-                    alert("Missing required information")
                     this.disabled = false;
 
-                } else if(playerName !== "" && playrChips !== ""){
+                }else if (parseInt(playrChips) < 50) {
+                    this.disabled = true;
+                    this.disabled = false;
+                } else {
                     this.disabled = false;
 
                     // Turn off the message                    
