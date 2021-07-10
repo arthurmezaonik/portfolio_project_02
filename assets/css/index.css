@@ -54,7 +54,7 @@ hr {
     box-sizing: content-box;
 }
 
-form{
+.first-message form{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -382,6 +382,130 @@ input[type = number]{
     margin: 25px 10px;
     line-height: 120%;
     text-align: justify;
+}
+
+/* Background table */
+.bgtable-container{
+    width: 90%;
+    position: absolute;
+    top: 130px;
+    background-color: rgba(0, 0, 0, 1);
+    border: 2px solid white;
+    border-radius: 5px;
+    z-index: 5;
+    max-width: 1440px;
+    box-sizing: border-box;
+    max-height: 500px;
+    overflow-y: scroll;
+    display: none;
+}
+
+.option{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items:center;
+    margin: 10px 0;
+}
+
+.option input{
+    display: none;
+}
+
+.bgoption-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.bgoption-container img{
+    width: 100%;
+    object-fit: cover;
+    max-height: 152px;
+    max-width: 544px;
+    border-radius: 7px;
+}
+
+.bgoption-container h3{
+    margin: 10px 0 -10px 0;
+}
+
+.bgoption-container p{
+    margin-top: 15px;
+    font-size: .7rem;
+}
+
+/*ribbon*/
+.box {
+    position: relative;
+}
+
+.ribbon {
+    position: absolute;
+    right: -5px; top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px; height: 75px;
+    text-align: right;
+}
+
+.no-ribbon{
+    display: none;
+}
+
+.ribbon span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: #79A70A;
+    background: linear-gradient(#F70505 0%, #8F0808 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px; right: -21px;
+}
+
+.ribbon span::before {
+    content: "";
+    position: absolute; left: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid #8F0808;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8F0808;
+}
+
+.ribbon span::after {
+    content: "";
+    position: absolute; right: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #8F0808;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8F0808;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Background table */
+    .bgoption-container h3{
+        font-size: 1.5rem;
+    }
+    
+    .bgoption-container p{
+        font-size: 1rem;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
