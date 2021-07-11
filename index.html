@@ -52,7 +52,7 @@
                         <label for="chips">How many chips do you want?</label>
                         <input type="number" id="chips" name="chips" min = "50" placeholder="Min bet is $50" required>
                         <!-- start game button -->
-                        <button data-type="start-game" class="btn start-btn">
+                        <button data-type="start-game" class="btn start-btn" aria-label="Start game button">
                             <p>Start Game</p>
                             <i class="fas fa-play"></i>
                         </button>
@@ -121,17 +121,17 @@
             
                         <p class="info">*Those are the rules for this game, you can find different ways to play in another websites or casinos, be aware of the rules from were you are playing.</p>
             
-                        <button data-type="close" class = "circle-btn"><i class="far fa-times-circle"></i></button>
+                        <button data-type="close" class = "circle-btn" aria-label="Close instructions button"><i class="far fa-times-circle"></i></button>
                     </div>
                 </div>
 
                 <!-- Background table container -->
                 <div class="bgtable-container">
                     <div class="table-option">
-                        <button class = "table-btn" data-type = "bg1">
+                        <button class = "table-btn" data-type = "bg1" aria-label="Select img 1 for table background">
                             <div class="bgoption-container box">
                                 <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background1.jpg" alt="Background image for the table">
+                                <img src="assets/images/table-background/table-background1.jpg" alt="Background image 1 for the table">
                                 Option 01
                                 <br>
                                 (Better for screens bigger or equal to 1440px)
@@ -140,10 +140,10 @@
                     </div>
                     <hr>
                     <div class="table-option">
-                        <button class = "table-btn" data-type="bg2">
+                        <button class = "table-btn" data-type="bg2" aria-label="Select img 2 for table background">
                             <div class="bgoption-container box">
                                 <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background2.jpg" alt="Background image for the table">
+                                <img src="assets/images/table-background/table-background2.jpg" alt="Background image 2 for the table">
                                 Option 02
                                 <br>
                                 (Better for screens bigger or equal to 1440px)
@@ -152,30 +152,30 @@
                     </div>
                     <hr>
                     <div class="table-option">
-                        <button class = "table-btn" data-type ="bg3">
+                        <button class = "table-btn" data-type ="bg3" aria-label="Select img 3 for table background">
                             <div class="bgoption-container box">
                                 <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background3.jpg" alt="Background image for the table">
+                                <img src="assets/images/table-background/table-background3.jpg" alt="Background image 3 for the table">
                                 Option 03
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="table-option">
-                        <button class = "table-btn" data-type= "bg4">
+                        <button class = "table-btn" data-type= "bg4" aria-label="Select img 4 for table background">
                             <div class="bgoption-container box"> 
                                 <div class="ribbon"><span>Selected</span></div>                                   
-                                <img src="assets/images/table-background/table-background4.jpg" alt="Background image for the table">
+                                <img src="assets/images/table-background/table-background4.jpg" alt="Background image 4 for the table">
                                 Option 04
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="table-option">
-                        <button class = "table-btn" data-type="bg5">
+                        <button class = "table-btn" data-type="bg5" aria-label="Select img 5 for table background">
                             <div class="bgoption-container box">  
                                 <div class="ribbon show-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/table-background/table-background5.JPG" alt="Background image for the table">
+                                <img src="assets/images/table-background/table-background5.JPG" alt="Background image 5 for the table">
                                 Option 05
                             </div>
                         </button>
@@ -185,60 +185,60 @@
                 <!-- Background card container --> 
                 <div class="bgcard-container" onsubmit="event.preventDefault();">
                     <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard1">
+                        <button class = 'card-btn' data-type="bgcard1" aria-label="Select img 1 for card background">
                             <div class="bgcardoption-container box">
                                 <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background1.png" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background1.png" alt="Background image 1 for the cards">
                                 <h3 class="subtitle">Option 01 </h3>
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <button class ='card-btn' data-type="bgcard2">
+                        <button class ='card-btn' data-type="bgcard2" aria-label="Select img 2 for card background">
                             <div class="bgcardoption-container box">
                                 <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background2.png" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background2.png" alt="Background image 2 for the cards">
                                 <h3 class="subtitle">Option 02</h3>
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard3">
+                        <button class = 'card-btn' data-type="bgcard3" aria-label="Select img 3 for card background">
                             <div class='bgcardoption-container box'>
                                 <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background3.png" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background3.png" alt="Background image 3 for the cards">
                                 <h3 class="subtitle">Option 03</h3>
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard4">
+                        <button class = 'card-btn' data-type="bgcard4" aria-label="Select img 4 for card background">
                             <div class="bgcardoption-container box"> 
                                 <div class="card-ribbon"><span>Selected</span></div>                                   
-                                <img src="assets/images/cards-background/card-background4.png" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background4.png" alt="Background image 4 for the cards">
                                 <h3 class="subtitle">Option 04</h3>
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <button class = 'card-btn' data-type = "bgcard5">
+                        <button class = 'card-btn' data-type = "bgcard5" aria-label="Select img 5 for card background">
                             <div class="bgcardoption-container box">  
                                 <div class="card-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/card-background5.png" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background5.png" alt="Background image 5 for the cards">
                                 <h3 class="subtitle">Option 05</h3>
                             </div>
                         </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard6">
+                        <button class = 'card-btn' data-type="bgcard6" aria-label="Select img 6 for card background">
                             <div class="bgcardoption-container box">  
                                 <div class="card-ribbon show-card-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/card-background6.JPG" alt="Background image for the cards">
+                                <img src="assets/images/cards-background/card-background6.JPG" alt="Background image 6 for the cards">
                                 <h3 class="subtitle">Option 06</h3>
                             </div>
                         </label>
@@ -252,29 +252,29 @@
         <div class="icons-container">
             <!-- Settings button-->
             <div id="settings">
-                <button data-type = "settings" class = "circle-btn"><i class="fas fa-cog"></i></button>
+                <button data-type = "settings" class = "circle-btn" aria-label="Settings button"><i class="fas fa-cog"></i></button>
                 <div class="inside-settings">
                     <!-- music -->
-                    <button id = "msc-btn" data-type="music" class = "circle-btn"><i class="fas fa-pause"></i></button>
+                    <button id = "msc-btn" data-type="music" class = "circle-btn" aria-label="Music button"><i class="fas fa-pause"></i></button>
                     <!-- sounds -->
-                    <button id="sound-btn" data-type="sound" class = "circle-btn"><i class="fas fa-volume-up"></i></button>
+                    <button id="sound-btn" data-type="sound" class = "circle-btn" aria-label="Sound button"><i class="fas fa-volume-up"></i></button>
                     <!-- deck -->
-                    <button data-type = "bg-card" class = "circle-btn">
+                    <button data-type = "bg-card" class = "circle-btn" aria-label="Card background button">
                         <i class="far fa-file-image"></i>
                     </button>
                     <!-- background -->
-                    <button data-type = "bg-table" class = "circle-btn">
+                    <button data-type = "bg-table" class = "circle-btn" aria-label="Table background button">
                         <i class="far fa-image"></i>
                     </button>
                 </div>
             </div>
             <!--Instructions button-->
             <div class="instruction">
-                <button data-type="instruction" class = "circle-btn"><i class="fas fa-question"></i></button>
+                <button data-type="instruction" class = "circle-btn" aria-label="Instruciton button"><i class="fas fa-question"></i></button>
             </div>
             <!--Restart button--> 
             <div class="restart">
-                <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo"></i></button>
+                <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo" aria-label="Reload page button"></i></button>
             </div>
         </div>
 

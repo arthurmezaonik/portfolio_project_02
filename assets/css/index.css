@@ -231,6 +231,14 @@ input[type = number]{
     width: 70px;
 }
 
+.hit--btn i{
+    display: block;
+}
+
+.stand--btn i{
+    display: block;
+}
+
 /* Messages */
 .message-container{
     text-align: center;
