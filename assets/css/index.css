@@ -400,7 +400,7 @@ input[type = number]{
     display: none;
 }
 
-.option{
+.table-option{
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -408,7 +408,7 @@ input[type = number]{
     margin: 10px 0;
 }
 
-.option input{
+.table-option input{
     display: none;
 }
 
@@ -436,6 +436,62 @@ input[type = number]{
 }
 
 .bgoption-container p{
+    margin-top: 15px;
+    font-size: .7rem;
+}
+
+/* Background cards */
+.bgcard-container{
+    width: 90%;
+    position: absolute;
+    top: 130px;
+    background-color: rgba(0, 0, 0, 1);
+    border: 2px solid white;
+    border-radius: 5px;
+    z-index: 5;
+    max-width: 1440px;
+    box-sizing: border-box;
+    max-height: 500px;
+    overflow-y: scroll;
+    display: none;
+}
+
+.card-option{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items:center;
+    margin: 10px 0;
+}
+
+.card-option input{
+    display: none;
+}
+
+.bgcardoption-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.bgcardoption-container img{
+    width: 100%;
+    object-fit: cover;
+    max-height: 152px;
+    max-width: 544px;
+    border-radius: 7px;
+}
+
+.bgcardoption-container h3{
+    margin: 10px 0 -10px 0;
+}
+
+.bgcardoption-container p{
     margin-top: 15px;
     font-size: .7rem;
 }
@@ -506,6 +562,16 @@ input[type = number]{
     .bgoption-container p{
         font-size: 1rem;
     }
+
+    /*background cards */
+    .bgcardoption-container h3{
+        font-size: 1.5rem;
+    }
+    
+    .bgcardoption-container p{
+        font-size: 1rem;
+    }
+
 }
 
 /* Medium devices (tablets, 768px and up) */
