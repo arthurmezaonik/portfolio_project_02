@@ -38,6 +38,9 @@ let deck = [];
 // Wait for the DOM to finish loading before running the game
 //Get the button elements and add event listeners to them
 document.addEventListener('DOMContentLoaded', function(){
+    //Display first message
+    document.getElementById("js-enabled-only").style.display = 'block'
+
     // Add listeners to buttons
     let buttons = document.getElementsByTagName('button');
 

@@ -40,6 +40,10 @@ hr {
 }
 
 /*First Message*/
+#js-enabled-only{
+    display: none;
+}
+
 .first-message{
     text-align: center;
     width: 90%;

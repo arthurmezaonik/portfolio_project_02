@@ -42,21 +42,28 @@
 
                 <!--Welcome message-->
                 <div class="first-message">
-                    <h2 class="subtitle">Do you want to try your luck with us?</h2>
-                    <!-- form to collect name and bet -->
-                    <form onsubmit="event.preventDefault();">
-                        <!-- name -->
-                        <label for="fname">What's your name?</label>
-                        <input type="text" id = "fname" name = "fname" placeholder="Luck Boy" required>
-                        <!-- bet -->
-                        <label for="chips">How many chips do you want?</label>
-                        <input type="number" id="chips" name="chips" min = "50" placeholder="Min bet is $50" required>
-                        <!-- start game button -->
-                        <button data-type="start-game" class="btn start-btn" aria-label="Start game button">
-                            <p>Start Game</p>
-                            <i class="fas fa-play"></i>
-                        </button>
-                    </form>
+                    <div id = "js-enabled-only">
+                        <h2 class="subtitle">Do you want to try your luck with us?</h2>
+                        <!-- form to collect name and bet -->
+                        <form onsubmit="event.preventDefault();">
+                            <!-- name -->
+                            <label for="fname">What's your name?</label>
+                            <input type="text" id = "fname" name = "fname" placeholder="Luck Boy" required>
+                            <!-- bet -->
+                            <label for="chips">How many chips do you want?</label>
+                            <input type="number" id="chips" name="chips" min = "50" placeholder="Min bet is $50" required>
+                            <!-- start game button -->
+                            <button data-type="start-game" class="btn start-btn" aria-label="Start game button">
+                                <p>Start Game</p>
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <noscript>
+                        <h2 class="subtitle">Javascript must be enabled to play this game.</h2>
+                        <p><a class = 'red-bold' href="https://www.google.com/search?q=enable+javascript" target = "_blank">Click Here</a> to search how to do this on your browser.</p>
+                    </noscript>
                 </div>
 
                 <!--Game table-->
