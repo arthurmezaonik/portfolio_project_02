@@ -296,7 +296,7 @@ input[type = number]{
     box-sizing: border-box;
     margin-left: -110px;
     justify-content: flex-start;
-    z-index: 10;
+    z-index: 5;
     transition: all .5s ease-in;
 }
 
@@ -400,12 +400,16 @@ input[type = number]{
     background-color: rgba(0, 0, 0, 1);
     border: 2px solid white;
     border-radius: 5px;
-    z-index: 5;
+    z-index: 10;
     max-width: 1440px;
     box-sizing: border-box;
     max-height: 500px;
     overflow-y: scroll;
     display: none;
+}
+
+.show-bgtable{
+    display: block;
 }
 
 .table-option{
@@ -437,15 +441,23 @@ input[type = number]{
     max-height: 152px;
     max-width: 544px;
     border-radius: 7px;
+    margin-bottom: 15px;
 }
 
-.bgoption-container h3{
-    margin: 10px 0 -10px 0;
+.table-btn{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    line-height: 150%;
+    font-weight: bold;
+    margin: 5px 0;
+    z-index: 2;
 }
 
-.bgoption-container p{
-    margin-top: 15px;
-    font-size: .7rem;
+.table-btn:hover{
+    background-color: rgba(96,21,166,0.77);
 }
 
 /* Background cards */
@@ -563,15 +575,6 @@ input[type = number]{
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    /* Background table */
-    .bgoption-container h3{
-        font-size: 1.5rem;
-    }
-    
-    .bgoption-container p{
-        font-size: 1rem;
-    }
-
     /*background cards */
     .bgcardoption-container h3{
         font-size: 1.5rem;

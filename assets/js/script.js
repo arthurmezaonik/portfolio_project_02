@@ -105,9 +105,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 stopPlaySounds();
 
             } else if (this.getAttribute('data-type') === 'bg-table'){
-              let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
-              bgTableContainer.style.display = 'block';
-              printTable();             
+              background();              
+              chooseTable();             
             }
         });
     };
@@ -842,7 +841,25 @@ function instructions(){
     //Display instructions
     instructionContainer.style.display = "block";
 }
+
+/**
+ * Display list with table background images 
+ */
+function background(){
+    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
     
+    if (bgTableContainer.style.display === "none"){
+        bgTableContainer.style.display = "block";
+    } else if( bgTableContainer.style.display === 'block'){
+        bgTableContainer.style.display = 'none';
+    } else if(bgTableContainer.style.display === ""){
+        bgTableContainer.style.display = "block";
+    }
+}
+
+/**
+ * Play audio if the player win
+ */
 function playWin(){
     bgAudio.volume = .05;
     winAudio.volume = 1;
@@ -850,6 +867,9 @@ function playWin(){
     bgAudio.volume = .1;
 }
 
+/**
+ * Play audio if the player lose
+ */
 function playLose(){
     bgAudio.volume = .05;
     loseAudio.volume = 1;
@@ -857,6 +877,9 @@ function playLose(){
     bgAudio.volume = .1;
 }
 
+/**
+ * Stop background music
+ */
 function stopPlayMusic(){
     let musicButton = document.getElementById('msc-btn');
     
@@ -873,6 +896,9 @@ function stopPlayMusic(){
     }
 }
 
+/**
+ * Stop sounds 
+ */
 function stopPlaySounds(){
     let soundButton = document.getElementById('sound-btn');
 
@@ -889,41 +915,54 @@ function stopPlaySounds(){
     }
 }
 
-function printTable(){
-    let tableImg = document.getElementsByClassName('table-background')[0];
-    let option = chooseTable()
-
-    if(option === 'bg1'){
-        tableImg.src = 'assets/images/table-background/table-background1.jpg';
-        tableImg.style.display = 'block'
-    } else if(option === 'bg2'){
-        tableImg.src = 'file:///D:/Usu%C3%A1rios/arthur/Documents/Cursos/Code%20Institute/portfolio_project_02/assets/images/table-background/table-background2.jpg';
-        tableImg.style.display = 'block'
-    }else if(option === 'bg3'){
-        tableImg.src = 'assets/images/table-background/table-background3.jpg';
-        tableImg.style.display = 'block'
-    }else if(option === 'bg4'){
-        tableImg.src = 'assets/images/table-background/table-background4.jpg';
-        tableImg.style.display = 'block'
-    }else if(option === 'bg5'){
-        tableImg.style.display = 'none'        
-    }
-}
-
+/**
+ * Change table background image
+ */
 function chooseTable(){
-    let options = document.getElementsByClassName('table-option');
-    let bgOption = document.querySelector('input[name="bg_table"]:checked')
-    let bgtableContainer = document.getElementsByClassName('bgtable-container')[0]
-    let tableOption = ""
+    let tableBtn = document.getElementsByClassName('table-btn');
+    let tableImg = document.getElementsByClassName('table-background')[0];
+    let ribbon = document.getElementsByClassName('ribbon');
+    let previousSelected = document.getElementsByClassName('show-ribbon')[0];
+    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
 
-    for (option of options){
-        option.addEventListener('click', function(){
-            
-            tableOption = bgOption.value;
-            bgtableContainer.style.display = "none";
-            
+    for (let i = 0; i <= tableBtn.length; i++){
+        tableBtn[i].addEventListener('click',function(){
+            if(this.getAttribute('data-type') === "bg1"){
+                previousSelected = document.getElementsByClassName('show-ribbon')[0];
+                previousSelected.classList.toggle('show-ribbon');
+                ribbon[0].classList.toggle ('show-ribbon');
+                tableImg.src = 'assets/images/table-background/table-background1.jpg'
+                tableImg.style.display = 'block'
+                bgTableContainer.style.display = 'none' 
+            }else if(this.getAttribute('data-type') === "bg2"){
+                previousSelected = document.getElementsByClassName('show-ribbon')[0];
+                previousSelected.classList.toggle('show-ribbon');
+                ribbon[1].classList.toggle ('show-ribbon');
+                tableImg.src = 'assets/images/table-background/table-background2.jpg'
+                tableImg.style.display = 'block'
+                bgTableContainer.style.display = 'none' 
+            }else if(this.getAttribute('data-type') === "bg3"){
+                previousSelected = document.getElementsByClassName('show-ribbon')[0];
+                previousSelected.classList.toggle('show-ribbon');
+                ribbon[2].classList.toggle ('show-ribbon');
+                tableImg.src = 'assets/images/table-background/table-background3.jpg'
+                tableImg.style.display = 'block'
+                bgTableContainer.style.display = 'none' 
+            }else if(this.getAttribute('data-type') === "bg4"){
+                previousSelected = document.getElementsByClassName('show-ribbon')[0];
+                previousSelected.classList.toggle('show-ribbon');
+                ribbon[3].classList.toggle ('show-ribbon');
+                tableImg.src = 'assets/images/table-background/table-background4.jpg'
+                tableImg.style.display = 'block'
+                bgTableContainer.style.display = 'none'
+            }else if(this.getAttribute('data-type') === "bg5"){
+                previousSelected = document.getElementsByClassName('show-ribbon')[0];
+                previousSelected.classList.toggle('show-ribbon');
+                ribbon[4].classList.toggle ('show-ribbon');
+                bgOption = 'bg5'
+                tableImg.style.display = "none"
+                bgTableContainer.style.display = 'none' 
+            }
         })
     }
-
-    return tableOption
 }
