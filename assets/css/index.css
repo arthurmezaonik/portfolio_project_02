@@ -20,7 +20,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: .3; 
+    opacity: .3;
+    display: none;
 }
 
 #deck{
@@ -416,7 +417,7 @@ input[type = number]{
 }
 
 .table-option input{
-    display: none;
+    opacity: 0;
 }
 
 .bgoption-container{
@@ -515,10 +516,11 @@ input[type = number]{
     overflow: hidden;
     width: 75px; height: 75px;
     text-align: right;
+    display: none;
 }
 
-.no-ribbon{
-    display: none;
+.show-ribbon{
+    display: block;
 }
 
 .ribbon span {

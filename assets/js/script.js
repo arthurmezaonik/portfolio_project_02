@@ -102,7 +102,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
             //Stop or play sounds
             } else if(this.getAttribute('data-type') === 'sound'){
-                stopPlaySounds(); 
+                stopPlaySounds();
+
+            } else if (this.getAttribute('data-type') === 'bg-table'){
+              let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
+              bgTableContainer.style.display = 'block';
+              printTable();             
             }
         });
     };
@@ -176,17 +181,9 @@ function displayTableContent(){
             </div>                
         </div>
 
-        <!-- How to add a card:
-            <div class="card">
-                <span class="number top">A</span>
-                <p class="suit"><i class="fas fa-heart"></i></p>
-                <span class="number bottom">A</span>
-            </div>
-        -->
+        <div id="deck"></div>
 
-        <div id="deck">
-            
-        </div>
+        <img class = "table-background" src="assets/images/table-background/table-background1.jpg" alt="Background image from the table">
     `;
 }
 
@@ -890,4 +887,43 @@ function stopPlaySounds(){
         loseAudio.muted = false;
         soundButton.innerHTML = `<i class="fas fa-volume-up"></i>`;
     }
+}
+
+function printTable(){
+    let tableImg = document.getElementsByClassName('table-background')[0];
+    let option = chooseTable()
+
+    if(option === 'bg1'){
+        tableImg.src = 'assets/images/table-background/table-background1.jpg';
+        tableImg.style.display = 'block'
+    } else if(option === 'bg2'){
+        tableImg.src = 'file:///D:/Usu%C3%A1rios/arthur/Documents/Cursos/Code%20Institute/portfolio_project_02/assets/images/table-background/table-background2.jpg';
+        tableImg.style.display = 'block'
+    }else if(option === 'bg3'){
+        tableImg.src = 'assets/images/table-background/table-background3.jpg';
+        tableImg.style.display = 'block'
+    }else if(option === 'bg4'){
+        tableImg.src = 'assets/images/table-background/table-background4.jpg';
+        tableImg.style.display = 'block'
+    }else if(option === 'bg5'){
+        tableImg.style.display = 'none'        
+    }
+}
+
+function chooseTable(){
+    let options = document.getElementsByClassName('table-option');
+    let bgOption = document.querySelector('input[name="bg_table"]:checked')
+    let bgtableContainer = document.getElementsByClassName('bgtable-container')[0]
+    let tableOption = ""
+
+    for (option of options){
+        option.addEventListener('click', function(){
+            
+            tableOption = bgOption.value;
+            bgtableContainer.style.display = "none";
+            
+        })
+    }
+
+    return tableOption
 }
