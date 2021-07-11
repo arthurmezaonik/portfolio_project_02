@@ -133,11 +133,8 @@ function runGame(){
 
    //Create and shuffle the deck 
     createDeck();
-    //printDeck(); (not done yet)
-    shuffleDeck();
 
-    //setTimeout(function(){
-        //moveCards() (not done yet)
+    shuffleDeck();
 
         setTimeout(function(){
             playerFirstCards();
@@ -147,7 +144,6 @@ function runGame(){
             checkPlayerBusted();
             
         }, 1000);
-    //},500)
 }
 
 /**
