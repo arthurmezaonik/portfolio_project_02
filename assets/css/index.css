@@ -278,6 +278,8 @@ input[type = number]{
     width: 100%;
     align-items: center;
     justify-content: center;
+    position: relative;
+    display: none;
 }
 
 /* Inside Settings */
@@ -288,18 +290,18 @@ input[type = number]{
     width: 60px;
     height: 240px;
     align-items: center;
-    bottom: 145px;
+    bottom: 60px;
     left: -100%;
     box-sizing: border-box;
     margin-left: -110px;
     justify-content: flex-start;
-    display: none;
     z-index: 10;
+    transition: all .5s ease-in;
 }
 
 .inside-move{
     left: 50%;
-    transition: all 1s ease-in;
+    transition: all .5s ease-in;
 }
 
 .inside-settings .circle-btn{
@@ -631,5 +633,6 @@ input[type = number]{
         width: 80px;
         height: 320px;
         margin-left: -140px;
+        bottom: 80px;
     }
 }

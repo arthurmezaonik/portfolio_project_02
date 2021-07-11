@@ -5,6 +5,9 @@ let bgAudio = document.getElementById('bgaudio');
 let winAudio = document.getElementById('winaudio');
 let loseAudio = document.getElementById('loseaudio');
 
+let pauseMusic = false;
+let pauseSounds = false;
+
 //Deck
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const suits =[
@@ -64,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     bgAudio.play();
                     bgAudio.volume = .1;
 
+                    //Display buttons
+                    showButtons();
+
                     //Display game table
                     let gameTable = document.getElementsByClassName('game-table')[0];
                     gameTable.style.display = 'block'
@@ -84,6 +90,19 @@ document.addEventListener('DOMContentLoaded', function(){
             } else if(this.getAttribute('data-type') === 'close'){
                 let instructionContainer = document.getElementsByClassName("instruction-container")[0];
                 instructionContainer.style.display = 'none';
+            
+            // Settings button
+            } else if (this.getAttribute('data-type') === "settings"){
+                let settingsContainer = document.getElementsByClassName('inside-settings')[0];
+                settingsContainer.classList.toggle("inside-move");
+
+            //Stop or play music
+            } else if (this.getAttribute('data-type') === 'music'){
+                stopPlayMusic();
+
+            //Stop or play sounds
+            } else if(this.getAttribute('data-type') === 'sound'){
+                stopPlaySounds(); 
             }
         });
     };
@@ -811,6 +830,12 @@ function clearHands(){
 
 
 //PAGE FUNCTIONS
+
+function showButtons(){
+    let buttonsContainer = document.getElementsByClassName('icons-container')[0];
+    buttonsContainer.style.display = 'flex'
+}
+
 /**
  * Display list with game instructions
  */
@@ -833,4 +858,36 @@ function playLose(){
     loseAudio.volume = 1;
     loseAudio.play();
     bgAudio.volume = .1;
+}
+
+function stopPlayMusic(){
+    let musicButton = document.getElementById('msc-btn');
+    
+    if (pauseMusic === false){
+        pauseMusic = true;
+        bgAudio.muted = true;
+        musicButton.innerHTML = `<i class="fas fa-play"></i>`;
+
+        
+    } else if (pauseMusic === true){
+        pauseMusic = false;
+        bgAudio.muted = false;
+        musicButton.innerHTML = `<i class="fas fa-pause"></i>`;
+    }
+}
+
+function stopPlaySounds(){
+    let soundButton = document.getElementById('sound-btn');
+
+    if(pauseSounds === false){
+        pauseSounds = true;
+        winAudio.muted = true;
+        loseAudio.muted = true;
+        soundButton.innerHTML = `<i class="fas fa-volume-mute"></i>`;
+    } else if(pauseSounds === true){
+        pauseSounds = false;
+        winAudio.muted = false;
+        loseAudio.muted = false;
+        soundButton.innerHTML = `<i class="fas fa-volume-up"></i>`;
+    }
 }
