@@ -8,6 +8,9 @@ let loseAudio = document.getElementById('loseaudio');
 let pauseMusic = false;
 let pauseSounds = false;
 
+//Card background
+let bgCardSrc = 'assets/images/cards-background/defaultcard-background.jpg' 
+
 //Deck
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const suits =[
@@ -103,10 +106,16 @@ document.addEventListener('DOMContentLoaded', function(){
             //Stop or play sounds
             } else if(this.getAttribute('data-type') === 'sound'){
                 stopPlaySounds();
-
+            
+            //Chose table background image
             } else if (this.getAttribute('data-type') === 'bg-table'){
               background();              
-              chooseTable();             
+              chooseTable();
+              
+              
+            } else if (this.getAttribute('data-type') === 'bg-card'){
+                backgroundCards();  
+                chooseCard();                       
             }
         });
     };
@@ -233,6 +242,7 @@ function printDeck(){
                     <span class="number bottom">
                         ${deck[i].ranks}
                     </span>
+                    <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
                 </div>
             `;
             deckContainer.innerHTML += cardEl;
@@ -248,6 +258,7 @@ function printDeck(){
                     <span class="number bottom">
                         ${deck[i].ranks}
                     </span>
+                    <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
                 </div>
             `;
             deckContainer.innerHTML += cardEl;
@@ -331,6 +342,7 @@ function playerCard(){
                 <span class="number bottom">
                     ${card.ranks}
                 </span>
+                <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
             </div>
         `;
     } else{
@@ -345,6 +357,7 @@ function playerCard(){
                 <span class="number bottom">
                     ${card.ranks}
                 </span>
+                <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
             </div>
         `;
     }
@@ -526,6 +539,7 @@ function dealerCard(){
                 <span class="number bottom">
                     ${card.ranks}
                 </span>
+                <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
             </div>
         `;
     } else{
@@ -540,6 +554,7 @@ function dealerCard(){
                 <span class="number bottom">
                     ${card.ranks}
                 </span>
+                <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
             </div>
         `;
     }
@@ -561,6 +576,7 @@ function dealerFakeCard(){
             <span class="number bottom">
                 ?
             </span>
+            <img class = 'card-background' src="${bgCardSrc}" alt="Card background image">
         </div>
     `;
 }
@@ -858,6 +874,21 @@ function background(){
 }
 
 /**
+ * Display list with card background images 
+ */
+function backgroundCards(){
+    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0]
+    
+    if (bgCardContainer.style.display === "none"){
+        bgCardContainer.style.display = "block";
+    } else if( bgCardContainer.style.display === 'block'){
+        bgCardContainer.style.display = 'none';
+    } else if(bgCardContainer.style.display === ""){
+        bgCardContainer.style.display = "block";
+    }
+}
+
+/**
  * Play audio if the player win
  */
 function playWin(){
@@ -925,7 +956,7 @@ function chooseTable(){
     let previousSelected = document.getElementsByClassName('show-ribbon')[0];
     let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
 
-    for (let i = 0; i <= tableBtn.length; i++){
+    for (let i = 0; i < tableBtn.length; i++){
         tableBtn[i].addEventListener('click',function(){
             if(this.getAttribute('data-type') === "bg1"){
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
@@ -962,6 +993,100 @@ function chooseTable(){
                 bgOption = 'bg5'
                 tableImg.style.display = "none"
                 bgTableContainer.style.display = 'none' 
+            }
+        })
+    }
+}
+
+/**
+ * Change the card background image
+ */
+function chooseCard(){
+    let cardBtn = document.getElementsByClassName('card-btn');
+    let cardImg = document.getElementsByClassName('card-background');
+    let cribbon = document.getElementsByClassName('card-ribbon');
+    let previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0]
+    
+
+    for (let i = 0; i < cardBtn.length; i++){
+        cardBtn[i].addEventListener('click',function(){
+            if(this.getAttribute('data-type') === "bgcard1"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[0].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background1.png'                
+                bgCardContainer.style.display = 'none'
+
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/card-background1.png'
+                    cardImg[i].style.display = 'block'
+                }
+
+            }else if(this.getAttribute('data-type') === "bgcard2"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[1].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background2.png'                
+                bgCardContainer.style.display = 'none'
+
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/card-background2.png'
+                    cardImg[i].style.display = 'block'
+                }
+
+            }else if(this.getAttribute('data-type') === "bgcard3"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[2].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background3.png'                
+                bgCardContainer.style.display = 'none'
+
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/card-background3.png'
+                    cardImg[i].style.display = 'block'
+                }
+
+            }else if(this.getAttribute('data-type') === "bgcard4"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[3].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background4.png'                
+                bgCardContainer.style.display = 'none'
+
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/card-background4.png'
+                    cardImg[i].style.display = 'block'
+                }
+
+            }else if(this.getAttribute('data-type') === "bgcard5"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[4].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background5.png'                
+                bgCardContainer.style.display = 'none'
+                
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/card-background5.png'
+                    cardImg[i].style.display = 'block'
+                }
+            } else if(this.getAttribute('data-type') === "bgcard6"){
+
+                previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
+                previousCardSelected.classList.toggle('show-card-ribbon');
+                cribbon[5].classList.toggle ('show-card-ribbon')
+                bgCardSrc = 'assets/images/cards-background/card-background6.png'                
+                bgCardContainer.style.display = 'none'
+                
+                for(i=0; i<cardImg.length; i++){
+                    cardImg[i].src = 'assets/images/cards-background/defaultcard-background.jpg'
+                    cardImg[i].style.display = 'block'
+                }
             }
         })
     }

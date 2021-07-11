@@ -177,73 +177,67 @@
                 </div>
                 
                 <!-- Background card container --> 
-                <form class="bgcard-container" onsubmit="event.preventDefault();">
+                <div class="bgcard-container" onsubmit="event.preventDefault();">
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard1" value="bgcard1">
-                        <label for="bgcard1">
+                        <button class = 'card-btn' data-type="bgcard1">
                             <div class="bgcardoption-container box">
-                                <div class="no-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/beach-background.png" alt="Background image for the cards">
+                                <div class="card-ribbon"><span>Selected</span></div>
+                                <img src="assets/images/cards-background/card-background1.png" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 01 </h3>
                             </div>
-                        </label>
+                        </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard2" value="bgcard2">
-                        <label for="bgcard2">
+                        <button class ='card-btn' data-type="bgcard2">
                             <div class="bgcardoption-container box">
-                                <div class="no-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/fish-background.png" alt="Background image for the cards">
+                                <div class="card-ribbon"><span>Selected</span></div>
+                                <img src="assets/images/cards-background/card-background2.png" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 02</h3>
                             </div>
-                        </label>
+                        </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard3" value="bgcard3">
-                        <label for="bgcard3">
-                            <div class=bgcardoption-container box">
-                                <div class="no-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/hand-background.png" alt="Background image for the cards">
+                        <button class = 'card-btn' data-type="bgcard3">
+                            <div class='bgcardoption-container box'>
+                                <div class="card-ribbon"><span>Selected</span></div>
+                                <img src="assets/images/cards-background/card-background3.png" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 03</h3>
                             </div>
-                        </label>
+                        </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard4" value="bgcard4">
-                        <label for="bgcard4">
+                        <button class = 'card-btn' data-type="bgcard4">
                             <div class="bgcardoption-container box"> 
-                                <div class="no-ribbon"><span>Selected</span></div>                                   
-                                <img src="assets/images/cards-background/robot-background.png" alt="Background image for the cards">
+                                <div class="card-ribbon"><span>Selected</span></div>                                   
+                                <img src="assets/images/cards-background/card-background4.png" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 04</h3>
                             </div>
-                        </label>
+                        </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard5" value="bgcard5">
-                        <label for="bgcard5">
+                        <button class = 'card-btn' data-type = "bgcard5">
                             <div class="bgcardoption-container box">  
-                                <div class="no-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/shell-background.png" alt="Background image for the cards">
+                                <div class="card-ribbon"><span>Selected</span></div>                                  
+                                <img src="assets/images/cards-background/card-background5.png" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 05</h3>
                             </div>
-                        </label>
+                        </button>
                     </div>
                     <hr>
                     <div class="card-option">
-                        <input type="radio" name="bg_card" id="bgcard6" value="bgcard6">
-                        <label for="bgcard6">
+                        <button class = 'card-btn' data-type="bgcard6">
                             <div class="bgcardoption-container box">  
-                                <div class="ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/default-background.JPG" alt="Background image for the cards">
+                                <div class="card-ribbon show-card-ribbon"><span>Selected</span></div>                                  
+                                <img src="assets/images/cards-background/card-background6.JPG" alt="Background image for the cards">
                                 <h3 class="subtitle">Option 06</h3>
                             </div>
                         </label>
                     </div>
-                </form>
+                </div>
             </div>     
 
         </main>
@@ -259,9 +253,15 @@
                     <!-- sounds -->
                     <button id="sound-btn" data-type="sound" class = "circle-btn"><i class="fas fa-volume-up"></i></button>
                     <!-- deck -->
-                    <button class = "circle-btn">deck</button>
+                    <button data-type = "bg-card" class = "circle-btn">
+                        <i class="far fa-file-image"></i>
+                        Cards
+                    </button>
                     <!-- background -->
-                    <button data-type = "bg-table" class = "circle-btn"><i class="far fa-image"></i></button>
+                    <button data-type = "bg-table" class = "circle-btn">
+                        <i class="far fa-image"></i>
+                        Table
+                    </button>
                 </div>
             </div>
             <!--Instructions button-->

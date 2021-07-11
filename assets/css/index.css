@@ -142,12 +142,13 @@ input[type = number]{
     z-index: 2;
 }
 
-.background-image{
+.card-background{
     opacity: .3;
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
+    display: block;
 }
 
 .number{
@@ -468,7 +469,7 @@ input[type = number]{
     background-color: rgba(0, 0, 0, 1);
     border: 2px solid white;
     border-radius: 5px;
-    z-index: 5;
+    z-index: 10;
     max-width: 1440px;
     box-sizing: border-box;
     max-height: 500px;
@@ -507,16 +508,19 @@ input[type = number]{
     border-radius: 7px;
 }
 
-.bgcardoption-container h3{
-    margin: 10px 0 -10px 0;
+.card-btn{
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    line-height: 150%;
+    font-weight: bold;
+    margin: 5px 0;
+    z-index: 2;
 }
 
-.bgcardoption-container p{
-    margin-top: 15px;
-    font-size: .7rem;
-}
-
-/*ribbon*/
+/*table ribbon*/
 .box {
     position: relative;
 }
@@ -564,6 +568,59 @@ input[type = number]{
 }
 
 .ribbon span::after {
+    content: "";
+    position: absolute; right: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #8F0808;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8F0808;
+}
+
+/*card ribbon*/
+.card-ribbon {
+    position: absolute;
+    right: -5px; top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px; height: 75px;
+    text-align: right;
+    display: none;
+}
+
+.show-card-ribbon{
+    display: block;
+}
+
+.card-ribbon span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: #79A70A;
+    background: linear-gradient(#F70505 0%, #8F0808 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px; right: -21px;
+}
+
+.card-ribbon span::before {
+    content: "";
+    position: absolute; left: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid #8F0808;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8F0808;
+}
+
+.card-ribbon span::after {
     content: "";
     position: absolute; right: 0px; top: 100%;
     z-index: -1;
