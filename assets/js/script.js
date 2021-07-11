@@ -9,7 +9,7 @@ let pauseMusic = false;
 let pauseSounds = false;
 
 //Card background
-let bgCardSrc = 'assets/images/cards-background/defaultcard-background.jpg' 
+let bgCardSrc = 'assets/images/cards-background/defaultcard-background.JPG' 
 
 //Deck
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -1080,11 +1080,11 @@ function chooseCard(){
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
                 cribbon[5].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background6.png'                
+                bgCardSrc = 'assets/images/cards-background/defaultcard-background.JPG'                
                 bgCardContainer.style.display = 'none'
                 
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/defaultcard-background.jpg'
+                    cardImg[i].src = 'assets/images/cards-background/defaultcard-background.JPG'
                     cardImg[i].style.display = 'block'
                 }
             }
