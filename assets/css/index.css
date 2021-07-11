@@ -446,6 +446,7 @@ input[type = number]{
     margin: 10px;
     box-sizing: border-box;
     height: 100%;
+    position: relative;
 }
 
 .bgoption-container img{
@@ -455,6 +456,7 @@ input[type = number]{
     max-width: 544px;
     border-radius: 7px;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .table-btn{
@@ -466,7 +468,10 @@ input[type = number]{
     line-height: 150%;
     font-weight: bold;
     margin: 5px 0;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .table-btn:hover{
@@ -510,13 +515,14 @@ input[type = number]{
     margin: 10px;
     box-sizing: border-box;
     height: 100%;
+    position: relative;
 }
 
 .bgcardoption-container img{
     width: 100%;
     object-fit: cover;
     max-height: 152px;
-    max-width: 544px;
+    max-width: 110px;
     border-radius: 7px;
 }
 
@@ -530,6 +536,10 @@ input[type = number]{
     font-weight: bold;
     margin: 5px 0;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /*table ribbon*/
@@ -539,7 +549,8 @@ input[type = number]{
 
 .ribbon {
     position: absolute;
-    right: -5px; top: -5px;
+    right: 1px; 
+    top: 1px;
     z-index: 1;
     overflow: hidden;
     width: 75px; height: 75px;
@@ -592,7 +603,8 @@ input[type = number]{
 /*card ribbon*/
 .card-ribbon {
     position: absolute;
-    right: -5px; top: -5px;
+    right: 1px; 
+    top: 1px;
     z-index: 1;
     overflow: hidden;
     width: 75px; height: 75px;

@@ -54,7 +54,7 @@
                             <input type="number" id="chips" name="chips" min = "50" placeholder="Min bet is $50" required>
                             <!-- start game button -->
                             <button data-type="start-game" class="btn start-btn" aria-label="Start game button">
-                                <p>Start Game</p>
+                                Start Game
                                 <i class="fas fa-play"></i>
                             </button>
                         </form>
@@ -134,121 +134,143 @@
 
                 <!-- Background table container -->
                 <div class="bgtable-container">
-                    <div class="table-option">
-                        <button class = "table-btn" data-type = "bg1" aria-label="Select img 1 for table background">
-                            <div class="bgoption-container box">
-                                <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background1.jpg" alt="Background image 1 for the table">
-                                Option 01
-                                <br>
-                                (Better for screens bigger or equal to 1440px)
-                            </div>
-                        </button>
+                    <div class="table-option">                        
+                        <div class="bgoption-container ">
+                            <div class="ribbon"><span>Selected</span></div>
+                            <div class = "box">
+                                <button class = "table-btn" data-type = "bg1" aria-label="Select img 1 for table background">
+                                    <img src="assets/images/table-background/table-background1.jpg" alt="Background image 1 for the table">
+                                    Option 01
+                                    <br>
+                                    (Better for screens bigger or equal to 1440px)
+                                </button>
+                            </div>                           
+                        </div>                        
+                    </div>
+                    <hr>
+                    <div class="table-option">                        
+                        <div class="bgoption-container">
+                            <div class="ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = "table-btn" data-type="bg2" aria-label="Select img 2 for table background">
+                                    <img src="assets/images/table-background/table-background2.jpg" alt="Background image 2 for the table">
+                                    Option 02
+                                    <br>
+                                    (Better for screens bigger or equal to 1440px)
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
                     <div class="table-option">
-                        <button class = "table-btn" data-type="bg2" aria-label="Select img 2 for table background">
-                            <div class="bgoption-container box">
-                                <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background2.jpg" alt="Background image 2 for the table">
-                                Option 02
-                                <br>
-                                (Better for screens bigger or equal to 1440px)
-                            </div>
-                        </button>
+                        <div class="bgoption-container">
+                            <div class="ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = "table-btn" data-type ="bg3" aria-label="Select img 3 for table background">
+                                    <img src="assets/images/table-background/table-background3.jpg" alt="Background image 3 for the table">
+                                    Option 03
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="table-option">
-                        <button class = "table-btn" data-type ="bg3" aria-label="Select img 3 for table background">
-                            <div class="bgoption-container box">
-                                <div class="ribbon"><span>Selected</span></div>
-                                <img src="assets/images/table-background/table-background3.jpg" alt="Background image 3 for the table">
-                                Option 03
-                            </div>
-                        </button>
+                    <div class="table-option">                        
+                        <div class="bgoption-container"> 
+                            <div class="ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = "table-btn" data-type= "bg4" aria-label="Select img 4 for table background">                                  
+                                    <img src="assets/images/table-background/table-background4.jpg" alt="Background image 4 for the table">
+                                    Option 04
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="table-option">
-                        <button class = "table-btn" data-type= "bg4" aria-label="Select img 4 for table background">
-                            <div class="bgoption-container box"> 
-                                <div class="ribbon"><span>Selected</span></div>                                   
-                                <img src="assets/images/table-background/table-background4.jpg" alt="Background image 4 for the table">
-                                Option 04
-                            </div>
-                        </button>
-                    </div>
-                    <hr>
-                    <div class="table-option">
-                        <button class = "table-btn" data-type="bg5" aria-label="Select img 5 for table background">
-                            <div class="bgoption-container box">  
-                                <div class="ribbon show-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/table-background/table-background5.JPG" alt="Background image 5 for the table">
-                                Option 05
-                            </div>
-                        </button>
+                    <div class="table-option">                        
+                        <div class="bgoption-container">  
+                            <div class="ribbon show-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = "table-btn" data-type="bg5" aria-label="Select img 5 for table background">                                  
+                                    <img src="assets/images/table-background/table-background5.JPG" alt="Background image 5 for the table">
+                                    Option 05
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                 </div>
                 
                 <!-- Background card container --> 
                 <div class="bgcard-container" onsubmit="event.preventDefault();">
-                    <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard1" aria-label="Select img 1 for card background">
-                            <div class="bgcardoption-container box">
-                                <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background1.png" alt="Background image 1 for the cards">
-                                <h3 class="subtitle">Option 01 </h3>
-                            </div>
-                        </button>
+                    <div class="card-option">                        
+                        <div class = "bgcardoption-container ">
+                            <div class="card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = 'card-btn' data-type="bgcard1" aria-label="Select img 1 for card background">
+                                    <img src="assets/images/cards-background/card-background1.png" alt="Background image 1 for the cards">
+                                    Option 01
+                                </button>
+                            </div>                                
+                        </div>                       
                     </div>
                     <hr>
-                    <div class="card-option">
-                        <button class ='card-btn' data-type="bgcard2" aria-label="Select img 2 for card background">
-                            <div class="bgcardoption-container box">
-                                <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background2.png" alt="Background image 2 for the cards">
-                                <h3 class="subtitle">Option 02</h3>
-                            </div>
-                        </button>
+                    <div class="card-option">                        
+                        <div class="bgcardoption-container">
+                            <div class="card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class ='card-btn' data-type="bgcard2" aria-label="Select img 2 for card background">
+                                    <img src="assets/images/cards-background/card-background2.png" alt="Background image 2 for the cards">
+                                    Option 02
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard3" aria-label="Select img 3 for card background">
-                            <div class='bgcardoption-container box'>
-                                <div class="card-ribbon"><span>Selected</span></div>
-                                <img src="assets/images/cards-background/card-background3.png" alt="Background image 3 for the cards">
-                                <h3 class="subtitle">Option 03</h3>
-                            </div>
-                        </button>
+                    <div class="card-option">                        
+                        <div class='bgcardoption-container'>
+                            <div class="card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = 'card-btn' data-type="bgcard3" aria-label="Select img 3 for card background">
+                                    <img src="assets/images/cards-background/card-background3.png" alt="Background image 3 for the cards">
+                                    Option 03
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard4" aria-label="Select img 4 for card background">
-                            <div class="bgcardoption-container box"> 
-                                <div class="card-ribbon"><span>Selected</span></div>                                   
-                                <img src="assets/images/cards-background/card-background4.png" alt="Background image 4 for the cards">
-                                <h3 class="subtitle">Option 04</h3>
-                            </div>
-                        </button>
+                    <div class="card-option">                        
+                        <div class="bgcardoption-container"> 
+                            <div class="card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = 'card-btn' data-type="bgcard4" aria-label="Select img 4 for card background">                                   
+                                    <img src="assets/images/cards-background/card-background4.png" alt="Background image 4 for the cards">
+                                    Option 04
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="card-option">
-                        <button class = 'card-btn' data-type = "bgcard5" aria-label="Select img 5 for card background">
-                            <div class="bgcardoption-container box">  
-                                <div class="card-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/card-background5.png" alt="Background image 5 for the cards">
-                                <h3 class="subtitle">Option 05</h3>
-                            </div>
-                        </button>
+                    <div class="card-option">                        
+                        <div class="bgcardoption-container">  
+                            <div class="card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = 'card-btn' data-type = "bgcard5" aria-label="Select img 5 for card background">                                  
+                                    <img src="assets/images/cards-background/card-background5.png" alt="Background image 5 for the cards">
+                                    Option 05
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                     <hr>
-                    <div class="card-option">
-                        <button class = 'card-btn' data-type="bgcard6" aria-label="Select img 6 for card background">
-                            <div class="bgcardoption-container box">  
-                                <div class="card-ribbon show-card-ribbon"><span>Selected</span></div>                                  
-                                <img src="assets/images/cards-background/card-background6.JPG" alt="Background image 6 for the cards">
-                                <h3 class="subtitle">Option 06</h3>
-                            </div>
-                        </label>
+                    <div class="card-option">                        
+                        <div class="bgcardoption-container">  
+                            <div class="card-ribbon show-card-ribbon"><span>Selected</span></div>
+                            <div class="box">
+                                <button class = 'card-btn' data-type="bgcard6" aria-label="Select img 6 for card background">                                 
+                                    <img src="assets/images/cards-background/card-background6.JPG" alt="Background image 6 for the cards">
+                                    Option 06
+                                </button>
+                            </div>                                
+                        </div>                        
                     </div>
                 </div>
             </div>     
@@ -281,7 +303,7 @@
             </div>
             <!--Restart button--> 
             <div class="restart">
-                <button data-type = "reload" class = "circle-btn"><i class="fas fa-undo" aria-label="Reload page button"></i></button>
+                <button data-type = "reload" class = "circle-btn" aria-label="Reload page button"><i class="fas fa-undo" ></i></button>
             </div>
         </div>
 
@@ -300,4 +322,3 @@
         <script src="assets/js/script.js"></script>
     </body>
 </html>
-
