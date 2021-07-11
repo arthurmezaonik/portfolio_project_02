@@ -507,7 +507,7 @@ function yesOrNo(){
         }        
     }
     
-    // Check the value if A = 1 or A = 11. Choses the better option.
+    // Check the value if A = 1 or A = 11. Chooses the better option.
     if (aceCard > 0){
         let minCalc = points + (aceCard * 1);
         let maxCalc = points + (aceCard * 11);
