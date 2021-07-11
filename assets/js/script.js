@@ -1080,7 +1080,7 @@ function chooseCard(){
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
                 cribbon[5].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/defaultcard-background.JPG'                
+                bgCardSrc = 'assets/images/cards-background/card-background6.JPG'                
                 bgCardContainer.style.display = 'none'
                 
                 for(i=0; i<cardImg.length; i++){
