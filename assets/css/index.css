@@ -280,24 +280,29 @@ input[type = number]{
     justify-content: center;
 }
 
-/* not being used yet */
+/* Inside Settings */
 .inside-settings{
-    background-color: white;
     position: absolute;
     display: flex;
     flex-direction: column;
     width: 60px;
-    height: 360px;
+    height: 240px;
     align-items: center;
-    top: -300px;
-    left: 50%;
-    border: 2px solid black;
+    bottom: 145px;
+    left: -100%;
     box-sizing: border-box;
     margin-left: -110px;
+    justify-content: flex-start;
     display: none;
+    z-index: 10;
 }
 
-.inside-settings > .circle-btn:first-of-type{
+.inside-move{
+    left: 50%;
+    transition: all 1s ease-in;
+}
+
+.inside-settings .circle-btn{
     margin-top: 10px;
 }
 
@@ -619,5 +624,12 @@ input[type = number]{
     
     .message-container p{
         font-size: 1.2rem;
+    }
+
+    /* Inside settings */
+    .inside-settings{
+        width: 80px;
+        height: 320px;
+        margin-left: -140px;
     }
 }
