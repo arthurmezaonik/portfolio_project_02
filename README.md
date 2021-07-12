@@ -12,6 +12,39 @@ Arthur Henrique EL Mezaonik Martins
 
 ## Table of Contents
 
+- [<span style = "color:red">black</span>jack](#-span-style----color-red--black--span-jack)
+  * [Author](#author)
+  * [Table of Contents](#table-of-contents)
+  * [Design Choices](#design-choices)
+    + [Typography](#typography)
+    + [Colors](#colors)
+    + [Images](#images)
+    + [Wireframes](#wireframes)
+  * [Features](#features)
+    + [Implemented Features](#implemented-features)
+      - [Header](#header)
+      - [Game Table](#game-table)
+      - [Page Buttons](#page-buttons)
+      - [Settings buttons](#settings-buttons)
+      - [Instructions](#instructions)
+      - [Background Cards](#background-cards)
+      - [Background Table](#background-table)
+      - [Footer](#footer)
+    + [Future Features](#future-features)
+  * [Testing](#testing)
+    + [Validation Testing](#validation-testing)
+    + [Lighthouse Test](#lighthouse-test)
+    + [Cross Browser and Cross Device Testing](#cross-browser-and-cross-device-testing)
+    + [Manual Testing](#manual-testing)
+    + [Unfixed Bugs](#unfixed-bugs)
+  * [Deployment](#deployment)
+    + [Deploy to GitHub Pages](#deploy-to-github-pages)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgments](#acknowledgments)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## Design Choices
 
