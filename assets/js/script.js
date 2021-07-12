@@ -42,7 +42,7 @@ let deck = [];
 //Get the button elements and add event listeners to them
 document.addEventListener('DOMContentLoaded', function(){
     //Display first message
-    document.getElementById("js-enabled-only").style.display = 'block'
+    document.getElementById("js-enabled-only").style.display = 'block';
 
     // Add listeners to buttons
     let buttons = document.getElementsByTagName('button');
@@ -74,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
                     // Start background music
                     bgAudio.play();
-                    bgAudio.volume = .1;
+                    bgAudio.volume = 0.1;
 
                     //Display buttons
                     showButtons();
 
                     //Display game table
                     let gameTable = document.getElementsByClassName('game-table')[0];
-                    gameTable.style.display = 'block'
+                    gameTable.style.display = 'block';
                     
                     //Run the game
                     runGame();
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 chooseCard();                       
             }
         });
-    };
+    }
 });
 
 /**
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function(){
  */
 function runGame(){
 
-    displayTableContent()
+    displayTableContent();
 
    //Create and shuffle the deck 
     createDeck();
@@ -209,7 +209,7 @@ function createDeck(){
             let card = {
                 ranks: ranks[i],
                 suit: suits[x]
-            }
+            };
             deck.push(card);
         }
     }
@@ -220,16 +220,18 @@ function createDeck(){
  * Shuffle the deck array
  */
 function shuffleDeck(){
-    deck = deck.sort(() => Math.random() - 0.5)
+    deck = deck.sort(() => Math.random() - 0.5);
     return(deck);  
 }
+
 
 /**
  * Print the deck on the screen
  */
+/* TO BE IMPLEMENTED
 function printDeck(){
     let deckContainer = document.getElementById('deck');
-    deckContainer.innerHTML = ` `
+    deckContainer.innerHTML = ` `;
 
     for (let i = 0; i < deck.length; i++){
         if(deck[i].suit.color === 'red'){
@@ -266,12 +268,13 @@ function printDeck(){
             deckContainer.innerHTML += cardEl;
         }      
     }
-    positionDeck()
-}
+    positionDeck();
+}*/
 
 /**
  * Position the cards on the screen
  */
+/* TO BE IMPLEMENTED
 function positionDeck(){
     let cards = document.getElementsByClassName('deck-card');
     let container = document.getElementById('deck');
@@ -296,11 +299,12 @@ function positionDeck(){
         cards[i].style.transition = 'top 1s linear, left 1s linear';
     }
   }
-}
+}*/
 
 /**
  * Move the all the cards for the same place
  */
+/* TO BE IMPLEMENTED
 function moveCards(){
     let cards = document.getElementsByClassName('deck-card');
     for (let i=0; i < cards.length; i++){
@@ -322,6 +326,7 @@ function moveCards(){
         }
     }
 }
+*/
 
 
 
@@ -331,7 +336,7 @@ function moveCards(){
  */
 function playerCard(){
     let playerCards = document.getElementById('player-cards');
-    let card = deck.pop()
+    let card = deck.pop();
     if(card.suit.color === 'red'){
         playerCards.innerHTML += `
             <div class="card red">
@@ -389,7 +394,7 @@ function playerCard(){
             }else if(button.getAttribute('data-type') === 'stand'){
                 stand();
             }
-        })
+        });
     }
 }
 
@@ -409,7 +414,7 @@ function playerCard(){
 function stand(){
     displayPoints();
     dealerTime();
-};
+}
 
 /**
  * Check if the player is busted.
@@ -458,7 +463,7 @@ function yesOrNo(){
             // Yes button
             if(this.getAttribute('data-type') === 'yes'){
                 let messageContainer=document.getElementsByClassName('message-container')[0];
-                messageContainer.style.display = 'none'               
+                messageContainer.style.display = 'none';              
         
                 // Clear deck and hands
                 deck = [];
@@ -481,7 +486,7 @@ function yesOrNo(){
                     }                    
                 }
             }
-        })
+        });
     }
 }
 
@@ -515,7 +520,7 @@ function yesOrNo(){
             points = minCalc;
         } else if (maxCalc <= 21){
             points = maxCalc;
-        };
+        }
     }
     return points;
 }
@@ -528,7 +533,7 @@ function yesOrNo(){
  */
 function dealerCard(){
     let dealerCards = document.getElementById('dealer-cards');
-    let card = deck.pop()
+    let card = deck.pop();
     if(card.suit.color === 'red'){
         dealerCards.innerHTML += `
             <div class="card red">
@@ -642,8 +647,8 @@ function dealerTime(){
     let dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
 
     while(dealerPoint < 17){
-        dealerCard()
-        displayPoints()
+        dealerCard();
+        displayPoints();
         dealerPoint = parseInt(document.getElementsByClassName('hand-points')[0].innerText);
         checkDealerBusted();
     }
@@ -680,7 +685,7 @@ function dealerTime(){
             points = minCalc;
         } else if (maxCalc <= 21){
             points = maxCalc;
-        };
+        }
     }    
     return points;
 }
@@ -831,13 +836,13 @@ function clearHands(){
     let dealer = document.getElementById('dealer-cards');
     dealer.innerHTML = "";
 
-    let dpoints = document.getElementsByClassName('hand-points')[0]
+    let dpoints = document.getElementsByClassName('hand-points')[0];
     dpoints.innerText = '0';
 
     let player = document.getElementById('player-cards');
     player.innerHTML = "";
 
-    let ppoints = document.getElementsByClassName('hand-points')[1]
+    let ppoints = document.getElementsByClassName('hand-points')[1];
     ppoints.innerText = '0'; 
 }
 
@@ -847,7 +852,7 @@ function clearHands(){
 
 function showButtons(){
     let buttonsContainer = document.getElementsByClassName('icons-container')[0];
-    buttonsContainer.style.display = 'flex'
+    buttonsContainer.style.display = 'flex';
 }
 
 /**
@@ -864,7 +869,7 @@ function instructions(){
  * Display list with table background images 
  */
 function background(){
-    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
+    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0];
     
     if (bgTableContainer.style.display === "none"){
         bgTableContainer.style.display = "block";
@@ -879,7 +884,7 @@ function background(){
  * Display list with card background images 
  */
 function backgroundCards(){
-    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0]
+    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0];
     
     if (bgCardContainer.style.display === "none"){
         bgCardContainer.style.display = "block";
@@ -894,20 +899,20 @@ function backgroundCards(){
  * Play audio if the player win
  */
 function playWin(){
-    bgAudio.volume = .05;
+    bgAudio.volume = 0.05;
     winAudio.volume = 1;
     winAudio.play();
-    bgAudio.volume = .1;
+    bgAudio.volume = 0.1;
 }
 
 /**
  * Play audio if the player lose
  */
 function playLose(){
-    bgAudio.volume = .05;
+    bgAudio.volume = 0.05;
     loseAudio.volume = 1;
     loseAudio.play();
-    bgAudio.volume = .1;
+    bgAudio.volume = 0.1;
 }
 
 /**
@@ -956,7 +961,7 @@ function chooseTable(){
     let tableImg = document.getElementsByClassName('table-background')[0];
     let ribbon = document.getElementsByClassName('ribbon');
     let previousSelected = document.getElementsByClassName('show-ribbon')[0];
-    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0]
+    let bgTableContainer = document.getElementsByClassName('bgtable-container')[0];
 
     for (let i = 0; i < tableBtn.length; i++){
         tableBtn[i].addEventListener('click',function(){
@@ -969,7 +974,6 @@ function chooseTable(){
                 //change background img
                 tableImg.src = 'assets/images/table-background/table-background1.jpg';
                 bgTableSrc = 'assets/images/table-background/table-background1.jpg';
-                //tableImg.style.display = 'block';
                 //close container
                 bgTableContainer.style.display = 'none';
             // Option 02    
@@ -981,7 +985,6 @@ function chooseTable(){
                 //change background image
                 tableImg.src = 'assets/images/table-background/table-background2.jpg';
                 bgTableSrc = 'assets/images/table-background/table-background2.jpg';
-                //tableImg.style.display = 'block';
                 // close container
                 bgTableContainer.style.display = 'none';
             // Option 03
@@ -993,7 +996,6 @@ function chooseTable(){
                 // change background image
                 tableImg.src = 'assets/images/table-background/table-background3.jpg';
                 bgTableSrc = 'assets/images/table-background/table-background3.jpg';
-                //tableImg.style.display = 'block';
                 //close container
                 bgTableContainer.style.display = 'none';
             // Option 04 
@@ -1005,7 +1007,6 @@ function chooseTable(){
                 //change background image
                 tableImg.src = 'assets/images/table-background/table-background4.jpg';
                 bgTableSrc = 'assets/images/table-background/table-background4.jpg';
-                //tableImg.style.display = 'block';
                 //close container
                 bgTableContainer.style.display = 'none';
             // Option 05
@@ -1017,11 +1018,10 @@ function chooseTable(){
                 // change background image
                 tableImg.src = "assets/images/table-background/table-background5.JPG";
                 bgTableSrc = "assets/images/table-background/table-background5.JPG";
-                //tableImg.style.display = "block";
                 //close container
                 bgTableContainer.style.display = 'none';
             }
-        })
+        });
     }
 }
 
@@ -1033,88 +1033,94 @@ function chooseCard(){
     let cardImg = document.getElementsByClassName('card-background');
     let cribbon = document.getElementsByClassName('card-ribbon');
     let previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
-    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0]
+    let bgCardContainer = document.getElementsByClassName('bgcard-container')[0];
     
 
     for (let i = 0; i < cardBtn.length; i++){
         cardBtn[i].addEventListener('click',function(){
             if(this.getAttribute('data-type') === "bgcard1"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[0].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background1.png'                
-                bgCardContainer.style.display = 'none'
-
+                cribbon[0].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background1.png';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/card-background1.png'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/card-background1.png';
+                    cardImg[i].style.display = 'block';
                 }
 
             }else if(this.getAttribute('data-type') === "bgcard2"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[1].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background2.png'                
-                bgCardContainer.style.display = 'none'
-
+                cribbon[1].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background2.png';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/card-background2.png'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/card-background2.png';
+                    cardImg[i].style.display = 'block';
                 }
 
             }else if(this.getAttribute('data-type') === "bgcard3"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[2].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background3.png'                
-                bgCardContainer.style.display = 'none'
-
+                cribbon[2].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background3.png';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/card-background3.png'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/card-background3.png';
+                    cardImg[i].style.display = 'block';
                 }
 
             }else if(this.getAttribute('data-type') === "bgcard4"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[3].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background4.png'                
-                bgCardContainer.style.display = 'none'
-
+                cribbon[3].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background4.png';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/card-background4.png'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/card-background4.png';
+                    cardImg[i].style.display = 'block';
                 }
 
             }else if(this.getAttribute('data-type') === "bgcard5"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[4].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background5.png'                
-                bgCardContainer.style.display = 'none'
-                
+                cribbon[4].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background5.png';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/card-background5.png'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/card-background5.png';
+                    cardImg[i].style.display = 'block';
                 }
             } else if(this.getAttribute('data-type') === "bgcard6"){
-
+                //change ribbon
                 previousCardSelected = document.getElementsByClassName('show-card-ribbon')[0];
                 previousCardSelected.classList.toggle('show-card-ribbon');
-                cribbon[5].classList.toggle ('show-card-ribbon')
-                bgCardSrc = 'assets/images/cards-background/card-background6.JPG'                
-                bgCardContainer.style.display = 'none'
-                
+                cribbon[5].classList.toggle ('show-card-ribbon');
+                //change card background
+                bgCardSrc = 'assets/images/cards-background/card-background6.JPG';                
+                bgCardContainer.style.display = 'none';
+                // change background for cards already printed
                 for(i=0; i<cardImg.length; i++){
-                    cardImg[i].src = 'assets/images/cards-background/defaultcard-background.JPG'
-                    cardImg[i].style.display = 'block'
+                    cardImg[i].src = 'assets/images/cards-background/defaultcard-background.JPG';
+                    cardImg[i].style.display = 'block';
                 }
             }
-        })
+        });
     }
 }
