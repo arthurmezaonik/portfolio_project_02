@@ -281,6 +281,8 @@ Arthur Henrique EL Mezaonik Martins
 
 * Layout idea: https://myaccount.partypoker.com/en/labelhost/login
 
+* Card layout (Florin Pop - Youtube Channel): https://www.youtube.com/watch?v=JSePZ82OLaw&t=2655s
+
 * CSS Reset: https://meyerweb.com/eric/tools/css/reset/
 
 * Colors Pallet: https://coolors.co/
