@@ -9,7 +9,10 @@ let pauseMusic = false;
 let pauseSounds = false;
 
 //Card background
-let bgCardSrc = 'assets/images/cards-background/defaultcard-background.JPG' 
+let bgCardSrc = 'assets/images/cards-background/defaultcard-background.JPG';
+
+//Table Background
+let bgTableSrc = "assets/images/table-background/table-background5.JPG";
 
 //Deck
 const ranks = ["A",'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -190,7 +193,7 @@ function displayTableContent(){
 
         <div id="deck"></div>
 
-        <img class = "table-background" src="assets/images/table-background/table-background1.jpg" alt="Background image from the table">
+        <img class = "table-background" src='${bgTableSrc}' alt="Background image from the table">
     `;
 }
 
@@ -957,41 +960,66 @@ function chooseTable(){
 
     for (let i = 0; i < tableBtn.length; i++){
         tableBtn[i].addEventListener('click',function(){
+            // Otpion 01
             if(this.getAttribute('data-type') === "bg1"){
+                //change ribbon
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
                 previousSelected.classList.toggle('show-ribbon');
                 ribbon[0].classList.toggle ('show-ribbon');
-                tableImg.src = 'assets/images/table-background/table-background1.jpg'
-                tableImg.style.display = 'block'
-                bgTableContainer.style.display = 'none' 
+                //change background img
+                tableImg.src = 'assets/images/table-background/table-background1.jpg';
+                bgTableSrc = 'assets/images/table-background/table-background1.jpg';
+                //tableImg.style.display = 'block';
+                //close container
+                bgTableContainer.style.display = 'none';
+            // Option 02    
             }else if(this.getAttribute('data-type') === "bg2"){
+                //change ribbon
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
                 previousSelected.classList.toggle('show-ribbon');
                 ribbon[1].classList.toggle ('show-ribbon');
-                tableImg.src = 'assets/images/table-background/table-background2.jpg'
-                tableImg.style.display = 'block'
-                bgTableContainer.style.display = 'none' 
+                //change background image
+                tableImg.src = 'assets/images/table-background/table-background2.jpg';
+                bgTableSrc = 'assets/images/table-background/table-background2.jpg';
+                //tableImg.style.display = 'block';
+                // close container
+                bgTableContainer.style.display = 'none';
+            // Option 03
             }else if(this.getAttribute('data-type') === "bg3"){
+                //change ribbon
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
                 previousSelected.classList.toggle('show-ribbon');
                 ribbon[2].classList.toggle ('show-ribbon');
-                tableImg.src = 'assets/images/table-background/table-background3.jpg'
-                tableImg.style.display = 'block'
-                bgTableContainer.style.display = 'none' 
+                // change background image
+                tableImg.src = 'assets/images/table-background/table-background3.jpg';
+                bgTableSrc = 'assets/images/table-background/table-background3.jpg';
+                //tableImg.style.display = 'block';
+                //close container
+                bgTableContainer.style.display = 'none';
+            // Option 04 
             }else if(this.getAttribute('data-type') === "bg4"){
+                //change ribbon
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
                 previousSelected.classList.toggle('show-ribbon');
                 ribbon[3].classList.toggle ('show-ribbon');
-                tableImg.src = 'assets/images/table-background/table-background4.jpg'
-                tableImg.style.display = 'block'
-                bgTableContainer.style.display = 'none'
+                //change background image
+                tableImg.src = 'assets/images/table-background/table-background4.jpg';
+                bgTableSrc = 'assets/images/table-background/table-background4.jpg';
+                //tableImg.style.display = 'block';
+                //close container
+                bgTableContainer.style.display = 'none';
+            // Option 05
             }else if(this.getAttribute('data-type') === "bg5"){
+                //change ribbon
                 previousSelected = document.getElementsByClassName('show-ribbon')[0];
                 previousSelected.classList.toggle('show-ribbon');
                 ribbon[4].classList.toggle ('show-ribbon');
-                bgOption = 'bg5'
-                tableImg.style.display = "none"
-                bgTableContainer.style.display = 'none' 
+                // change background image
+                tableImg.src = "assets/images/table-background/table-background5.JPG";
+                bgTableSrc = "assets/images/table-background/table-background5.JPG";
+                //tableImg.style.display = "block";
+                //close container
+                bgTableContainer.style.display = 'none';
             }
         })
     }
