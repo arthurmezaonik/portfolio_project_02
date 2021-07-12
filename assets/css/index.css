@@ -53,7 +53,6 @@ hr {
     z-index: 5;
     max-width: 1440px;
     height: 100%;
-    margin-top: -100px;
     padding: 5px;
     box-sizing: content-box;
 }
